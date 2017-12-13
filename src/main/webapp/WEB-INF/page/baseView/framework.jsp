@@ -15,8 +15,10 @@
 <link rel="stylesheet" href="css/mybuild/myhead.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
-<script src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
-<script src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
 </head>
 
 <body
@@ -24,11 +26,12 @@
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<span class="navbar-brand">LYT - Blog - Nerver Give Up</span>
+			<span class="navbar-brand">LYT - MyBlog</span>
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="${pageContext.request.contextPath}/index.action">首页</a></li>
+				<li class="active"><a
+					href="${pageContext.request.contextPath}/index.action">首页</a></li>
 				<li><a href="#">个人介绍</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">博文列表<b class="caret"></b>
@@ -82,12 +85,14 @@
 				<h3 class="panel-title">Nerver Give Up</h3>
 			</div>
 			<div class="panel-body">
-				<iframe src="www.baidu.com"></iframe>
+				<iframe src="https://www.baidu.com"></iframe>
 			</div>
 			<div class="panel-footer" align="center">
 				本网站源码均在<a href="https://github.com/lyt2598/MyBlog" target="_blank"><i
-					class="fa fa-github" aria-hidden="true"></i>GitHub</a>上 — Lyt
-				企鹅：31448522
+					class="fa fa-github" aria-hidden="true"></i>GitHub</a>上，联系方式：<a
+					href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
+					target="_blank"><i class="fa fa-qq" aria-hidden="true"></i>
+					31448522</a> — Lyt
 			</div>
 		</div>
 	</div>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans  
-                         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
-                         http://www.springframework.org/schema/context  
-                         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
 	<!-- 配置component所在的包，自动加载需要管理的Bean -->
@@ -16,6 +19,27 @@
 		<property name="contentType" value="text/html" />
 		<property name="suffix" value=".jsp" />
 		<property name="prefix" value="/WEB-INF/page/" />
+	</bean>
+
+	<!-- 导入mysql连接外部配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 创建数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="url" value="${jdbc.url}" />
+	</bean>
+	<!-- 创建sqlSession工厂 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 加载mybatis配置文件 -->
+		<property name="mapperLocations" value="classpath*:.*" />
+	</bean>
+	<!-- 配置mybatis mapper映射配置 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.myegames.blog.dao.*.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
 </beans> 

@@ -11,7 +11,7 @@ public class IndexController {
 	@RequestMapping(value = "index", method = { RequestMethod.GET })
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("baseView/framework.jsp");
+		mav.setViewName("baseView/framework");
 		return mav;
 	}
 
