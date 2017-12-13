@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,10 +30,15 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a
-					href="${pageContext.request.contextPath}/index.action">首页</a></li>
-				<li><a href="#">个人介绍</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<c:forEach var="index_menu" items="${index_head_menu }"
+					varStatus="index">
+					<li ${index.index==0?'class="active"':'' }
+						id="index_menu_${index_menu.headMenu_URL}"><a
+						href="${pageContext.request.contextPath}/${index_menu.headMenu_URL}"
+						target="indexFrame">${index_menu.headMenu_Name}</a></li>
+				</c:forEach>
+
+				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">博文列表<b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
@@ -56,7 +61,7 @@
 						<li><a href="#">其他</a></li>
 					</ul></li>
 				<li><a href="#">给我留言</a></li>
-				<li><a href="#">关于本站</a></li>
+				<li><a href="#">关于本站</a></li> -->
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>
@@ -84,8 +89,28 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Nerver Give Up</h3>
 			</div>
+			<!-- ${pageContext.request.contextPath }/index.action -->
 			<div class="panel-body">
-				<iframe src="https://www.baidu.com"></iframe>
+				<iframe src="${pageContext.request.contextPath }/MyJsp.jsp"
+					onload="loadFrame()" id="indexFrame" name="indexFrame"
+					scrolling="no" height="100"></iframe>
+				<script>
+					//document.domain = "xxx.com";//如果跨域就需要设置此项
+					function loadFrame() {
+						var ifm = document.getElementById("indexFrame");
+						var obj;
+						try {
+							obj = ifm.contentDocument;
+						} catch (e) {
+							obj = ifm.contentWindow.document;
+						}
+						var subWeb = document.frames ? document.frames["indexFrame"].document
+								: obj;
+						if (ifm != null && subWeb != null) {
+							ifm.height = subWeb.body.scrollHeight;
+						}
+					}
+				</script>
 			</div>
 			<div class="panel-footer" align="center">
 				本网站源码均在<a href="https://github.com/lyt2598/MyBlog" target="_blank"><i

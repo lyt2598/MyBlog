@@ -11,7 +11,9 @@
 
 	<context:annotation-config />
 	<!-- 配置component所在的包，自动加载需要管理的Bean -->
-	<context:component-scan base-package="cn.myegames.blog.controller"></context:component-scan>
+	<context:component-scan base-package="cn.myegames.blog.service" />
+	<context:component-scan base-package="cn.myegames.blog.controller"/>
+	
 	<bean id="defaultViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
@@ -34,11 +36,33 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 加载mybatis配置文件 -->
-		<property name="mapperLocations" value="classpath*:.*" />
+		<property name="configLocation" value="classpath:mybatisConfig.xml" />
 	</bean>
+
+	<!-- 配置事物管理 -->
+	<bean id="transcationManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 配置事物处理方法 -->
+	<tx:advice id="myAdivice" transaction-manager="transcationManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut expression="execution(* cn.myegames.blog.service..*(..))"
+			id="myPointcut"></aop:pointcut>
+		<aop:advisor advice-ref="myAdivice" pointcut-ref="myPointcut" />
+	</aop:config>
 	<!-- 配置mybatis mapper映射配置 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.myegames.blog.dao.*.mapper" />
+		<property name="basePackage" value="cn.myegames.blog.dao.mapper.index" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 

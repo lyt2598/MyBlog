@@ -9,29 +9,6 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:annotation-config />
-	<context:component-scan base-package="cn.myegames.blog.service" />
-
-	<!-- 配置事物管理 -->
-	<bean id="transcationManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<!-- 配置事物处理方法 -->
-	<tx:advice id="myAdivice" transaction-manager="transcationManager">
-		<tx:attributes>
-			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="insert" propagation="REQUIRED" />
-			<tx:method name="delete" propagation="REQUIRED" />
-		</tx:attributes>
-	</tx:advice>
-
-	<aop:config>
-		<aop:pointcut expression="execution(* cn.myegames.blog.service.*.impl.*(..))"
-			id="myPointcut" />
-		<aop:advisor advice-ref="myAdivice" pointcut="myPointcut" />
-	</aop:config>
+	
 
 </beans>

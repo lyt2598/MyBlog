@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.myegames.blog.dao.mapper.index.MyBlogHeadMenuMapper">
+
+	<sql id="headMenuInfo_Field">
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father
+	</sql>
+
+	<select id="getHeadMenuInfo" resultType="cn.myegames.blog.entity.index.MyBlogHeadMenu">
+		select
+		<include refid="headMenuInfo_Field" />
+		from myblog_headmenu
+	</select>
+</mapper>
