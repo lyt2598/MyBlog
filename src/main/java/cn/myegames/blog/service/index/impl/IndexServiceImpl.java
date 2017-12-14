@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.myegames.blog.dao.mapper.index.MyBlogHeadMenuMapper;
-import cn.myegames.blog.entity.index.MyBlogHeadMenu;
+import cn.myegames.blog.entity.index.MyBlogHeadMenuCustom;
 import cn.myegames.blog.service.index.IndexService;
 
 @Transactional
@@ -17,8 +17,8 @@ public class IndexServiceImpl implements IndexService {
 	@Autowired
 	private MyBlogHeadMenuMapper myBlogHeadMenuMapper;
 
-	public List<MyBlogHeadMenu> getIndexHeadMenu() throws Exception {
-		List<MyBlogHeadMenu> myBlogHeadMenu = myBlogHeadMenuMapper
+	public List<MyBlogHeadMenuCustom> getIndexHeadMenu() throws Exception {
+		List<MyBlogHeadMenuCustom> myBlogHeadMenu = myBlogHeadMenuMapper
 				.getHeadMenuInfo();
 		return myBlogHeadMenu;
 	}

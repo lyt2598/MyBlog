@@ -8,10 +8,47 @@
 	<sql id="headMenuInfo_Field">
 		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father
 	</sql>
+	<sql id="headMenuInfo_Table">
+		myblog_headmenu
+	</sql>
 
-	<select id="getHeadMenuInfo" resultType="cn.myegames.blog.entity.index.MyBlogHeadMenu">
-		select
+	<!-- 对应数据库中的所有字段的实体类 -->
+	<resultMap type="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+		id="headMenuInfoResultMap">
+		<id column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
+		<result column="headMenu_Name" property="headMenu_Name" />
+		<result column="headMenu_URL" property="headMenu_URL" />
+		<result column="headMenu_Father" property="headMenu_Father" />
+	</resultMap>
+	<!-- 此层type用来标识返回的类型 -->
+
+	<resultMap type="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+		id="getHeadMenuInfoResultMap" extends="headMenuInfoResultMap">
+		<collection property="blogHeadMenus"
+			ofType="cn.myegames.blog.entity.index.MyBlogHeadMenu" column="myBlog_HeadMenu_id"
+			select="getChildHeadMenuInfo">
+			<id column="headMenu_Father" property="headMenu_Father" />
+			<result column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
+			<result column="headMenu_Name" property="headMenu_Name" />
+			<result column="headMenu_URL" property="headMenu_URL" />
+		</collection>
+	</resultMap>
+
+	<select id="getHeadMenuInfo" resultMap="getHeadMenuInfoResultMap">
+		SELECT
 		<include refid="headMenuInfo_Field" />
-		from myblog_headmenu
+		FROM
+		<include refid="headMenuInfo_Table" />
+		WHERE
+		headMenu_Father &lt;= 0
+	</select>
+	<select id="getChildHeadMenuInfo" parameterType="int"
+		resultType="cn.myegames.blog.entity.index.MyBlogHeadMenu">
+		SELECT
+		<include refid="headMenuInfo_Field" />
+		FROM
+		<include refid="headMenuInfo_Table" />
+		WHERE
+		headMenu_Father = #{headMenu_Father}
 	</select>
 </mapper>

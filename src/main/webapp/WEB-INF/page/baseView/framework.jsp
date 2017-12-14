@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>LYT - Blog - Nerver Give Up</title>
+<title>LYT - 个人主页 - Nerver Give Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -26,42 +26,36 @@
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<span class="navbar-brand">LYT - MyBlog</span>
+			<span class="navbar-brand">LYT - 个人主页</span>
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left">
 				<c:forEach var="index_menu" items="${index_head_menu }"
 					varStatus="index">
-					<li ${index.index==0?'class="active"':'' }
-						id="index_menu_${index_menu.headMenu_URL}"><a
-						href="${pageContext.request.contextPath}/${index_menu.headMenu_URL}"
-						target="indexFrame">${index_menu.headMenu_Name}</a></li>
+					<c:choose>
+						<c:when
+							test="${index_menu.headMenu_URL==null || index_menu.headMenu_URL==''}">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" target="indexFrame">${index_menu.headMenu_Name}<b
+									class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<c:forEach var="index_cMenu"
+										items="${index_menu.blogHeadMenus }">
+										<li><a
+											href="${pageContext.request.contextPath}/${index_cMenu.headMenu_URL}"
+											target="indexFrame">${index_cMenu.headMenu_Name}</a></li>
+										<li class="divider"></li>
+									</c:forEach>
+								</ul></li>
+						</c:when>
+						<c:otherwise>
+							<li ${index.index==0?'class="active"':'' }
+								id="index_menu_${index_menu.headMenu_URL}"><a
+								href="${pageContext.request.contextPath}/${index_menu.headMenu_URL}"
+								target="indexFrame">${index_menu.headMenu_Name}</a></li>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
-
-				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">博文列表<b class="caret"></b>
-				</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">生活情况</a></li>
-						<li class="divider"></li>
-						<li><a href="#">真情流露</a></li>
-						<li class="divider"></li>
-						<li><a href="#">其他</a></li>
-					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">学习笔记<b class="caret"></b>
-				</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Java</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Python</a></li>
-						<li class="divider"></li>
-						<li><a href="#">前端</a></li>
-						<li class="divider"></li>
-						<li><a href="#">其他</a></li>
-					</ul></li>
-				<li><a href="#">给我留言</a></li>
-				<li><a href="#">关于本站</a></li> -->
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>
@@ -76,9 +70,8 @@
 	</nav>
 	<div class="container">
 		<div class="logo-div">
-			<img src="img/logo.png" height="200px" width="200px" />
 			<h1>
-				LYT - 个人博客 - Nerver Give Up <br> <a href=''><span>http://blog.myegames.cn</span></a>&nbsp;<a
+				LYT - 个人主页 - Nerver Give Up <br> <a href=''><span>http://blog.myegames.cn</span></a>&nbsp;<a
 					href="https://github.com/lyt2598/MyBlog" target="_blank"><i
 					class="fa fa-github" aria-hidden="true"></i></a> <a
 					href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
