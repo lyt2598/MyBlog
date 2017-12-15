@@ -2,14 +2,13 @@ package cn.myegames.blog.controller.index;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cn.myegames.blog.entity.index.MyBlogHeadMenuCustom;
+import cn.myegames.blog.entity.index.HeadMenuCustom;
 import cn.myegames.blog.service.index.IndexService;
 
 @Controller
@@ -20,9 +19,9 @@ public class IndexController {
 
 	@RequestMapping(value = "index", method = { RequestMethod.GET })
 	public String index(Model model, int uid) throws Exception {
-		MyBlogHeadMenuCustom myBlogHeadMenuCustom = new MyBlogHeadMenuCustom();
+		HeadMenuCustom myBlogHeadMenuCustom = new HeadMenuCustom();
 		myBlogHeadMenuCustom.setHeadMenu_UserId(uid);
-		List<MyBlogHeadMenuCustom> myBlogHeadMenu = indexService
+		List<HeadMenuCustom> myBlogHeadMenu = indexService
 				.getIndexHeadMenu(myBlogHeadMenuCustom);
 		model.addAttribute("index_head_menu", myBlogHeadMenu);
 		return "baseView/framework";

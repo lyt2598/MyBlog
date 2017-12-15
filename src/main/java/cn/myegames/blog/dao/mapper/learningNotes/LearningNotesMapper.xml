@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.myegames.blog.dao.mapper.learningNotes.LearningNotesMapper">
+
+
+	<resultMap type="cn.myegames.blog.entity.learningNotes.LearningNotes"
+		id="learningNotesReultMap">
+		<result column="learningNotes_Title" property="learningNotes_Title" />
+		<result column="learningNotes_Context" property="learningNotes_Context" />
+		<result column="learningNotes_PubDate" property="learningNotes_PubDate" />
+		<result column="learningNotes_Stick" property="learningNotes_Stick" />
+		<result column="learningNotes_Recommend" property="learningNotes_Recommend" />
+		<result column="learningNotes_Private" property="learningNotes_Private" />
+		<result column="learningNotes_Comment" property="learningNotes_Comment" />
+		<result column="learningNotes_Relay" property="learningNotes_Relay" />
+		<result column="learningNotes_ModDate" property="learningNotes_ModDate" />
+		<result column="learningNotes_ViewCount" property="learningNotes_ViewCount" />
+
+		<association property="userInfo"
+			javaType="cn.myegames.blog.entity.user.UserInfo">
+			<id column="learningNotes_PubUser" property="myBlog_UserInfo_id" />
+		</association>
+		<association property="learningNotesType"
+			javaType="cn.myegames.blog.entity.learningNotes.LearningNotesType">
+			<id column="learningNotes_Type_id" property="myBlog_LearningNotes_Type_id" />
+		</association>
+
+	</resultMap>
+
+	<resultMap type="cn.myegames.blog.entity.learningNotes.LearningNotes"
+		id="getLearningNotesListResultMap" extends="learningNotesReultMap">
+		<id column="myBlog_LearningNotes_id" property="myBlog_LearningNotes_id" />
+	</resultMap>
+
+	<sql id="learningNotes_Field">
+		myBlog_LearningNotes_id,learningNotes_Title,learningNotes_Context,learningNotes_PubDate,
+		learningNotes_PubUser,learningNotes_PubDate,learningNotes_Recommend,learningNotes_Private,
+		learningNotes_Comment,learningNotes_Relay,learningNotes_ModDate,learningNotes_ViewCount,
+		learningNotes_Type_id
+	</sql>
+	<sql id="learningNotes_Where">
+		<where>
+			<if test="uid>0">
+				and learningNotes_PubUser = #{uid}
+			</if>
+		</where>
+	</sql>
+
+	<sql id="learningNotes_limit">
+		<if test="limit>0">
+			LIMIT #{begin},#{limit}
+		</if>
+	</sql>
+
+	<sql id="learningNotes_table">
+		myblog_learningnotes
+	</sql>
+
+	<select id="getLearningNotesList"
+		parameterType="cn.myegames.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		<include refid="learningNotes_Where" />
+		<include refid="learningNotes_limit" />
+	</select>
+	<select id="getLearningNotesListCount"
+		parameterMap="cn.myegames.blog.entity.learningNotes.LearningNotesCustom"
+		resultType="int">
+		SELECT
+		count(myBlog_LearningNotes_id)
+		FROM
+		<include refid="learningNotes_table" />
+		<include refid="learningNotes_Where" />
+	</select>
+	
+</mapper>

@@ -1,6 +1,6 @@
 package cn.myegames.blog.entity.index;
 
-public class MyBlogHeadMenu {
+public class HeadMenu {
 
 	private int myBlog_HeadMenu_id;
 	private String headMenu_Name;
@@ -8,11 +8,11 @@ public class MyBlogHeadMenu {
 	private int headMenu_Father;
 	private int headMenu_UserId;
 
-	public MyBlogHeadMenu() {
+	public HeadMenu() {
 		super();
 	}
 
-	public MyBlogHeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
+	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
 			String headMenu_URL, int headMenu_Father, int headMenu_UserId) {
 		super();
 		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;

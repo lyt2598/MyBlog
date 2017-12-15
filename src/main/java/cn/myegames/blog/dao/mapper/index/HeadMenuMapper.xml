@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.myegames.blog.dao.mapper.index.MyBlogHeadMenuMapper">
+<mapper namespace="cn.myegames.blog.dao.mapper.index.HeadMenuMapper">
 
 	<sql id="headMenuInfo_Field">
 		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_UserId
@@ -13,7 +13,7 @@
 	</sql>
 
 	<!-- 对应数据库中的所有字段的实体类 -->
-	<resultMap type="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+	<resultMap type="cn.myegames.blog.entity.index.HeadMenuCustom"
 		id="headMenuInfoResultMap">
 		<id column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
 		<result column="headMenu_Name" property="headMenu_Name" />
@@ -23,10 +23,10 @@
 	</resultMap>
 	<!-- 此层type用来标识返回的类型 -->
 
-	<resultMap type="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+	<resultMap type="cn.myegames.blog.entity.index.HeadMenuCustom"
 		id="getHeadMenuInfoResultMap" extends="headMenuInfoResultMap">
 		<collection property="blogHeadMenus"
-			ofType="cn.myegames.blog.entity.index.MyBlogHeadMenu" column="myBlog_HeadMenu_id"
+			ofType="cn.myegames.blog.entity.index.HeadMenu" column="myBlog_HeadMenu_id"
 			select="getChildHeadMenuInfo">
 			<id column="headMenu_Father" property="headMenu_Father" />
 			<result column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
@@ -35,7 +35,7 @@
 		</collection>
 	</resultMap>
 
-	<select id="getHeadMenuInfo" parameterType="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+	<select id="getHeadMenuInfo" parameterType="cn.myegames.blog.entity.index.HeadMenuCustom"
 		resultMap="getHeadMenuInfoResultMap">
 		SELECT
 		<include refid="headMenuInfo_Field" />
@@ -48,7 +48,7 @@
 		</if>
 	</select>
 	<select id="getChildHeadMenuInfo" parameterType="int"
-		resultType="cn.myegames.blog.entity.index.MyBlogHeadMenu">
+		resultType="cn.myegames.blog.entity.index.HeadMenu">
 		SELECT
 		<include refid="headMenuInfo_Field" />
 		FROM

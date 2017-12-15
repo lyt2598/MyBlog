@@ -128,6 +128,8 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Nerver Give Up</h3>
+				<!-- 当前访问的用户ID，方便子页面获取 -->
+				<input type="hidden" value="${uid }" id="currentViewsUser" />
 			</div>
 			<!-- <ol class="breadcrumb breadcrumb-default">
 				<li><a href="#">Home</a></li>

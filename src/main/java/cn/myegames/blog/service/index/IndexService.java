@@ -2,7 +2,7 @@ package cn.myegames.blog.service.index;
 
 import java.util.List;
 
-import cn.myegames.blog.entity.index.MyBlogHeadMenuCustom;
+import cn.myegames.blog.entity.index.HeadMenuCustom;
 
 public interface IndexService {
 
@@ -13,6 +13,6 @@ public interface IndexService {
 	 * @return 返回头部菜单信息
 	 * @throws Exception
 	 */
-	public List<MyBlogHeadMenuCustom> getIndexHeadMenu(MyBlogHeadMenuCustom selectParam) throws Exception;
+	public List<HeadMenuCustom> getIndexHeadMenu(HeadMenuCustom selectParam) throws Exception;
 
 }

@@ -2,9 +2,9 @@ package cn.myegames.blog.dao.mapper.index;
 
 import java.util.List;
 
-import cn.myegames.blog.entity.index.MyBlogHeadMenuCustom;
+import cn.myegames.blog.entity.index.HeadMenuCustom;
 
-public interface MyBlogHeadMenuMapper {
+public interface HeadMenuMapper {
 
 	/**
 	 * 读取首页头部菜单项内容
@@ -12,7 +12,7 @@ public interface MyBlogHeadMenuMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<MyBlogHeadMenuCustom> getHeadMenuInfo(
-			MyBlogHeadMenuCustom selectParam) throws Exception;
+	public List<HeadMenuCustom> getHeadMenuInfo(
+			HeadMenuCustom selectParam) throws Exception;
 
 }

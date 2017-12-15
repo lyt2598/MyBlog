@@ -25,6 +25,16 @@ userInfo_HeadImg:用户头像
 userInfo_GitHub:GitHub主页
 userInfo_RegTime:注册时间
 userInfo_Birthday:出生日期
+userInfo_Status:用户状态 （0：正常 1：冻结 2：封停）
+userInfo_Jurisdiction_id:用户权限（权限表中的主键）
+
+用户权限表（MyBlog_User_Jurisdiction）：
+myBlog_User_Jurisdiction_id:主键（自动增长）
+user_Jurisdiction_Name:权限名称
+user_Jurisdiction_AdminPage:是否允许进入后台管理员界面（0：不允许 1：允许）如果此项为0，后面的所有权限都为0
+---后面所有项都为（0：不允许，1允许）
+user_Jurisdiction_LearningNotes:学习笔记管理
+
 
 学习笔记表（MyBlog_LearningNotes）：
 myBlog_LearningNotes_id:主键（自动增长）
@@ -32,12 +42,63 @@ learningNotes_Title:标题
 learningNotes_Context：正文内容
 learningNotes_PubDate：发布时间
 learningNotes_PubUser：发布用户
-learningNotes_Stick：置顶文章
-learningNotes_Recommend：首页推存（用于整个博客的首页）
-learningNotes_Private：是否私有（如果设置成私有，那么就只有自己可以看见 0：公开  1：私有）
+learningNotes_Stick：置顶文章（0：不置顶  1：置顶）
+learningNotes_Recommend：首页推存（用于整个博客的首页）（0：不推存  1：推存）
+learningNotes_Private：是否私有（如果设置成私有，那么就只有自己可以看见 0：公开  1：私有 2：被举报后需要整改）
 learningNotes_Comment：是否允许评论（0：允许评论 1：不允许评论）
 learningNotes_Relay：是否允许转发（0：允许转发 1：不允许转发）
 learningNotes_ModDate：修改时间
+learningNotes_ViewCount：浏览次数
+learningNotes_Type_id:学习笔记类别
+//下面两项暂时不添加，后续再设计是单独开表还是字段标识
+//learningNotes_RelayLN：标记是否为转发文章（0：不是  1：是）
+//learningNotes_CollectLN：标记是否为收藏文章（0：不是  1：是） 
+
+学习笔记类别表（MyBlog_LearningNotes_Type）：
+myBlog_LearningNotes_Type_id:主键（自动增长）
+learningNotes_Type_Name:名称
+
+学习笔记评论（MyBlog_LearningNotes_Comment）
+myBlog_LearningNotes_Comment_id:主键（自动增长）
+learningNotes_Comment_Context:评论内容
+learningNotes_Comment_PubDate:评论时间
+learningNotes_Comment_PubUser:评论用户
+learningNotes_Comment_LearningNotes_id:被评论博文的主键
+
+学习笔记赞表（MyBlog_LearningNotes_Zan）:
+myBlog_LearningNotes_Zan_id:主键（自动增长）
+learningNotes_Zan_ln_id:学习笔记文章主键
+learningNotes_Zan_user_id:用户表主键
+learningNotes_Zan_Cai:用来标识用户是赞了还是踩了（0：赞  1：踩 ）
+
+学习笔记评论赞表（MyBlog_LearningNotes_Comment_Zan）:
+myBlog_LearningNotes_Comment_Zan_id:主键（自动增长）
+learningNotes_Comment_Zan_comment_id:学习笔记评论主键
+learningNotes_Comment_Zan_user_id:用户表主键
+learningNotes_Comment_Zan_Cai:用来标识用户是赞了还是踩了（0：赞  1：踩 ）
+
+学习笔记举报表（MyBlog_LearningNotes_Report）:
+myBlog_LearningNotes_Report_id:主键（自动增长）
+learningNotes_Report_Context:举报描述
+learningNotes_Report_PubDate:举报时间
+learningNotes_Report_PubUser:举报用户
+learningNotes_Report_ln_id:被举报博文主键
+learningNotes_Report_Dispose:标识是否已经处理举报（0：已经处理 1：正在核实 2：等待处理）
+learningNotes_Report_Dispose_Type_id:处理类型表主键
+learningNotes_Report_Dispose_Context:处理描述
+learningNotes_Report_Type_id:举报类型表主键
+
+学习笔记举报类型表（MyBlog_LearningNotes_Report_Type）:
+myBlog_LearningNotes_Report_Type_id:主键（自动增长）
+learningNotes_Report_Type_Name:举报类型名称
+
+学习笔记处理类型表（MyBlog_LearningNotes_Report_Dispose_Type）:
+myBlog_LearningNotes_Report_Dispose_Type_id:主键（自动增长）
+learningNotes_Report_Dispose_Type_Name:处理类型名称
+
+
+
+
 
 
 

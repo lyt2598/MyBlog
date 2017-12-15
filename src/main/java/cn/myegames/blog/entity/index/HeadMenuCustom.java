@@ -2,15 +2,15 @@ package cn.myegames.blog.entity.index;
 
 import java.util.List;
 
-public class MyBlogHeadMenuCustom extends MyBlogHeadMenu {
+public class HeadMenuCustom extends HeadMenu {
 
-	private List<MyBlogHeadMenu> blogHeadMenus;
+	private List<HeadMenu> blogHeadMenus;
 
-	public List<MyBlogHeadMenu> getBlogHeadMenus() {
+	public List<HeadMenu> getBlogHeadMenus() {
 		return blogHeadMenus;
 	}
 
-	public void setBlogHeadMenus(List<MyBlogHeadMenu> blogHeadMenus) {
+	public void setBlogHeadMenus(List<HeadMenu> blogHeadMenus) {
 		this.blogHeadMenus = blogHeadMenus;
 	}
 
