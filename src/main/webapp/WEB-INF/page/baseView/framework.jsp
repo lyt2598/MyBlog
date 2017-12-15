@@ -78,12 +78,36 @@
 				</c:forEach>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" target="indexFrame"> <img alt="头像"
+						src="${pageContext.request.contextPath }/img/user/head/22343358.png"
+						width="20" height="20">&nbsp;<b class="caret"></b>
+				</a>
+					<ul class="dropdown-menu dropdown-menu-sw">
+						<li class="dropdown-header">当前用户：<strong
+							style="font-size: 16px;">lyt2598de</strong></li>
+						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/#"
+							target="indexFrame"><span class="dropdown-menu-left-logo"><i
+									class="fa fa-cog" aria-hidden="true"></i> </span>个人中心</a></li>
+						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/#"
+							target="indexFrame"><span class="dropdown-menu-left-logo"><i
+									class="fa fa-plus-square" aria-hidden="true"></i> </span>生活分享</a></li>
+						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/#"
+							target="indexFrame"><span class="dropdown-menu-left-logo"><i
+									class="fa fa-plus-square" aria-hidden="true"></i> </span>学习笔记</a></li>
+						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/#"
+							target="indexFrame"><span class="dropdown-menu-left-logo"><i
+									class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
+						<li class="divider"></li>
+					</ul></li>
 				<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>
 						注册</a></li>
 				<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>
 						登录</a></li>
-				<li><a href="#"><i class="fa fa-sign-out"
-						aria-hidden="true"></i> 退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -105,6 +129,11 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Nerver Give Up</h3>
 			</div>
+			<!-- <ol class="breadcrumb breadcrumb-default">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">2013</a></li>
+				<li class="active">十一月</li>
+			</ol> -->
 			<!-- ${pageContext.request.contextPath }/index.action -->
 			<div class="my-panel-body">
 				<iframe src="${pageContext.request.contextPath }/MyJsp.jsp"

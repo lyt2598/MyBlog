@@ -35,3 +35,9 @@ iframe{
 	padding:0px;
 	margin:0px;
 }
+.breadcrumb-default{
+	padding-bottom: 10px;
+}
+.dropdown-menu-left-logo{
+	padding-right: 10px;
+}

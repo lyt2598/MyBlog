@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -22,110 +22,23 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css">
+<script
+	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
 </head>
 
 <body>
+	<div class="page-header">
+		<h1>
+			页面标题实例 <small>子标题</small>
+		</h1>
+	</div>
+	<p>这是一个示例文本。这是一个示例文本。这是一个示例文本。这是一个示例文本。这是一个示例文本。</p>
+
 	This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
-	<br> This is my JSP page.
 	<br> This is my JSP page.
 	<br> This is my JSP page.
 	<br> This is my JSP page.
