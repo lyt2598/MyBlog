@@ -6,18 +6,28 @@ public class MyBlogHeadMenu {
 	private String headMenu_Name;
 	private String headMenu_URL;
 	private int headMenu_Father;
+	private int headMenu_UserId;
 
 	public MyBlogHeadMenu() {
 		super();
 	}
 
 	public MyBlogHeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
-			String headMenu_URL, int headMenu_Father) {
+			String headMenu_URL, int headMenu_Father, int headMenu_UserId) {
 		super();
 		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;
 		this.headMenu_Name = headMenu_Name;
 		this.headMenu_URL = headMenu_URL;
 		this.headMenu_Father = headMenu_Father;
+		this.headMenu_UserId = headMenu_UserId;
+	}
+
+	public int getHeadMenu_UserId() {
+		return headMenu_UserId;
+	}
+
+	public void setHeadMenu_UserId(int headMenu_UserId) {
+		this.headMenu_UserId = headMenu_UserId;
 	}
 
 	public int getMyBlog_HeadMenu_id() {
@@ -56,7 +66,8 @@ public class MyBlogHeadMenu {
 	public String toString() {
 		return "MyBlogHeadMenu [myBlog_HeadMenu_id=" + myBlog_HeadMenu_id
 				+ ", headMenu_Name=" + headMenu_Name + ", headMenu_URL="
-				+ headMenu_URL + ", headMenu_Father=" + headMenu_Father + "]";
+				+ headMenu_URL + ", headMenu_Father=" + headMenu_Father
+				+ ", headMenu_UserId=" + headMenu_UserId + "]";
 	}
 
 }

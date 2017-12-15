@@ -3,7 +3,7 @@
 <html>
   <head>
 	<script type="text/javascript">
-		window.location.href='${pageContext.request.contextPath}/index.action';
+		window.location.href='${pageContext.request.contextPath}/index.action?uid=0';
 	</script>
   </head>
 </html>

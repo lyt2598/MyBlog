@@ -2,6 +2,7 @@ package cn.myegames.blog.controller.index;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +19,12 @@ public class IndexController {
 	private IndexService indexService;
 
 	@RequestMapping(value = "index", method = { RequestMethod.GET })
-	public String index(Model model) throws Exception {
+	public String index(Model model, int uid) throws Exception {
+		MyBlogHeadMenuCustom myBlogHeadMenuCustom = new MyBlogHeadMenuCustom();
+		myBlogHeadMenuCustom.setHeadMenu_UserId(uid);
 		List<MyBlogHeadMenuCustom> myBlogHeadMenu = indexService
-				.getIndexHeadMenu();
+				.getIndexHeadMenu(myBlogHeadMenuCustom);
 		model.addAttribute("index_head_menu", myBlogHeadMenu);
 		return "baseView/framework";
 	}
-
 }

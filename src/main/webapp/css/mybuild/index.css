@@ -15,16 +15,23 @@ iframe{
 }
 .logo-div h1{
 	display:inline-block;
-	width:80%;
 	text-align:left;
-	padding-left:70px;
+	padding-top:40px;
 }
-.logo-div h1 a{
+.logo-div h1 .subText{
+	width:100%;
 	color:#FFF;
 	font-size:20px;
 	text-align:right;
 }
-.logo-div h1 a:hover{
+.logo-div h1 .subText a{
+	color:#FFF;
+}
+.logo-div h1 .subText a:hover{
 	text-decoration:none;
 	color:#999;	
+}
+.my-panel-body{
+	padding:0px;
+	margin:0px;
 }

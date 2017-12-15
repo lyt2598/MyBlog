@@ -11,14 +11,33 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<link rel="stylesheet" href="css/referenced/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="css/mybuild/myhead.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/index.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
 <script
 	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$("#indexMenu li").click(function() {
+			var obj = $(this).hasClass("dropdown");
+			if (obj == false) {
+				$("#indexMenu li").removeClass("active");
+				$(this).addClass("active");
+			}
+		});
+		$("#indexMenu .dropdown li").click(function() {
+			$("#indexMenu li").removeClass("active");
+			$(this).closest(".dropdown").addClass("active");
+		});
+	});
+</script>
+
 </head>
 
 <body
@@ -29,22 +48,23 @@
 			<span class="navbar-brand">LYT - 个人主页</span>
 		</div>
 		<div>
-			<ul class="nav navbar-nav navbar-left">
+			<ul class="nav navbar-nav navbar-left" id="indexMenu">
 				<c:forEach var="index_menu" items="${index_head_menu }"
 					varStatus="index">
 					<c:choose>
 						<c:when
 							test="${index_menu.headMenu_URL==null || index_menu.headMenu_URL==''}">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" target="indexFrame">${index_menu.headMenu_Name}<b
+							<li class="dropdown ${index.index==0?'active':'' }"><a
+								href="#" class="dropdown-toggle" data-toggle="dropdown"
+								target="indexFrame">${index_menu.headMenu_Name}<b
 									class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<c:forEach var="index_cMenu"
 										items="${index_menu.blogHeadMenus }">
+										<li class="divider"></li>
 										<li><a
 											href="${pageContext.request.contextPath}/${index_cMenu.headMenu_URL}"
 											target="indexFrame">${index_cMenu.headMenu_Name}</a></li>
-										<li class="divider"></li>
 									</c:forEach>
 								</ul></li>
 						</c:when>
@@ -71,11 +91,14 @@
 	<div class="container">
 		<div class="logo-div">
 			<h1>
-				LYT - 个人主页 - Nerver Give Up <br> <a href=''><span>http://blog.myegames.cn</span></a>&nbsp;<a
-					href="https://github.com/lyt2598/MyBlog" target="_blank"><i
-					class="fa fa-github" aria-hidden="true"></i></a> <a
-					href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
-					target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
+				LYT - 个人主页 - Nerver Give Up <br>
+				<div class="subText">
+					<a href=''><span>http://blog.myegames.cn</span></a>&nbsp;<a
+						href="https://github.com/lyt2598/MyBlog" target="_blank"><i
+						class="fa fa-github" aria-hidden="true"></i></a> <a
+						href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
+						target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
+				</div>
 			</h1>
 		</div>
 		<div class="panel panel-primary">
@@ -83,7 +106,7 @@
 				<h3 class="panel-title">Nerver Give Up</h3>
 			</div>
 			<!-- ${pageContext.request.contextPath }/index.action -->
-			<div class="panel-body">
+			<div class="my-panel-body">
 				<iframe src="${pageContext.request.contextPath }/MyJsp.jsp"
 					onload="loadFrame()" id="indexFrame" name="indexFrame"
 					scrolling="no" height="100"></iframe>
@@ -100,6 +123,7 @@
 						var subWeb = document.frames ? document.frames["indexFrame"].document
 								: obj;
 						if (ifm != null && subWeb != null) {
+							ifm.setAttribute('height', 'auto');
 							ifm.height = subWeb.body.scrollHeight;
 						}
 					}

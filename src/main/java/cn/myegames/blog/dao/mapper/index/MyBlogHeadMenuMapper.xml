@@ -6,7 +6,7 @@
 <mapper namespace="cn.myegames.blog.dao.mapper.index.MyBlogHeadMenuMapper">
 
 	<sql id="headMenuInfo_Field">
-		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_UserId
 	</sql>
 	<sql id="headMenuInfo_Table">
 		myblog_headmenu
@@ -19,6 +19,7 @@
 		<result column="headMenu_Name" property="headMenu_Name" />
 		<result column="headMenu_URL" property="headMenu_URL" />
 		<result column="headMenu_Father" property="headMenu_Father" />
+		<result column="headMenu_UserId" property="headMenu_UserId" />
 	</resultMap>
 	<!-- 此层type用来标识返回的类型 -->
 
@@ -34,13 +35,17 @@
 		</collection>
 	</resultMap>
 
-	<select id="getHeadMenuInfo" resultMap="getHeadMenuInfoResultMap">
+	<select id="getHeadMenuInfo" parameterType="cn.myegames.blog.entity.index.MyBlogHeadMenuCustom"
+		resultMap="getHeadMenuInfoResultMap">
 		SELECT
 		<include refid="headMenuInfo_Field" />
 		FROM
 		<include refid="headMenuInfo_Table" />
 		WHERE
 		headMenu_Father &lt;= 0
+		<if test="headMenu_UserId>0">
+			and headMenu_UserId=${headMenu_UserId}
+		</if>
 	</select>
 	<select id="getChildHeadMenuInfo" parameterType="int"
 		resultType="cn.myegames.blog.entity.index.MyBlogHeadMenu">

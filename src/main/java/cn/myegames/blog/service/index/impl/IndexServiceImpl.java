@@ -17,9 +17,13 @@ public class IndexServiceImpl implements IndexService {
 	@Autowired
 	private MyBlogHeadMenuMapper myBlogHeadMenuMapper;
 
-	public List<MyBlogHeadMenuCustom> getIndexHeadMenu() throws Exception {
+	public List<MyBlogHeadMenuCustom> getIndexHeadMenu(
+			MyBlogHeadMenuCustom selectParam) throws Exception {
 		List<MyBlogHeadMenuCustom> myBlogHeadMenu = myBlogHeadMenuMapper
-				.getHeadMenuInfo();
+				.getHeadMenuInfo(selectParam);
+		if (myBlogHeadMenu.size() <= 0) {
+			throw new Exception("user menu is not found（用户菜单没有找到）");
+		}
 		return myBlogHeadMenu;
 	}
 
