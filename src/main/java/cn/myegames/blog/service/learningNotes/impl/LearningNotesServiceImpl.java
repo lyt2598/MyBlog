@@ -31,7 +31,6 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		if (selectParam.getUid() <= 0) {
 			throw new Exception("用户ID输入有误");
 		}
-
 		int totalCount = learningNotesMapper
 				.getLearningNotesListCount(selectParam);
 		if (totalCount <= 0) {

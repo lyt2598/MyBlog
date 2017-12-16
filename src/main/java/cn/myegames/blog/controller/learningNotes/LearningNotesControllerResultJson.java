@@ -16,9 +16,9 @@ public class LearningNotesControllerResultJson {
 	@Autowired
 	private LearningNotesService learningNotesService;
 
-	@ResponseBody
-	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.POST })
-	public LearningNotesCustom getLearningNotesList(
+	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.GET })
+	public @ResponseBody
+	LearningNotesCustom getLearningNotesList(
 			LearningNotesCustom learningNotesCustom) throws Exception {
 		learningNotesCustom = learningNotesService
 				.getLearningNotesList(learningNotesCustom);
