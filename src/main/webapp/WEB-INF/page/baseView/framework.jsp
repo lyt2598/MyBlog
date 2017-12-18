@@ -22,20 +22,9 @@
 	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(e) {
-		$("#indexMenu li").click(function() {
-			var obj = $(this).hasClass("dropdown");
-			if (obj == false) {
-				$("#indexMenu li").removeClass("active");
-				$(this).addClass("active");
-			}
-		});
-		$("#indexMenu .dropdown li").click(function() {
-			$("#indexMenu li").removeClass("active");
-			$(this).closest(".dropdown").addClass("active");
-		});
-	});
+<script src="${pageContext.request.contextPath }/js/mybuild/index.js"></script>
+<script>
+	var locationValue = "${pageContext.request.contextPath}"
 </script>
 
 </head>
@@ -49,14 +38,20 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
+				<c:set var="onlyOne" value="1" />
 				<c:forEach var="index_menu" items="${index_head_menu }"
 					varStatus="index">
+					<!-- 当前访问的用户ID，方便子页面获取 -->
+					<c:if test="${onlyOne==1 }">
+						<c:set var="onlyOne" value="0" />
+						<input type="hidden" value="${index_menu.headMenu_UserId }"
+							id="currentViewsUser" />
+					</c:if>
 					<c:choose>
 						<c:when
 							test="${index_menu.headMenu_URL==null || index_menu.headMenu_URL==''}">
-							<li class="dropdown ${index.index==0?'active':'' }"><a
-								href="#" class="dropdown-toggle" data-toggle="dropdown"
-								target="indexFrame">${index_menu.headMenu_Name}<b
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" target="indexFrame">${index_menu.headMenu_Name}<b
 									class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<c:forEach var="index_cMenu"
@@ -69,8 +64,7 @@
 								</ul></li>
 						</c:when>
 						<c:otherwise>
-							<li ${index.index==0?'class="active"':'' }
-								id="index_menu_${index_menu.headMenu_URL}"><a
+							<li id="index_menu_${index_menu.headMenu_URL}"><a
 								href="${pageContext.request.contextPath}/${index_menu.headMenu_URL}"
 								target="indexFrame">${index_menu.headMenu_Name}</a></li>
 						</c:otherwise>
@@ -128,8 +122,6 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Nerver Give Up</h3>
-				<!-- 当前访问的用户ID，方便子页面获取 -->
-				<input type="hidden" value="${uid }" id="currentViewsUser" />
 			</div>
 			<!-- <ol class="breadcrumb breadcrumb-default">
 				<li><a href="#">Home</a></li>
@@ -141,24 +133,6 @@
 				<iframe src="${pageContext.request.contextPath }/MyJsp.jsp"
 					onload="loadFrame()" id="indexFrame" name="indexFrame"
 					scrolling="no" height="100"></iframe>
-				<script>
-					//document.domain = "xxx.com";//如果跨域就需要设置此项
-					function loadFrame() {
-						var ifm = document.getElementById("indexFrame");
-						var obj;
-						try {
-							obj = ifm.contentDocument;
-						} catch (e) {
-							obj = ifm.contentWindow.document;
-						}
-						var subWeb = document.frames ? document.frames["indexFrame"].document
-								: obj;
-						if (ifm != null && subWeb != null) {
-							ifm.setAttribute('height', 'auto');
-							ifm.height = subWeb.body.scrollHeight;
-						}
-					}
-				</script>
 			</div>
 			<div class="panel-footer" align="center">
 				本网站源码均在<a href="https://github.com/lyt2598/MyBlog" target="_blank"><i

@@ -18,6 +18,8 @@
 		<result column="learningNotes_Relay" property="learningNotes_Relay" />
 		<result column="learningNotes_ModDate" property="learningNotes_ModDate" />
 		<result column="learningNotes_ViewCount" property="learningNotes_ViewCount" />
+		<result column="learningNotes_RelayCount" property="learningNotes_ViewCount" />
+		<result column="learningNotes_CommentCount" property="learningNotes_ViewCount" />
 
 		<association property="userInfo"
 			javaType="cn.myegames.blog.entity.user.UserInfo">
@@ -37,9 +39,9 @@
 
 	<sql id="learningNotes_Field">
 		myBlog_LearningNotes_id,learningNotes_Title,learningNotes_Context,learningNotes_PubDate,
-		learningNotes_PubUser,learningNotes_PubDate,learningNotes_Recommend,learningNotes_Private,
+		learningNotes_PubUser,learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,
 		learningNotes_Comment,learningNotes_Relay,learningNotes_ModDate,learningNotes_ViewCount,
-		learningNotes_Type_id
+		learningNotes_RelayCount,learningNotes_CommentCount,learningNotes_Type_id
 	</sql>
 	<sql id="learningNotes_Where">
 		<where>
@@ -58,7 +60,10 @@
 	<sql id="learningNotes_table">
 		myblog_learningnotes
 	</sql>
-
+	<sql id="learningNotes_orderBy">
+		ORDER BY learningNotes_Stick desc,learningNotes_PubDate
+		desc
+	</sql>
 	<select id="getLearningNotesList"
 		parameterType="cn.myegames.blog.entity.learningNotes.LearningNotesCustom"
 		resultMap="getLearningNotesListResultMap">
@@ -68,6 +73,7 @@
 		<include refid="learningNotes_table" />
 		<include refid="learningNotes_Where" />
 		<include refid="learningNotes_limit" />
+		<include refid="learningNotes_orderBy" />
 	</select>
 	<select id="getLearningNotesListCount"
 		parameterType="cn.myegames.blog.entity.learningNotes.LearningNotesCustom"
@@ -78,5 +84,5 @@
 		<include refid="learningNotes_table" />
 		<include refid="learningNotes_Where" />
 	</select>
-	
+
 </mapper>

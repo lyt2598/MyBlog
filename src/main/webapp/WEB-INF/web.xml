@@ -38,13 +38,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>*.action</url-pattern>
+		<!-- *.action：拦截action -->
+		<!-- /：拦截所有,RESTful需要使用此种方法 ，但是在spring配置文件中要处理静态资源 -->
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<!-- <listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:spring/spring-*.xml</param-value>
-	</context-param> -->
+	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+		</listener> <context-param> <param-name>contextConfigLocation</param-name> 
+		<param-value>classpath*:spring/spring-*.xml</param-value> </context-param> -->
 </web-app>

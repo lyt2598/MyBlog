@@ -7,6 +7,7 @@ public class UserInfo {
 	private int myBlog_UserInfo_id;
 	private String userInfo_Account;
 	private String userInfo_Password;
+	private String userInfo_Name;
 	private String userInfo_Phone;
 	private String userInfo_Tel;
 	private String userInfo_Email;
@@ -23,8 +24,8 @@ public class UserInfo {
 	}
 
 	public UserInfo(int myBlog_UserInfo_id, String userInfo_Account,
-			String userInfo_Password, String userInfo_Phone,
-			String userInfo_Tel, String userInfo_Email,
+			String userInfo_Password, String userInfo_Name,
+			String userInfo_Phone, String userInfo_Tel, String userInfo_Email,
 			String userInfo_QQaccount, String userInfo_HeadImg,
 			String userInfo_GitHub, Date userInfo_RegTime,
 			Date userInfo_Birthday, int userInfo_Status,
@@ -33,6 +34,7 @@ public class UserInfo {
 		this.myBlog_UserInfo_id = myBlog_UserInfo_id;
 		this.userInfo_Account = userInfo_Account;
 		this.userInfo_Password = userInfo_Password;
+		this.userInfo_Name = userInfo_Name;
 		this.userInfo_Phone = userInfo_Phone;
 		this.userInfo_Tel = userInfo_Tel;
 		this.userInfo_Email = userInfo_Email;
@@ -149,13 +151,22 @@ public class UserInfo {
 		this.userJurisdiction = userJurisdiction;
 	}
 
+	public String getUserInfo_Name() {
+		return userInfo_Name;
+	}
+
+	public void setUserInfo_Name(String userInfo_Name) {
+		this.userInfo_Name = userInfo_Name;
+	}
+
 	@Override
 	public String toString() {
 		return "UserInfo [myBlog_UserInfo_id=" + myBlog_UserInfo_id
 				+ ", userInfo_Account=" + userInfo_Account
 				+ ", userInfo_Password=" + userInfo_Password
-				+ ", userInfo_Phone=" + userInfo_Phone + ", userInfo_Tel="
-				+ userInfo_Tel + ", userInfo_Email=" + userInfo_Email
+				+ ", userInfo_Name=" + userInfo_Name + ", userInfo_Phone="
+				+ userInfo_Phone + ", userInfo_Tel=" + userInfo_Tel
+				+ ", userInfo_Email=" + userInfo_Email
 				+ ", userInfo_QQaccount=" + userInfo_QQaccount
 				+ ", userInfo_HeadImg=" + userInfo_HeadImg
 				+ ", userInfo_GitHub=" + userInfo_GitHub

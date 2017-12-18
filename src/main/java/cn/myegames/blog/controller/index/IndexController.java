@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,8 +18,9 @@ public class IndexController {
 	@Autowired
 	private IndexService indexService;
 
-	@RequestMapping(value = "index", method = { RequestMethod.GET })
-	public String index(Model model, int uid) throws Exception {
+	@RequestMapping(value = "index/{userId}", method = { RequestMethod.GET })
+	public String index(Model model, @PathVariable("userId") int uid)
+			throws Exception {
 		HeadMenuCustom myBlogHeadMenuCustom = new HeadMenuCustom();
 		myBlogHeadMenuCustom.setHeadMenu_UserId(uid);
 		List<HeadMenuCustom> myBlogHeadMenu = indexService

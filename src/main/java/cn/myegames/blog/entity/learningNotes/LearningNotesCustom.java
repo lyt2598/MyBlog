@@ -2,6 +2,10 @@ package cn.myegames.blog.entity.learningNotes;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public class LearningNotesCustom extends LearningNotes {
 
 	private int page;

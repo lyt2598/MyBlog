@@ -18,6 +18,8 @@ public class LearningNotes {
 	private int learningNotes_Relay;
 	private Date learningNotes_ModDate;
 	private int learningNotes_ViewCount;
+	private int learningNotes_RelayCount;
+	private int learningNotes_CommentCount;
 	private LearningNotesType learningNotesType;
 
 	public LearningNotes() {
@@ -30,7 +32,8 @@ public class LearningNotes {
 			int learningNotes_Stick, int learningNotes_Recommend,
 			int learningNotes_Private, int learningNotes_Comment,
 			int learningNotes_Relay, Date learningNotes_ModDate,
-			int learningNotes_ViewCount, LearningNotesType learningNotesType) {
+			int learningNotes_ViewCount, int learningNotes_RelayCount,
+			int learningNotes_CommentCount, LearningNotesType learningNotesType) {
 		super();
 		this.myBlog_LearningNotes_id = myBlog_LearningNotes_id;
 		this.learningNotes_Title = learningNotes_Title;
@@ -44,7 +47,25 @@ public class LearningNotes {
 		this.learningNotes_Relay = learningNotes_Relay;
 		this.learningNotes_ModDate = learningNotes_ModDate;
 		this.learningNotes_ViewCount = learningNotes_ViewCount;
+		this.learningNotes_RelayCount = learningNotes_RelayCount;
+		this.learningNotes_CommentCount = learningNotes_CommentCount;
 		this.learningNotesType = learningNotesType;
+	}
+
+	public int getLearningNotes_RelayCount() {
+		return learningNotes_RelayCount;
+	}
+
+	public void setLearningNotes_RelayCount(int learningNotes_RelayCount) {
+		this.learningNotes_RelayCount = learningNotes_RelayCount;
+	}
+
+	public int getLearningNotes_CommentCount() {
+		return learningNotes_CommentCount;
+	}
+
+	public void setLearningNotes_CommentCount(int learningNotes_CommentCount) {
+		this.learningNotes_CommentCount = learningNotes_CommentCount;
 	}
 
 	public int getMyBlog_LearningNotes_id() {

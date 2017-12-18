@@ -12,17 +12,22 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
+<!-- 通用样式 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/learningNotes.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css" />
 <script
 	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
-
+<!-- 页面级样式 -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotes.css" />
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/learningNotes.js"></script>
 </head>
 
 <body class="lnBody">
@@ -41,16 +46,17 @@
 	<table class="table table-bordered table-condensed">
 		<thead>
 			<tr class="success">
-				<th style="width:5%;">#</th>
+				<th class="textAlign" style="width:5%;">#</th>
 				<th>文章标题</th>
 				<th style="width:10%; min-width:150px;">发布时间</th>
 				<th style="width:5%; min-width:100px;">浏览次数</th>
-				<th style="width:5%; min-width:100px;">转发次数</th>
+				<th style="width:5%; min-width:100px;">评论次数</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="table-body">
 			<tr>
-				<td>1</td>
+				<td class="textAlign"><i class="fa fa-thumb-tack"
+					aria-hidden="true"></i></td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -58,7 +64,8 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign"><i class="fa fa-thumb-tack"
+					aria-hidden="true"></i></td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -66,7 +73,10 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td colspan="5"></td>
+			</tr>
+			<tr>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -74,7 +84,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -82,7 +92,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -90,7 +100,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -98,7 +108,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -106,7 +116,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -114,7 +124,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -122,7 +132,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -130,7 +140,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -138,7 +148,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -146,7 +156,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -154,7 +164,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -162,7 +172,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -170,7 +180,7 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
@@ -178,7 +188,23 @@
 				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
 			</tr>
 			<tr>
-				<td>1</td>
+				<td class="textAlign">1</td>
+				<td>Bangalore<i class="fa fa-eye-slash i-red"
+					aria-hidden="true"></i></td>
+				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
+				<td><i class="fa fa-eye i-blue" aria-hidden="true"></i>9999999</td>
+				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
+			</tr>
+			<tr>
+				<td class="textAlign">1</td>
+				<td>Bangalore<i class="fa fa-eye-slash i-red"
+					aria-hidden="true"></i></td>
+				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>
+				<td><i class="fa fa-eye i-blue" aria-hidden="true"></i>9999999</td>
+				<td><i class="fa fa-code-fork i-blue" aria-hidden="true"></i>99999999</td>
+			</tr>
+			<tr>
+				<td class="textAlign">1</td>
 				<td>Bangalore<i class="fa fa-eye-slash i-red"
 					aria-hidden="true"></i></td>
 				<td><i class="fa fa-clock-o i-blue" aria-hidden="true"></i>2017年12月15日</td>

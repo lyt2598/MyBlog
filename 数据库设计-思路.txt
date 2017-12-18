@@ -16,6 +16,7 @@ headMenu_UserId，用来方便以后扩展为用户自定义菜单栏
 用户信息表（MyBlog_UserInfo）：
 myBlog_UserInfo_id:主键（自动增长）
 userInfo_Account:用户账号
+userInfo_Name:用于显示的名字
 userInfo_Password:用户密码（MD5加密后的字符串）
 userInfo_Phone:手机号码
 userInfo_Tel:座机号码
@@ -49,6 +50,8 @@ learningNotes_Comment：是否允许评论（0：允许评论 1：不允许评�
 learningNotes_Relay：是否允许转发（0：允许转发 1：不允许转发）
 learningNotes_ModDate：修改时间
 learningNotes_ViewCount：浏览次数
+learningNotes_RelayCount：转发次数
+learningNotes_CommentCount：评论次数
 learningNotes_Type_id:学习笔记类别
 //下面两项暂时不添加，后续再设计是单独开表还是字段标识
 //learningNotes_RelayLN：标记是否为转发文章（0：不是  1：是）
