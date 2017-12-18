@@ -39,5 +39,5 @@
 # 贡献者
 
 - Lyt:
--- 邮箱：lyt2598@qq.com
--- 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
+- 邮箱：lyt2598@qq.com
+- 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
