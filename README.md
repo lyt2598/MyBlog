@@ -1,46 +1,43 @@
 # 简介
 
->源码地址
+> 源码地址
 
--GitHub:https://github.com/lyt2598/MyBlog
+- GitHub:[https://github.com/lyt2598/MyBlog](https://github.com/lyt2598/MyBlog "https://github.com/lyt2598/MyBlog")
+
+> 演示地址
+
+- 演示地址：[点击进入演示网址](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
 
 本博客系统采用java语言进行编写，主体框架Spring、SpringMVC、MyBatis。
 编写目的：用于个人首页的现实以及记录一些在开发过程中遇到的问题
 
 # 编码环境
 
--系统：windows7 64bit
+- 系统：windows7 64bit
 
--jdk版本：1.7
+- jdk：1.7.0_45
 
--tomcat版本：8.x
+- tomcat：8.5.11
 
--数据库：MySQL 5.6.35
+- 数据库：MySQL 5.6.35
 
+- Maven:
 
+# 依赖包版本
 
+- Spring：4.3.12.RELEASE
+- MyBatis：3.4.5
+- JSTL：1.2
+- DBCP：1.4
+- Junit：4.12
+- LOG4J：1.2.17
+- SLF4J：1.7.25
+- MySQL：5.1.40
+- MyBatis-Spring：1.3.1
+- JackSon：2.8.5
 
-框架：Spring、SpringMVC、MyBatis
+# 贡献者
 
-其他依赖包版本：
-
-JSTL版本：1.2
-
-DBCP连接池版本：1.4
-
-JUNIT版本：4.12
-
-LOG4J版本：1.2.17
-
-SLF4J版本：1.7.25
-
-MYSQL版本：5.1.40
-
-SPRING版本：4.3.12.RELEASE
-
-MYBATIS版本：3.4.5
-
-MYBATIS-SPRING整合包版本：1.3.1
-
-                          
-                           -lyt
+- Lyt:
+-- 邮箱：lyt2598@qq.com
+-- 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
