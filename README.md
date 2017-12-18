@@ -2,7 +2,7 @@
 
 > 源码地址
 
-- GitHub:[https://github.com/lyt2598/MyBlog](https://github.com/lyt2598/MyBlog "https://github.com/lyt2598/MyBlog")
+- GitHub：[https://github.com/lyt2598/MyBlog](https://github.com/lyt2598/MyBlog "https://github.com/lyt2598/MyBlog")
 
 > 演示地址
 
@@ -21,7 +21,7 @@
 
 - 数据库：MySQL 5.6.35
 
-- Maven:
+- Maven：3.3.9
 
 # 依赖包版本
 
