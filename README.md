@@ -1,14 +1,23 @@
-# MyBlog
+# 简介
 
-我的个人博客系统
+>源码地址
 
-采用SSM框架进行编写，完全自主设计与开发
+-GitHub:https://github.com/lyt2598/MyBlog
 
-编码系统：windows
+本博客系统采用java语言进行编写，主体框架Spring、SpringMVC、MyBatis。
+编写目的：用于个人首页的现实以及记录一些在开发过程中遇到的问题
 
-jdk版本：1.7
+# 编码环境
 
-tomcat版本：8.x
+-系统：windows7 64bit
+
+-jdk版本：1.7
+
+-tomcat版本：8.x
+
+-数据库：MySQL 5.6.35
+
+
 
 
 框架：Spring、SpringMVC、MyBatis
