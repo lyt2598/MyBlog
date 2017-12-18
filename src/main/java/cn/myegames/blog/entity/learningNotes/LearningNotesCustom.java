@@ -15,8 +15,17 @@ public class LearningNotesCustom extends LearningNotes {
 	private int begin;
 
 	private int uid;
+	private String title;
 
 	private List<LearningNotes> learningNotes;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public int getPage() {
 		return page;
@@ -78,8 +87,8 @@ public class LearningNotesCustom extends LearningNotes {
 	public String toString() {
 		return "LearningNotesCustom [page=" + page + ", limit=" + limit
 				+ ", totalPage=" + totalPage + ", totalCount=" + totalCount
-				+ ", begin=" + begin + ", uid=" + uid + ", learningNotes="
-				+ learningNotes + "]";
+				+ ", begin=" + begin + ", uid=" + uid + ", title=" + title
+				+ ", learningNotes=" + learningNotes + "]";
 	}
 
 }

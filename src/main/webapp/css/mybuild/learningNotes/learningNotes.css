@@ -44,6 +44,36 @@
 	-webkit-animation:rotating 1s infinite linear ;
 }
 
+.searchDiv{
+	display:inline-block;
+	border: 1px solid #999;
+	height: 35px;
+	margin-left:30px;
+	border-radius:5px;
+}
+
+.searchDiv input{
+	border: 0px;
+	height: 100%;
+	margin:0px 10px;
+}
+
+.searchDiv button{
+	padding: 0px;
+	height: 100%;
+	width:30px;
+	border: 0px;
+	border-radius:0px 3px 3px 0px;
+}
+.searchDiv button:hover{
+	color:blue;
+	background:#999;
+}
+
+.table-menu{
+	margin:10px;
+}
+
 @-webkit-keyframes rotating {
     0%{
        -webkit-transform: rotate(0deg);

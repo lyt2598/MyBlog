@@ -1,14 +1,27 @@
-$(document).ready(
-		function(e) {
-			var uid = $("#currentViewsUser", window.parent.document).val();
-			var requestURL = window.parent.locationValue
-					+ "/learningNotes/json/getLearningNotesList.action";
-			getLearningNotesList(uid, requestURL);
-		});
-function getLearningNotesList(uid, requestURL) {
+$(document).ready(function(e) {
+	getLearningNotestList(1, 20);
+});
+
+function search() {
+	var searchData = $("#searchData").val();
+	getLearningNotestList(1, 20, searchData);
+}
+
+function getLearningNotestList(page, limit, title) {
+	if (title == "undefined" || title == null) {
+		title = "";
+	}
+	var uid = $("#currentViewsUser", window.parent.document).val();
+	var requestURL = window.parent.locationValue
+			+ "/learningNotes/json/getLearningNotesList.action";
+	requestLearningNotestList(uid, title, page, limit, requestURL);
+}
+
+function requestLearningNotestList(uid, title, page, limit, requestURL) {
 	$.ajax({
 		url : requestURL,
-		data : "uid=" + uid,
+		data : "uid=" + uid + "&page=" + page + "&limit=" + limit + "&title="
+				+ title,
 		method : "POST",
 		dataType : "json",
 		async : true,
@@ -17,7 +30,8 @@ function getLearningNotesList(uid, requestURL) {
 		},
 		success : function(data) {
 			var obj = eval(data);
-			if (obj.learningNotes == null || obj.learningNotes.length <= 0) {
+			if (obj == null || obj.learningNotes == null
+					|| obj.learningNotes.length <= 0) {
 				// 没有泪飙信息
 				$("#table-body").html(getLoadingHtml("没有查询到文章列表信息"));
 			} else {
@@ -26,7 +40,9 @@ function getLearningNotesList(uid, requestURL) {
 				$("#table-body").html(tableHtml);
 			}
 			// 设置分页页码
-
+			var pagingHtml = getPagingHtml(title, obj.page, obj.totalPage,
+					obj.limit);
+			$("#paging").html(pagingHtml);
 		},
 		error : function(e) {
 			console.log(e);
@@ -37,18 +53,11 @@ function getLearningNotesList(uid, requestURL) {
 	});
 }
 
-function getLoadingHtml(text) {
-	var html = '<th><td colspan="5" class="textAlign table-load"><i class="fa fa-repeat table-load-logo" aria-hidden="true"></i>'
-			+ text + '</td></th>';
-	return html;
-}
 function getTableList(tableList) {
 	var html;
 	var intervalHtml = '<tr><td colspan="5"></td></tr>';
-	var index = 1;
 	for (var i = 0; i < tableList.length; i++) {
 		html += '';
-		console.log(tableList[i].learningNotes_Stick);
 		if (tableList[i].learningNotes_Stick == 1) {
 			html += '<tr><td class="textAlign"><a class="a-i" title="置頂文章"><i class="fa fa-thumb-tack i-pink" aria-hidden="true"></i></a>';
 		} else {
@@ -56,7 +65,8 @@ function getTableList(tableList) {
 			if (i > 1 && tableList[i - 1].learningNotes_Stick == 1) {
 				html += intervalHtml;
 			}
-			html = html + '<tr><td class="textAlign">' + (index++);
+			html = html
+					+ '<tr><td class="textAlign"><i class="fa fa-list-alt" aria-hidden="true"></i>';
 		}
 		html += '</td><td><a href="">' + tableList[i].learningNotes_Title
 				+ '</a>';

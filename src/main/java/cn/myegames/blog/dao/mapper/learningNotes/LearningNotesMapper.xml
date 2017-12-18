@@ -46,7 +46,10 @@
 	<sql id="learningNotes_Where">
 		<where>
 			<if test="uid>0">
-				and learningNotes_PubUser = #{uid}
+				and learningNotes_PubUser = ${uid}
+			</if>
+			<if test="title!=null and title!=''">
+				and learningNotes_Title like '%${title}%'
 			</if>
 		</where>
 	</sql>
@@ -72,8 +75,8 @@
 		FROM
 		<include refid="learningNotes_table" />
 		<include refid="learningNotes_Where" />
-		<include refid="learningNotes_limit" />
 		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
 	</select>
 	<select id="getLearningNotesListCount"
 		parameterType="cn.myegames.blog.entity.learningNotes.LearningNotesCustom"

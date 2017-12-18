@@ -10,6 +10,23 @@ $(document).ready(function(e) {
 		$("#indexMenu li").removeClass("active");
 		$(this).closest(".dropdown").addClass("active");
 	});
+	$("#login-head").mousedown(function(event) {
+		var isMove = true;
+		var abs_x = event.pageX - $('#login').offset().left;
+		var abs_y = event.pageY - $('#login').offset().top;
+		console.log("11");
+		$(document).mousemove(function(event) {
+			if (isMove) {
+				var obj = $('#login');
+				obj.css({
+					'left' : event.pageX - abs_x,
+					'top' : event.pageY - abs_y
+				});
+			}
+		}).mouseup(function() {
+			isMove = false;
+		});
+	});
 });
 
 // document.domain = "xxx.com";//如果跨域就需要设置此项
@@ -26,4 +43,14 @@ function loadFrame() {
 		ifm.setAttribute('height', 'auto');
 		ifm.height = subWeb.body.scrollHeight;
 	}
+}
+
+// 弹出登陆窗口
+function openLogin() {
+	$("#loginBackground").css("display", "block");
+	$("#login").css("display", "block");
+}
+function closeLogin() {
+	$("#loginBackground").css("display", "none");
+	$("#login").css("display", "none");
 }
