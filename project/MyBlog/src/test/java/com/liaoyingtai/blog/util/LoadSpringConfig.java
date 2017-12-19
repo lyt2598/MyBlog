@@ -1,4 +1,4 @@
-package cn.myegames.blog.util;
+package com.liaoyingtai.blog.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

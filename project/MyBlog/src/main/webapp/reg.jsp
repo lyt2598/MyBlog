@@ -1,17 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
-<title>My JSP 'login.jsp' starting page</title>
+<title>My JSP 'reg.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css" />
 <script
@@ -22,42 +20,14 @@
 	src="${pageContext.request.contextPath }/js/mybuild/utils/login.js"></script>
 </head>
 
-<body style="margin: 20px;height: 550px;">
+<body style="margin: 20px;height: 800px;">
 	<div class="page-header">
 		<h1>
-			登陆<small>Login</small>
+			注册<small>成为我们中的一员</small>
 		</h1>
 	</div>
+	<div class="col-sm-2"></div>
 	<div class="col-sm-8">
-		<div id="myCarousel" class="carousel slide">
-			<!-- 轮播（Carousel）指标 -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
-			<!-- 轮播（Carousel）项目 -->
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="${pageContext.request.contextPath }/img/slide1.png"
-						width="100%" height="100%" />
-				</div>
-				<div class="item">
-					<img src="${pageContext.request.contextPath }/img/slide2.png"
-						width="100%" height="100%" />
-				</div>
-				<div class="item">
-					<img src="${pageContext.request.contextPath }/img/slide3.png"
-						width="100%" height="100%" />
-				</div>
-			</div>
-			<!-- 轮播（Carousel）导航 -->
-			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
-			</a> <a class="carousel-control right" href="#myCarousel"
-				data-slide="next">&rsaquo; </a>
-		</div>
-	</div>
-	<div class="col-sm-4">
 		<div class="panel panel-primary">
 			<div class="panel-body">
 				<div id="loginMessage"></div>
@@ -68,9 +38,24 @@
 							onblur="checkUserName(this.value)">
 					</div>
 					<div class="form-group">
+						<label for="name">昵称</label> <input type="password"
+							class="form-control login-name" placeholder="请输入昵称"
+							onblur="checkName(this.value)">
+					</div>
+					<div class="form-group">
 						<label for="name">密码</label> <input type="password"
-							class="form-control login-password" placeholder="请输入用户口令"
+							class="form-control login-password" placeholder="请输入密码"
 							onblur="checkPassWord(this.value)">
+					</div>
+					<div class="form-group">
+						<label for="name">再次输入密码</label> <input type="password"
+							class="form-control login-password1" placeholder="请再次输入密码"
+							onblur="checkPassWord1(this.value)">
+					</div>
+					<div class="form-group">
+						<label for="name">邮箱</label> <input type="password"
+							class="form-control login-email" placeholder="请输入邮箱"
+							onblur="checkEmail(this.value)">
 					</div>
 					<div class="form-group">
 						<label for="name">验证码</label><input type="text"

@@ -135,7 +135,7 @@
 			</ol> -->
 			<!-- ${pageContext.request.contextPath }/index.action -->
 			<div class="my-panel-body">
-				<iframe src="${pageContext.request.contextPath }/login.jsp"
+				<iframe src="${pageContext.request.contextPath }/reg.jsp"
 					onload="loadFrame()" id="indexFrame" name="indexFrame"
 					scrolling="no" height="100"></iframe>
 			</div>

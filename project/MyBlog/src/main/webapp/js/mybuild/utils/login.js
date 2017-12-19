@@ -1,3 +1,4 @@
+//提交登录
 function submitLogin() {
 	var username = $(".login-username").val();
 	if (checkUserName(username) == false) {
@@ -13,7 +14,11 @@ function submitLogin() {
 	}
 	// 通过校验后提交表单
 }
+// 提交注册
+function submitReg() {
 
+}
+// 检查用户账号
 function checkUserName(username) {
 	if (username == null || username == "") {
 		$(".login-username").css("border-color", "red");
@@ -25,41 +30,81 @@ function checkUserName(username) {
 	}
 	return true;
 }
+// 检查用户昵称
+function checkName(name) {
+	if (name == null || name == "") {
+		$(".login-name").css("border-color", "red");
+		setErrorMessage("昵称不能为空");
+		return false;
+	} else {
+		$(".login-name").css("border-color", "green");
+		setDefaultMessagt();
+	}
+	return true;
+}
+// 检查用户密码
 function checkPassWord(password) {
 	if (password == null || password == "") {
 		$(".login-password").css("border-color", "red");
 		setErrorMessage("密码不能为空");
+		return false;
 	} else {
 		$(".login-password").css("border-color", "green");
 		setDefaultMessagt();
 	}
+	return true;
 }
+// 检查用户再次输入密码
+function checkPassWord1(password1) {
+	var password = $(".login-password").val();
+	if (password1 == null || password1 == "") {
+		$(".login-password1").css("border-color", "red");
+		setErrorMessage("请再次输入密码");
+		return false;
+	} else if (password != password1) {
+		$(".login-password1").css("border-color", "red");
+		setErrorMessage("两次密码输入不一致");
+		return false;
+	} else {
+		$(".login-password1").css("border-color", "green");
+		setDefaultMessagt();
+	}
+	return true;
+}
+// 检查邮箱
+function checkEmail(email) {
+	if (email == null || email == "") {
+		$(".login-email").css("border-color", "red");
+		setErrorMessage("邮箱不能为空");
+		return false;
+	} else {
+		$(".login-email").css("border-color", "green");
+		setDefaultMessagt();
+	}
+	return true;
+}
+// 检查验证码
 function checkCheckCode(checkcode) {
 	if (checkcode == null || checkcode == "") {
 		$(".login-checkcode").css("border-color", "red");
 		setErrorMessage("验证码不能为空");
+		return false;
 	} else {
 		$(".login-checkcode").css("border-color", "green");
 		setDefaultMessagt();
 	}
+	return true;
 }
+// 设置错误提示警告
 function setErrorMessage(text) {
 	var loginMessage = $("#loginMessage");
 	var errorMessage = "<strong>错误！</strong>";
 	loginMessage.attr("class", "alert alert-danger");
 	loginMessage.html(errorMessage + text);
-	try {
-		window.parent.loadFrame();
-	} catch (e) {
-	}
 }
-
+// 设置默认警告(不显示警告)
 function setDefaultMessagt() {
 	var loginMessage = $("#loginMessage");
 	loginMessage.attr("class", "");
 	loginMessage.html("");
-	try {
-		window.parent.loadFrame();
-	} catch (e) {
-	}
 }
