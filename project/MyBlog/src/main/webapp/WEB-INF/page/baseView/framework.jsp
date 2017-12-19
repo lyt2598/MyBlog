@@ -25,8 +25,7 @@
 <script
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/mybuild/index.js"></script>
-<script
-	src="${pageContext.request.contextPath }/js/mybuild/utils/loginBox.js"></script>
+
 <script>
 	var locationValue = "${pageContext.request.contextPath}"
 </script>
@@ -102,10 +101,12 @@
 									class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
 						<li class="divider"></li>
 					</ul></li>
-				<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>
-						注册</a></li>
-				<li><a href="javascript:void(0)" onclick="openLogin()"><i
-						class="fa fa-sign-in" aria-hidden="true"></i> 登录</a></li>
+				<li><a
+					href="${pageContext.request.contextPath }/login.jsp" target="indexFrame"><i
+						class="fa fa-plus" aria-hidden="true"></i> 注册</a></li>
+				<li><a href="javascript:void(0)" data-toggle="modal"
+					data-target="#loginModal"><i class="fa fa-sign-in"
+						aria-hidden="true"></i> 登录</a></li>
 			</ul>
 		</div>
 	</div>
@@ -134,7 +135,7 @@
 			</ol> -->
 			<!-- ${pageContext.request.contextPath }/index.action -->
 			<div class="my-panel-body">
-				<iframe src="${pageContext.request.contextPath }/MyJsp.jsp"
+				<iframe src="${pageContext.request.contextPath }/login.jsp"
 					onload="loadFrame()" id="indexFrame" name="indexFrame"
 					scrolling="no" height="100"></iframe>
 			</div>
@@ -147,5 +148,6 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="loginModal.jsp"%>
 </body>
 </html>

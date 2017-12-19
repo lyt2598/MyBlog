@@ -26,6 +26,7 @@
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/html/" mapping="/html/**" />
 	<!-- 配置component所在的包，自动加载需要管理的Bean -->
 	<context:component-scan base-package="cn.myegames.blog.service" />
 	<context:component-scan base-package="cn.myegames.blog.controller" />
