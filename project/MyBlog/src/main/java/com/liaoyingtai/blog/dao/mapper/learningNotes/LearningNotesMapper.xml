@@ -49,7 +49,8 @@
 				and learningNotes_PubUser = #{uid}
 			</if>
 			<if test="title!=null and title!=''">
-				and learningNotes_Title like concat('%',#{title},'%')
+				<!-- 使用concat防止sql注入 -->
+				and learningNotes_Title like concat('%',${title},'%')
 			</if>
 		</where>
 	</sql>
