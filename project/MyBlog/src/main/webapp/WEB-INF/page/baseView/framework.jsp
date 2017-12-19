@@ -17,12 +17,16 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/index.css">
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/utils/loginBox.css">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
 <script
 	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/mybuild/index.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/utils/loginBox.js"></script>
 <script>
 	var locationValue = "${pageContext.request.contextPath}"
 </script>
@@ -31,47 +35,6 @@
 
 <body
 	style="background:#f5e5c1 url(${pageContext.request.contextPath }/img/bg.jpg) 50% top scroll no-repeat;">
-	<div id="loginBackground" class="login-background"></div>
-	<div id="login">
-		<div id="login-head">
-			<a id="login-close" href="javascript:void(0)" onclick="closeLogin()"><i
-				class="fa fa-times" aria-hidden="true"></i> </a><span>Nerver Give
-				Up</span>
-		</div>
-		<div id="login-body">
-			<div id="login-body-content" class="form-horizontal">
-				<div class="form-group"></div>
-				<div class="form-group">
-					<label for="username" class="col-sm-3 control-label">用户名：</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" id="username"
-							placeholder="请输入用户名">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="password" class="col-sm-3 control-label">密 码：</label>
-					<div class="col-sm-9">
-						<input type="password" class="form-control" id="password"
-							placeholder="请输入密码">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">验证码：</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" id="firstname"
-							placeholder="请输入验证码">
-					</div>
-				</div>
-				<div class="form-group">
-					<img alt="" src="" class="col-sm-offset-3 col-sm-9" height="80px"/>
-				</div>
-				<div class="form-group">
-					<button type="submit"
-						class="btn btn-primary col-sm-offset-2 col-sm-9">登录</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">

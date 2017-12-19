@@ -10,6 +10,7 @@ $(document).ready(function(e) {
 		$("#indexMenu li").removeClass("active");
 		$(this).closest(".dropdown").addClass("active");
 	});
+	getLoginBoxHtml("body");
 	$("#login-head").mousedown(function(event) {
 		var isMove = true;
 		var abs_x = event.pageX - $('#login').offset().left;
@@ -43,14 +44,4 @@ function loadFrame() {
 		ifm.setAttribute('height', 'auto');
 		ifm.height = subWeb.body.scrollHeight;
 	}
-}
-
-// 弹出登陆窗口
-function openLogin() {
-	$("#loginBackground").css("display", "block");
-	$("#login").css("display", "block");
-}
-function closeLogin() {
-	$("#loginBackground").css("display", "none");
-	$("#login").css("display", "none");
 }
