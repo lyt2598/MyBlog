@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50635
 File Encoding         : 65001
 
-Date: 2017-12-19 09:39:47
+Date: 2017-12-20 14:54:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -213,15 +213,18 @@ CREATE TABLE `myblog_userinfo` (
   `userInfo_HeadImg` varchar(100) NOT NULL,
   `userInfo_GitHub` varchar(1000) DEFAULT NULL,
   `userInfo_RegTime` datetime NOT NULL,
-  `userInfo_Birthday` datetime NOT NULL,
+  `userInfo_Birthday` datetime DEFAULT NULL,
   `userInfo_Status` int(11) NOT NULL,
   `userInfo_Jurisdiction_id` int(11) NOT NULL,
   PRIMARY KEY (`myBlog_UserInfo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of myblog_userinfo
 -- ----------------------------
+INSERT INTO `myblog_userinfo` VALUES ('11', '123', '32a9a01a382aef7f8a486e8aca48d601', '123', null, null, '123', null, 'default.jpg', null, '2017-12-20 12:09:05', null, '0', '1');
+INSERT INTO `myblog_userinfo` VALUES ('12', '123123', '9d9ce4018789800cb7b9d51e3d3a005f', '123123', null, null, '123', null, 'default.jpg', null, '2017-12-20 12:09:50', null, '0', '1');
+INSERT INTO `myblog_userinfo` VALUES ('13', '123123', '9d9ce4018789800cb7b9d51e3d3a005f', '123123', null, null, '123123', null, 'default.jpg', null, '2017-12-20 12:11:15', null, '0', '1');
 
 -- ----------------------------
 -- Table structure for myblog_user_jurisdiction

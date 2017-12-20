@@ -2,7 +2,7 @@ package com.liaoyingtai.blog.entity.learningNotes;
 
 import java.util.Date;
 
-import com.liaoyingtai.blog.entity.user.UserInfo;
+import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 
 public class LearningNotes {
 

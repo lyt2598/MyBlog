@@ -20,10 +20,10 @@
 		<mybatis-version>3.4.5</mybatis-version>
 		<jackson-version>2.8.5</jackson-version>
 		<mybatis-spring-version>1.3.1</mybatis-spring-version>
+		<hvalidator-version>5.4.1.Final</hvalidator-version>
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -143,7 +143,13 @@
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
-			<version>1.2.2</version>
+			<version>${shiro-version}</version>
+		</dependency>
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hvalidator-version}</version>
 		</dependency>
 	</dependencies>
 

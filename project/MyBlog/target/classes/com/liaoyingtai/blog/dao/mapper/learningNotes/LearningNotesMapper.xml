@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesMapper">
+<mapper
+	namespace="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesMapper">
 
 
 	<resultMap type="com.liaoyingtai.blog.entity.learningNotes.LearningNotes"
-	id="learningNotesReultMap">
+		id="learningNotesReultMap">
 		<result column="learningNotes_Title" property="learningNotes_Title" />
 		<result column="learningNotes_Context" property="learningNotes_Context" />
 		<result column="learningNotes_PubDate" property="learningNotes_PubDate" />
@@ -22,7 +23,7 @@
 		<result column="learningNotes_CommentCount" property="learningNotes_ViewCount" />
 
 		<association property="userInfo"
-			javaType="com.liaoyingtai.blog.entity.user.UserInfo">
+			javaType="com.liaoyingtai.blog.entity.userInfo.UserInfo">
 			<id column="learningNotes_PubUser" property="myBlog_UserInfo_id" />
 		</association>
 		<association property="learningNotesType"
@@ -46,10 +47,15 @@
 	<sql id="learningNotes_Where">
 		<where>
 			<if test="uid>0">
-				and learningNotes_PubUser = ${uid}
+				and learningNotes_PubUser = #{uid}
 			</if>
 			<if test="title!=null and title!=''">
-				and learningNotes_Title like '%${title}%'
+				<!-- 使用concat防止sql注入 -->
+				and learningNotes_Title like concat('%',#{title},'%')
+			</if>
+			<!-- 0表示只查询公开的文章，任意非0的值表示查询所有 -->
+			<if test="learningNotes_Private==0">
+				and learningNotes_Private=#{learningNotes_Private}
 			</if>
 		</where>
 	</sql>

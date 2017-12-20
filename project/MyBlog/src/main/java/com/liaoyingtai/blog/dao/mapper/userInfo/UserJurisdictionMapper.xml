@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.liaoyingtai.blog.dao.mapper.userInfo.UserJurisdictionMapper">
+
+	<sql id="userJurisdiction_Field">
+		myBlog_User_Jurisdiction_id,user_Jurisdiction_Name,user_Jurisdiction_AdminPage,user_Jurisdiction_LearningNotes
+	</sql>
+
+	<sql id="userJurisdiction_From">
+		myblog_user_jurisdiction
+	</sql>
+
+	<sql id="userJurisdiction_Where">
+
+	</sql>
+
+	<select id="getUserJurisdictionById" parameterType="int"
+		resultType="com.liaoyingtai.blog.entity.userInfo.UserJurisdiction">
+		select
+		<include refid="userJurisdiction_Field" />
+		from
+		<include refid="userJurisdiction_From" />
+		where myBlog_User_Jurisdiction_id=#{values}
+	</select>
+</mapper>
