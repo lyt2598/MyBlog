@@ -35,6 +35,7 @@
 - MySQL：5.1.40
 - MyBatis-Spring：1.3.1
 - JackSon：2.8.5
+- Hibernater-Validator:5.4.1.Final
 
 # 贡献者
 
