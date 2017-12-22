@@ -23,6 +23,14 @@
 
 - Maven：3.3.9
 
+- 开发工具：
+
+- Eclipse：编码使用
+- MySQL:数据库
+- Git：版本控制
+- Tomcat:应用服务器
+- Navicat for MySQL:数据库客户端
+
 # 依赖包版本
 
 - Spring：4.3.12.RELEASE
