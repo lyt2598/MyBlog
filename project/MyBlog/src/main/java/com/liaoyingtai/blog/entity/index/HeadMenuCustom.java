@@ -14,9 +14,4 @@ public class HeadMenuCustom extends HeadMenu {
 		this.blogHeadMenus = blogHeadMenus;
 	}
 
-	@Override
-	public String toString() {
-		return "MyBlogHeadMenuCustom [blogHeadMenus=" + blogHeadMenus + "]";
-	}
-
 }

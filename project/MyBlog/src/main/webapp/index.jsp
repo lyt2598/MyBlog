@@ -3,7 +3,7 @@
 <html>
 <head>
 <script type="text/javascript">
-	window.location.href = '${pageContext.request.contextPath}/index/1';
+	window.location.href = '${pageContext.request.contextPath}/index/54b70f611f46181e1bfe7e3714bb2eeb';
 </script>
 </head>
 </html>

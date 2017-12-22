@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>My JSP 'aboutMe.jsp' starting page</title>
+<title>个人介绍</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -13,28 +13,37 @@
 
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/aboutMe.css" />
-
+	href="${pageContext.request.contextPath }/css/mybuild/aboutMe/aboutMe.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css">
+<script
+	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/aboutMe/aboutMe.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/base.css" />
 </head>
 
 <body style="margin:0px; padding:0px;">
-	<div class="banner"></div>
-	<div class="about">
-		<h2>个人简介</h2>
-		<ul>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-			<p>这里填写正文内容</p>
-		</ul>
-		<h2>联系方式</h2>
-		<p>域 名：www.yangqq.com 创建于2011年01月12日</p>
+	<div class="about_me_body">
+		<div class="about_me_head">
+			<div class="about_me_head_img" align="center">
+				<img alt="头像" id="headImg" />
+			</div>
+			<div class="about_me_name">
+				<p id="name"></p>
+				<p>
+					<i class="fa fa-envelope" aria-hidden="true"></i> Email：<span
+						id="email"></span>
+				</p>
+			</div>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="about_me_context col-sm-8"></div>
 	</div>
 </body>
 </html>

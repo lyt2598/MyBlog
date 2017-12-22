@@ -1,15 +1,19 @@
 package com.liaoyingtai.blog.service.userinfo.impl;
 
 import java.util.Date;
+import java.util.UUID;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.liaoyingtai.blog.controller.exception.BaseExceptionCustom;
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
 import com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.entity.userInfo.UserJurisdiction;
+import com.liaoyingtai.blog.service.about.AboutMeService;
+import com.liaoyingtai.blog.service.index.HeadMenuService;
 import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
 @Service("userInfoService")
@@ -17,6 +21,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired
 	private UserInfoMapper userInfoMapper;
+	@Autowired
+	private HeadMenuService headMenuService;
+	@Autowired
+	private AboutMeService aboutMeService;
 
 	public void insertUserInfo(UserInfo userInfo) throws Exception {
 		if (userInfo.getUserInfo_Account() == null
@@ -48,7 +56,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserJurisdiction userJurisdiction = new UserJurisdiction();
 		userJurisdiction.setMyBlog_User_Jurisdiction_id(1);
 		userInfo.setUserJurisdiction(userJurisdiction);
+		String userId = new Md5Hash(UUID.randomUUID().toString(), "lyt2598")
+				.toString();
+		userInfo.setMyBlog_UserInfo_id(userId);
+		// 添加用户信息
 		userInfoMapper.insertUserInfo(userInfo);
+		// 添加用户菜单信息
+		headMenuService.insertIndexHeadMenu(null, userId);
+		// 添加用户个人介绍信息
+		aboutMeService.insertAboutMeInfo(null, userId);
 	}
 
 	public boolean getCheckAccountAlreadyExist(String account) throws Exception {
@@ -59,5 +75,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 			return true;
 		}
 		return false;
+	}
+
+	public UserInfo getUserInfoById(String userId) throws Exception {
+		if (userId == null || "".equals(userId)) {
+			throw new BaseExceptionCustom("参数错误：查询用户信息时用户ID不能为空");
+		}
+		UserInfo userInfo = userInfoMapper.getUserInfoById(userId);
+		return userInfo;
 	}
 }

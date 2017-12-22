@@ -10,7 +10,6 @@ public class LearningNotes {
 	private String learningNotes_Title;
 	private String learningNotes_Context;
 	private Date learningNotes_PubDate;
-	private UserInfo userInfo;
 	private int learningNotes_Stick;
 	private int learningNotes_Recommend;
 	private int learningNotes_Private;
@@ -20,6 +19,9 @@ public class LearningNotes {
 	private int learningNotes_ViewCount;
 	private int learningNotes_RelayCount;
 	private int learningNotes_CommentCount;
+	private String learningNotes_PubUser;
+	private int learningNotes_Type_id;
+	private UserInfo userInfo;
 	private LearningNotesType learningNotesType;
 
 	public LearningNotes() {
@@ -28,18 +30,18 @@ public class LearningNotes {
 
 	public LearningNotes(int myBlog_LearningNotes_id,
 			String learningNotes_Title, String learningNotes_Context,
-			Date learningNotes_PubDate, UserInfo userInfo,
-			int learningNotes_Stick, int learningNotes_Recommend,
-			int learningNotes_Private, int learningNotes_Comment,
-			int learningNotes_Relay, Date learningNotes_ModDate,
-			int learningNotes_ViewCount, int learningNotes_RelayCount,
-			int learningNotes_CommentCount, LearningNotesType learningNotesType) {
+			Date learningNotes_PubDate, int learningNotes_Stick,
+			int learningNotes_Recommend, int learningNotes_Private,
+			int learningNotes_Comment, int learningNotes_Relay,
+			Date learningNotes_ModDate, int learningNotes_ViewCount,
+			int learningNotes_RelayCount, int learningNotes_CommentCount,
+			String learningNotes_PubUser, int learningNotes_Type_id,
+			UserInfo userInfo, LearningNotesType learningNotesType) {
 		super();
 		this.myBlog_LearningNotes_id = myBlog_LearningNotes_id;
 		this.learningNotes_Title = learningNotes_Title;
 		this.learningNotes_Context = learningNotes_Context;
 		this.learningNotes_PubDate = learningNotes_PubDate;
-		this.userInfo = userInfo;
 		this.learningNotes_Stick = learningNotes_Stick;
 		this.learningNotes_Recommend = learningNotes_Recommend;
 		this.learningNotes_Private = learningNotes_Private;
@@ -49,6 +51,9 @@ public class LearningNotes {
 		this.learningNotes_ViewCount = learningNotes_ViewCount;
 		this.learningNotes_RelayCount = learningNotes_RelayCount;
 		this.learningNotes_CommentCount = learningNotes_CommentCount;
+		this.learningNotes_PubUser = learningNotes_PubUser;
+		this.learningNotes_Type_id = learningNotes_Type_id;
+		this.userInfo = userInfo;
 		this.learningNotesType = learningNotesType;
 	}
 
@@ -100,12 +105,20 @@ public class LearningNotes {
 		this.learningNotes_PubDate = learningNotes_PubDate;
 	}
 
-	public UserInfo getUserInfo() {
-		return userInfo;
+	public String getLearningNotes_PubUser() {
+		return learningNotes_PubUser;
 	}
 
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
+	public void setLearningNotes_PubUser(String learningNotes_PubUser) {
+		this.learningNotes_PubUser = learningNotes_PubUser;
+	}
+
+	public int getLearningNotes_Type_id() {
+		return learningNotes_Type_id;
+	}
+
+	public void setLearningNotes_Type_id(int learningNotes_Type_id) {
+		this.learningNotes_Type_id = learningNotes_Type_id;
 	}
 
 	public int getLearningNotes_Stick() {
@@ -164,12 +177,41 @@ public class LearningNotes {
 		this.learningNotes_ViewCount = learningNotes_ViewCount;
 	}
 
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
 	public LearningNotesType getLearningNotesType() {
 		return learningNotesType;
 	}
 
 	public void setLearningNotesType(LearningNotesType learningNotesType) {
 		this.learningNotesType = learningNotesType;
+	}
+
+	@Override
+	public String toString() {
+		return "LearningNotes [myBlog_LearningNotes_id="
+				+ myBlog_LearningNotes_id + ", learningNotes_Title="
+				+ learningNotes_Title + ", learningNotes_Context="
+				+ learningNotes_Context + ", learningNotes_PubDate="
+				+ learningNotes_PubDate + ", learningNotes_Stick="
+				+ learningNotes_Stick + ", learningNotes_Recommend="
+				+ learningNotes_Recommend + ", learningNotes_Private="
+				+ learningNotes_Private + ", learningNotes_Comment="
+				+ learningNotes_Comment + ", learningNotes_Relay="
+				+ learningNotes_Relay + ", learningNotes_ModDate="
+				+ learningNotes_ModDate + ", learningNotes_ViewCount="
+				+ learningNotes_ViewCount + ", learningNotes_RelayCount="
+				+ learningNotes_RelayCount + ", learningNotes_CommentCount="
+				+ learningNotes_CommentCount + ", learningNotes_PubUser="
+				+ learningNotes_PubUser + ", learningNotes_Type_id="
+				+ learningNotes_Type_id + ", userInfo=" + userInfo
+				+ ", learningNotesType=" + learningNotesType + "]";
 	}
 
 }

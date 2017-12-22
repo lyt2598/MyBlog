@@ -10,22 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.liaoyingtai.blog.entity.index.HeadMenuCustom;
-import com.liaoyingtai.blog.service.index.IndexService;
+import com.liaoyingtai.blog.entity.userInfo.UserInfo;
+import com.liaoyingtai.blog.service.index.HeadMenuService;
+import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
 @Controller
 public class IndexController {
 
 	@Autowired
-	private IndexService indexService;
+	private HeadMenuService indexService;
+	@Autowired
+	private UserInfoService userInfoService;
 
 	@RequestMapping(value = "index/{userId}", method = { RequestMethod.GET })
-	public String index(Model model, @PathVariable("userId") int uid)
+	public String index(Model model, @PathVariable("userId") String uid)
 			throws Exception {
-		HeadMenuCustom myBlogHeadMenuCustom = new HeadMenuCustom();
-		myBlogHeadMenuCustom.setHeadMenu_UserId(uid);
+		HeadMenuCustom headMenuCustom = new HeadMenuCustom();
+		headMenuCustom.setHeadMenu_UserId(uid);
 		List<HeadMenuCustom> myBlogHeadMenu = indexService
-				.getIndexHeadMenu(myBlogHeadMenuCustom);
+				.getIndexHeadMenu(headMenuCustom);
+		UserInfo userInfo = userInfoService.getUserInfoById(uid);
 		model.addAttribute("index_head_menu", myBlogHeadMenu);
+		model.addAttribute("userInfo", userInfo);
 		return "baseView/framework";
 	}
 }

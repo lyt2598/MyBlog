@@ -3,7 +3,11 @@ package com.liaoyingtai.blog.controller.userInfo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,16 +31,20 @@ public class UserInfoController {
 	private UserInfoService userInfoService;
 
 	@RequestMapping(value = "/regUser", method = { RequestMethod.GET })
-	public String regUserPage() throws Exception {
+	public String regUserPage(HttpSession session) throws Exception {
+		String token = new Md5Hash(UUID.randomUUID().toString(), "token")
+				.toString();
+		session.setAttribute("regToken", token);
 		return "baseView/reg";
 	}
 
+	//注册用户信息
 	@RequestMapping(value = "/regUser", method = { RequestMethod.POST })
 	public String regUser(
 			Model model,
 			@Validated(value = { RegUserInfoValidatorGroup.class }) @ModelAttribute UserInfoCustom userInfo,
 			BindingResult result) throws Exception {
-		if (result.hasErrors()) {
+		if (result.hasErrors()) {//判断校验是否有错误信息
 			List<ObjectError> oList = result.getAllErrors();
 			model.addAttribute("userInfo", userInfo);
 			model.addAttribute("errorList", oList);
@@ -49,6 +57,7 @@ public class UserInfoController {
 		return "baseView/login";
 	}
 
+	// 验证用户名是否已经被注册
 	@RequestMapping(value = "/checkAccountAlreadyExist", method = { RequestMethod.POST })
 	public @ResponseBody
 	Map<String, Object> checkAccountAlreadyExist(String account)
@@ -63,5 +72,18 @@ public class UserInfoController {
 			resultMap.put("result", e.getErrorMsg());
 		}
 		return resultMap;
+	}
+
+	// 进入登录页面
+	@RequestMapping(value = "/login", method = { RequestMethod.GET })
+	public String login() throws Exception {
+		return "baseView/login";
+	}
+
+	// 注销用户 清除session中currentUser
+	@RequestMapping(value = "/loginOut", method = { RequestMethod.GET })
+	public String loginOut(HttpSession session) throws Exception {
+		session.removeAttribute("currentUser");
+		return "login";
 	}
 }

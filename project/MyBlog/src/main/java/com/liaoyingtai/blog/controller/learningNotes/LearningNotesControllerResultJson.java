@@ -22,10 +22,12 @@ public class LearningNotesControllerResultJson {
 	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.POST })
 	public @ResponseBody
 	LearningNotesCustom getLearningNotesList(HttpServletRequest request,
-			LearningNotesCustom learningNotesCustom) throws Exception {
+			String uid, LearningNotesCustom learningNotesCustom)
+			throws Exception {
 		// 读取当前登录的用户
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"currentUser");
+		learningNotesCustom.setLearningNotes_PubUser(uid);
 		learningNotesCustom = learningNotesService.getLearningNotesList(
 				userInfo, learningNotesCustom);
 		return learningNotesCustom;

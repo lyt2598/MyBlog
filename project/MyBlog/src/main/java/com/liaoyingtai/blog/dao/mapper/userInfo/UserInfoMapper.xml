@@ -34,11 +34,11 @@
 		myblog_userinfo
 	</sql>
 	<sql id="userInfo_insert_Field">
-		userInfo_Account,userInfo_Password,userInfo_Name,userInfo_Email,
+		myBlog_UserInfo_id,userInfo_Account,userInfo_Password,userInfo_Name,userInfo_Email,
 		userInfo_HeadImg,userInfo_RegTime,userInfo_Status,userInfo_Jurisdiction_id
 	</sql>
 	<sql id="userInfo_insert_value">
-		#{userInfo_Account},#{userInfo_Password},#{userInfo_Name},#{userInfo_Email},
+		#{myBlog_UserInfo_id},#{userInfo_Account},#{userInfo_Password},#{userInfo_Name},#{userInfo_Email},
 		#{userInfo_HeadImg},#{userInfo_RegTime},#{userInfo_Status},#{userJurisdiction.myBlog_User_Jurisdiction_id}
 	</sql>
 
@@ -61,5 +61,11 @@
 		<include refid="userInfo_From" />
 		where userInfo_Account=#{values}
 	</select>
-
+	<select id="getUserInfoById" parameterType="String" resultMap="userInfoResultMap">
+		select
+		<include refid="userInfo_Field" />
+		from
+		<include refid="userInfo_From" />
+		where myBlog_UserInfo_id=#{values}
+	</select>
 </mapper>

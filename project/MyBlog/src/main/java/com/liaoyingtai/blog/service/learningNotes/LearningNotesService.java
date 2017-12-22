@@ -8,8 +8,10 @@ public interface LearningNotesService {
 	/**
 	 * 查询学习笔记文章列表
 	 * 
-	 * @param currentUser 当前登录用户信息
-	 * @param selectParam 查询参数
+	 * @param currentUser
+	 *            当前登录用户信息
+	 * @param selectParam
+	 *            查询参数
 	 * @return
 	 * @throws Exception
 	 */

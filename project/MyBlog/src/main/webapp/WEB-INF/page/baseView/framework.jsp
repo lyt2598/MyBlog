@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>LYT - 个人主页 - Nerver Give Up</title>
+<title>${userInfo.userInfo_Name }&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -37,7 +37,7 @@
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<span class="navbar-brand">LYT - 个人主页</span>
+			<span class="navbar-brand">NGU&nbsp;-&nbsp;个人主页</span>
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
@@ -54,7 +54,7 @@
 						<c:when
 							test="${index_menu.headMenu_URL==null || index_menu.headMenu_URL==''}">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" target="indexFrame">${index_menu.headMenu_Name}<b
+								data-toggle="dropdown">${index_menu.headMenu_Name}<b
 									class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<c:forEach var="index_cMenu"
@@ -62,14 +62,14 @@
 										<li class="divider"></li>
 										<li><a
 											href="${pageContext.request.contextPath}/${index_cMenu.headMenu_URL}"
-											target="indexFrame">${index_cMenu.headMenu_Name}</a></li>
+											${index_menu.hearMenu_IFrame==0?'':'target="indexFrame"' }>${index_cMenu.headMenu_Name}</a></li>
 									</c:forEach>
 								</ul></li>
 						</c:when>
 						<c:otherwise>
 							<li id="index_menu_${index_menu.headMenu_URL}"><a
 								href="${pageContext.request.contextPath}/${index_menu.headMenu_URL}"
-								target="indexFrame">${index_menu.headMenu_Name}</a></li>
+								${index_menu.hearMenu_IFrame==0?'':'target="indexFrame"' }>${index_menu.headMenu_Name}</a></li>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
@@ -98,11 +98,14 @@
 						<li class="divider"></li>
 						<li><a href="${pageContext.request.contextPath}/#"
 							target="indexFrame"><span class="dropdown-menu-left-logo"><i
+									class="fa fa-plus-square" aria-hidden="true"></i> </span>进入后台</a></li>
+						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/loginOut"
+							target="indexFrame"><span class="dropdown-menu-left-logo"><i
 									class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
 						<li class="divider"></li>
 					</ul></li>
-				<li><a
-					href="${pageContext.request.contextPath }/regUser.action"
+				<li><a href="${pageContext.request.contextPath }/regUser"
 					target="indexFrame"><i class="fa fa-plus" aria-hidden="true"></i>
 						注册</a></li>
 				<li><a href="javascript:void(0)" data-toggle="modal"
@@ -115,14 +118,14 @@
 	<div class="container">
 		<div class="logo-div">
 			<h1>
-				LYT - 个人主页 - Nerver Give Up <br>
-				<div class="subText">
-					<a href=''><span>http://blog.myegames.cn</span></a>&nbsp;<a
+				${userInfo.userInfo_Name } - 个人主页 - Nerver Give Up <br>
+				<!-- <div class="subText">
+					<a href=''><span>http://www.liaoyingtai.com</span></a>&nbsp;<a
 						href="https://github.com/lyt2598/MyBlog" target="_blank"><i
 						class="fa fa-github" aria-hidden="true"></i></a> <a
 						href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
 						target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
-				</div>
+				</div> -->
 			</h1>
 		</div>
 		<div class="panel panel-primary">
@@ -136,7 +139,7 @@
 			</ol> -->
 			<!-- ${pageContext.request.contextPath }/index.action -->
 			<div class="my-panel-body">
-				<iframe src="${pageContext.request.contextPath }/reg.jsp"
+				<iframe src="${pageContext.request.contextPath }/login"
 					onload="loadFrame()" id="indexFrame" name="indexFrame"
 					scrolling="no" height="100"></iframe>
 			</div>

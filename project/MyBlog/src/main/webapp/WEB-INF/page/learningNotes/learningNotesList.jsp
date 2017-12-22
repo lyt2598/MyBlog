@@ -23,6 +23,8 @@
 <!-- 页面级样式 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotes.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/base.css" />
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
 <script

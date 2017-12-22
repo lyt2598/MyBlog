@@ -30,13 +30,15 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		if (limit <= 0) {
 			limit = 10;
 		}
-		if (selectParam.getUid() <= 0) {
-			throw new BaseExceptionCustom("用户ID输入有误");
+		if (selectParam.getLearningNotes_PubUser() == null
+				|| "".equals(selectParam.getLearningNotes_PubUser())) {
+			throw new BaseExceptionCustom("参数错误：查询文章时用户ID不能为空");
 		}
 		selectParam.setLimit(limit);
 		selectParam.setPage(page);
 		if (currentUser == null
-				|| currentUser.getMyBlog_UserInfo_id() != selectParam.getUid()) {
+				|| !currentUser.getMyBlog_UserInfo_id().equals(
+						selectParam.getLearningNotes_PubUser())) {
 			selectParam.setLearningNotes_Private(0);
 		} else {
 			// 任意设置一个非0的值即可查询所有文章

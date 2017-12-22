@@ -2,10 +2,6 @@ package com.liaoyingtai.blog.entity.learningNotes;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-@JsonInclude(Include.NON_NULL)
 public class LearningNotesCustom extends LearningNotes {
 
 	private int page;
@@ -13,10 +9,7 @@ public class LearningNotesCustom extends LearningNotes {
 	private int totalPage;
 	private int totalCount;
 	private int begin;
-
-	private int uid;
 	private String title;
-
 	private List<LearningNotes> learningNotes;
 
 	public String getTitle() {
@@ -25,6 +18,14 @@ public class LearningNotesCustom extends LearningNotes {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public List<LearningNotes> getLearningNotes() {
+		return learningNotes;
+	}
+
+	public void setLearningNotes(List<LearningNotes> learningNotes) {
+		this.learningNotes = learningNotes;
 	}
 
 	public int getPage() {
@@ -59,36 +60,12 @@ public class LearningNotesCustom extends LearningNotes {
 		this.totalCount = totalCount;
 	}
 
-	public List<LearningNotes> getLearningNotes() {
-		return learningNotes;
-	}
-
-	public void setLearningNotes(List<LearningNotes> learningNotes) {
-		this.learningNotes = learningNotes;
-	}
-
-	public int getUid() {
-		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
-
 	public int getBegin() {
 		return begin;
 	}
 
 	public void setBegin(int begin) {
 		this.begin = begin;
-	}
-
-	@Override
-	public String toString() {
-		return "LearningNotesCustom [page=" + page + ", limit=" + limit
-				+ ", totalPage=" + totalPage + ", totalCount=" + totalCount
-				+ ", begin=" + begin + ", uid=" + uid + ", title=" + title
-				+ ", learningNotes=" + learningNotes + "]";
 	}
 
 }

@@ -47,10 +47,10 @@ function submitReg() {
 }
 // 检查用户账号
 function checkUserName(username) {
-	var username_reg = /^[0-9a-zA-z_]{6,12}$/
+	var username_regex = /^[0-9a-zA-z_]{6,12}$/
 	if (username == null || username == "") {
 		setErrorMessage("用户名不能为空");
-	} else if (!username_reg.test(username)) {
+	} else if (!username_regex.test(username)) {
 		setErrorMessage("用户名格式不正确,用户名长度必须为6-12位");
 	} else {
 		setDefaultMessagt();
@@ -60,11 +60,10 @@ function checkUserName(username) {
 }
 // 检查用户昵称
 function checkName(name) {
-	var name_reg1 = /^[0-9a-zA-z_]{6,12}$/;
-	var name_reg2 = /^[\u4e00-\u9fa5]{3,6}$/
+	var name_regex = /^([0-9a-zA-z_]{6,12})|([\u4e00-\u9fa5]{3,6})$/;
 	if (name == null || name == "") {
 		setErrorMessage("昵称不能为空");
-	} else if (!name_reg1.test(name) && !name_reg2.test(name)) {
+	} else if (!name_regex.test(name)) {
 		setErrorMessage("昵称格式不正确，昵称为3-6个汉字或6-12字母");
 	} else {
 		setDefaultMessagt();
@@ -74,10 +73,10 @@ function checkName(name) {
 }
 // 检查用户密码
 function checkPassWord(password) {
-	var password_reg = /^[0-9a-zA-z_\.\+\-_]{6,12}$/
+	var password_regex = /^[0-9a-zA-z_\.\+\-_]{6,12}$/
 	if (password == null || password == "") {
 		setErrorMessage("密码不能为空");
-	} else if (!password_reg.test(password)) {
+	} else if (!password_regex.test(password)) {
 		setErrorMessage("密码格式不正确，密码长度为6-18位，可包含.+-_");
 	} else {
 		setDefaultMessagt();
@@ -102,10 +101,10 @@ function checkPassWord1(password1) {
 // 检查邮箱
 function checkEmail(email) {
 	console.log("校验邮箱");
-	var email_reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+	var email_regex = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
 	if (email == null || email == "") {
 		setErrorMessage("邮箱不能为空");
-	} else if (!email_reg.test(email)) {
+	} else if (!email_regex.test(email)) {
 		setErrorMessage("邮箱格式不正确");
 	} else {
 		setDefaultMessagt();
@@ -116,10 +115,10 @@ function checkEmail(email) {
 // 检查验证码
 function checkCheckCode(checkcode) {
 	console.log("校验验证码");
-	var checkCode_reg = /^[0-9a-zA-Z]{4}$/
+	var checkCode_regex = /^[0-9a-zA-Z]{4}$/
 	if (checkcode == null || checkcode == "") {
 		setErrorMessage("验证码不能为空");
-	} else if (!checkCode_reg.test(checkcode)) {
+	} else if (!checkCode_regex.test(checkcode)) {
 		setErrorMessage("验证码格式不正确,验证码位4位字符");
 	} else {
 		setDefaultMessagt();

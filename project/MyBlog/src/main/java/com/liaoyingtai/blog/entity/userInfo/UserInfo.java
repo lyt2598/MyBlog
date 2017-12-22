@@ -3,6 +3,7 @@ package com.liaoyingtai.blog.entity.userInfo;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -13,7 +14,7 @@ import com.liaoyingtai.blog.controller.validator.userInfo.RegUserInfoValidatorGr
 
 public class UserInfo {
 
-	private int myBlog_UserInfo_id;
+	private String myBlog_UserInfo_id;
 	@NotNull(message = "{userInfo.account.notNull}", groups = {
 			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
 	@NotBlank(message = "{userInfo.account.notBlank}", groups = {
@@ -30,7 +31,7 @@ public class UserInfo {
 	private String userInfo_Password;
 	@NotNull(message = "{userInfo.name.notNull}", groups = { RegUserInfoValidatorGroup.class })
 	@NotBlank(message = "{userInfo.name.notBlank}", groups = { RegUserInfoValidatorGroup.class })
-	@Length(min = 6, max = 12, message = "{userInfo.name.length}", groups = { RegUserInfoValidatorGroup.class })
+	@Pattern(regexp = "([0-9a-zA-z_]{6,12})|([\u4e00-\u9fa5]{3,6})", message = "{userInfo.name.format}", groups = { RegUserInfoValidatorGroup.class })
 	private String userInfo_Name;
 	private String userInfo_Phone;
 	private String userInfo_Tel;
@@ -49,7 +50,7 @@ public class UserInfo {
 		super();
 	}
 
-	public UserInfo(int myBlog_UserInfo_id, String userInfo_Account,
+	public UserInfo(String myBlog_UserInfo_id, String userInfo_Account,
 			String userInfo_Password, String userInfo_Name,
 			String userInfo_Phone, String userInfo_Tel, String userInfo_Email,
 			String userInfo_QQaccount, String userInfo_HeadImg,
@@ -73,11 +74,11 @@ public class UserInfo {
 		this.userJurisdiction = userJurisdiction;
 	}
 
-	public int getMyBlog_UserInfo_id() {
+	public String getMyBlog_UserInfo_id() {
 		return myBlog_UserInfo_id;
 	}
 
-	public void setMyBlog_UserInfo_id(int myBlog_UserInfo_id) {
+	public void setMyBlog_UserInfo_id(String myBlog_UserInfo_id) {
 		this.myBlog_UserInfo_id = myBlog_UserInfo_id;
 	}
 

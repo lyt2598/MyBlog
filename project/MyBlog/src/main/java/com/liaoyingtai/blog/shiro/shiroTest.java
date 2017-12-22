@@ -10,7 +10,7 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 
-public class shiro {
+public class shiroTest {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		Factory<SecurityManager> factory = new IniSecurityManagerFactory(
