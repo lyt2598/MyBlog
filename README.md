@@ -6,7 +6,7 @@
 
 > 演示地址
 
-- 演示地址：[点击进入演示网址](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
+- 演示地址：[点击进入演示网址](http://119.23.52.5 "http://119.23.52.5")
 
 本博客系统采用java语言进行编写，主体框架Spring、SpringMVC、MyBatis。
 编写目的：用于个人首页的现实以及记录一些在开发过程中遇到的问题
@@ -41,4 +41,4 @@
 
 > Lyt2598:
 - 邮箱：lyt2598@qq.com
-- 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
+- 主页：[http://119.23.52.5](http://119.23.52.5 "http://119.23.52.5")
