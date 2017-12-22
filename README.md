@@ -45,6 +45,12 @@
 - JackSon：2.8.5
 - Hibernater-Validator:5.4.1.Final
 
+# 技术选型
+
+> 后端技术
+
+> 前端技术
+
 # 贡献者
 
 > Lyt2598:
