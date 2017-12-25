@@ -31,6 +31,25 @@
 - Tomcat:应用服务器
 - Navicat for MySQL:数据库客户端
 
+# 技术选型
+
+> 后端技术
+
+- 基础框架：Spring & SpringMVC & MyBatis
+- 安全框架：Shiro
+- 表单校验框架：Hibernate-Validator
+- 数据库连接池：DBCP
+- 日志：LOG4J & SLF4J
+- Json转换框架：JackSon
+
+> 前端技术
+
+- Bootstrap & js & Jquery
+
+> 数据库
+
+- MySQL
+
 # 依赖包版本
 
 - Spring：4.3.12.RELEASE
@@ -44,12 +63,6 @@
 - MyBatis-Spring：1.3.1
 - JackSon：2.8.5
 - Hibernater-Validator:5.4.1.Final
-
-# 技术选型
-
-> 后端技术
-
-> 前端技术
 
 # 贡献者
 

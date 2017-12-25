@@ -105,12 +105,15 @@ myBlog_AboutMe_id：主键（自动增长）
 aboutMe_Skill:技能介绍
 aboutMe_Hobby:爱好介绍
 aboutMe_Describe:个人描述
+aboutMe_Development:开发经验
 aboutMe_Other:其他描述
 aboutMe_UserId:用户ID（用户信息表中主键）
 aboutMe_QQAccount:是否显示QQ号（0:不显示 1：显示）
 aboutMe_Tel:是否显示电话号码（0：不显示 1：显示）
 aboutMe_Phone:是否显示手机号码（0：不显示 1：显示）
 aboutMe_GitHub:是否显示GitHub地址
+aboutMe_ViewCount:浏览次数
+aboutMe_ModData:最后修改时间
 
 
 
