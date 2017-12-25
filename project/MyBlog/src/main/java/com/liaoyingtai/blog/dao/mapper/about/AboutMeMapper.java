@@ -22,4 +22,13 @@ public interface AboutMeMapper {
 	 * @throws Exception
 	 */
 	public void insertAboutMeInfo(AboutMe aboutMe) throws Exception;
+
+	/**
+	 * 修改个人介绍信息
+	 * 
+	 * @param aboutMe
+	 *            个人介绍信息（需要传递一个完整的对象，userInfo可以不传）
+	 * @throws Exception
+	 */
+	public void updateAboutMeInfo(AboutMe aboutMe) throws Exception;
 }

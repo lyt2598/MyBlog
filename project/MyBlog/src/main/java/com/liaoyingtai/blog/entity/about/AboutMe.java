@@ -1,5 +1,7 @@
 package com.liaoyingtai.blog.entity.about;
 
+import java.util.Date;
+
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 
 public class AboutMe {
@@ -8,33 +10,54 @@ public class AboutMe {
 	private String aboutMe_Skill;
 	private String aboutMe_Hobby;
 	private String aboutMe_Describe;
+	private String aboutMe_Development;
 	private String aboutMe_Other;
 	private String aboutMe_UserId;
 	private int aboutMe_QQAccount;
 	private int aboutMe_Tel;
 	private int aboutMe_Phone;
 	private int aboutMe_GitHub;
+	private Date aboutMe_ModDate;
+	private int aboutMe_ViewCount;
 	private UserInfo userInfo;
 
 	public AboutMe() {
 		super();
 	}
 
-	public AboutMe(int myBlog_AboutMe_id, String aboutMe_Skill,
-			String aboutMe_Hobby, String aboutMe_Describe,
-			String aboutMe_Other, String aboutMe_UserId, int aboutMe_QQAccount,
-			int aboutMe_Tel, int aboutMe_Phone, int aboutMe_GitHub) {
+	public AboutMe(int myBlog_AboutMe_id, String aboutMe_Skill, String aboutMe_Hobby, String aboutMe_Describe,
+			String aboutMe_Development, String aboutMe_Other, String aboutMe_UserId, int aboutMe_QQAccount,
+			int aboutMe_Tel, int aboutMe_Phone, int aboutMe_GitHub, Date aboutMe_ModDate, int aboutMe_ViewCount) {
 		super();
 		this.myBlog_AboutMe_id = myBlog_AboutMe_id;
 		this.aboutMe_Skill = aboutMe_Skill;
 		this.aboutMe_Hobby = aboutMe_Hobby;
 		this.aboutMe_Describe = aboutMe_Describe;
+		this.aboutMe_Development = aboutMe_Development;
 		this.aboutMe_Other = aboutMe_Other;
 		this.aboutMe_UserId = aboutMe_UserId;
 		this.aboutMe_QQAccount = aboutMe_QQAccount;
 		this.aboutMe_Tel = aboutMe_Tel;
 		this.aboutMe_Phone = aboutMe_Phone;
 		this.aboutMe_GitHub = aboutMe_GitHub;
+		this.aboutMe_ModDate = aboutMe_ModDate;
+		this.aboutMe_ViewCount = aboutMe_ViewCount;
+	}
+
+	public Date getAboutMe_ModDate() {
+		return aboutMe_ModDate;
+	}
+
+	public void setAboutMe_ModDate(Date aboutMe_ModDate) {
+		this.aboutMe_ModDate = aboutMe_ModDate;
+	}
+
+	public int getAboutMe_ViewCount() {
+		return aboutMe_ViewCount;
+	}
+
+	public void setAboutMe_ViewCount(int aboutMe_ViewCount) {
+		this.aboutMe_ViewCount = aboutMe_ViewCount;
 	}
 
 	public int getMyBlog_AboutMe_id() {
@@ -125,16 +148,23 @@ public class AboutMe {
 		this.userInfo = userInfo;
 	}
 
+	public String getAboutMe_Development() {
+		return aboutMe_Development;
+	}
+
+	public void setAboutMe_Development(String aboutMe_Development) {
+		this.aboutMe_Development = aboutMe_Development;
+	}
+
 	@Override
 	public String toString() {
-		return "AboutMe [myBlog_AboutMe_id=" + myBlog_AboutMe_id
-				+ ", aboutMe_Skill=" + aboutMe_Skill + ", aboutMe_Hobby="
-				+ aboutMe_Hobby + ", aboutMe_Describe=" + aboutMe_Describe
-				+ ", aboutMe_Other=" + aboutMe_Other + ", aboutMe_UserId="
-				+ aboutMe_UserId + ", aboutMe_QQAccount=" + aboutMe_QQAccount
-				+ ", aboutMe_Tel=" + aboutMe_Tel + ", aboutMe_Phone="
-				+ aboutMe_Phone + ", aboutMe_GitHub=" + aboutMe_GitHub
-				+ ", userInfo=" + userInfo + "]";
+		return "AboutMe [myBlog_AboutMe_id=" + myBlog_AboutMe_id + ", aboutMe_Skill=" + aboutMe_Skill
+				+ ", aboutMe_Hobby=" + aboutMe_Hobby + ", aboutMe_Describe=" + aboutMe_Describe
+				+ ", aboutMe_Development=" + aboutMe_Development + ", aboutMe_Other=" + aboutMe_Other
+				+ ", aboutMe_UserId=" + aboutMe_UserId + ", aboutMe_QQAccount=" + aboutMe_QQAccount + ", aboutMe_Tel="
+				+ aboutMe_Tel + ", aboutMe_Phone=" + aboutMe_Phone + ", aboutMe_GitHub=" + aboutMe_GitHub
+				+ ", aboutMe_ModDate=" + aboutMe_ModDate + ", aboutMe_ViewCount=" + aboutMe_ViewCount + ", userInfo="
+				+ userInfo + "]";
 	}
 
 }

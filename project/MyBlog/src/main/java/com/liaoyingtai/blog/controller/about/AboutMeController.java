@@ -22,9 +22,9 @@ public class AboutMeController {
 	}
 
 	@RequestMapping(value = "aboutMe", method = { RequestMethod.POST })
-	public @ResponseBody
-	AboutMe aboutMe(String uid) throws Exception {
+	public @ResponseBody AboutMe aboutMe(String uid) throws Exception {
 		AboutMe aboutMe = aboutMeService.getAboutMeByUserId(uid);
+		aboutMeService.updateAboutMeViewCountByUserId(aboutMe, uid, 1);
 		return aboutMe;
 	}
 

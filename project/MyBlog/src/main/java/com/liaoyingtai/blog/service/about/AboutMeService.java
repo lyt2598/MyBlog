@@ -23,7 +23,18 @@ public interface AboutMeService {
 	 *            用户id
 	 * @throws Exception
 	 */
-	public void insertAboutMeInfo(AboutMe aboutMe, String userId)
-			throws Exception;
+	public void insertAboutMeInfo(AboutMe aboutMe, String userId) throws Exception;
 
+	/**
+	 * 通过用户ID修改用户个人介绍浏览次数
+	 * 
+	 * @param aboutMe
+	 *            需要传一个完整的个人信息对象
+	 * @param userId
+	 *            用户ID
+	 * @param num
+	 *            需要添加的浏览次数
+	 * @throws Exception
+	 */
+	public void updateAboutMeViewCountByUserId(AboutMe aboutMe, String userId, int num) throws Exception;
 }
