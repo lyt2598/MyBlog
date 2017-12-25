@@ -113,7 +113,7 @@ aboutMe_Tel:是否显示电话号码（0：不显示 1：显示）
 aboutMe_Phone:是否显示手机号码（0：不显示 1：显示）
 aboutMe_GitHub:是否显示GitHub地址
 aboutMe_ViewCount:浏览次数
-aboutMe_ModData:最后修改时间
+aboutMe_ModDate:最后修改时间
 
 
 
