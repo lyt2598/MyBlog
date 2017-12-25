@@ -48,3 +48,10 @@ iframe {
 .dropdown-menu-left-logo {
 	padding-right: 10px;
 }
+
+.body-footer {
+	padding-bottom: 50px;
+	padding-top: 20px;
+	text-align: center;
+	color: #999;
+}

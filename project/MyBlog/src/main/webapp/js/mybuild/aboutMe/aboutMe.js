@@ -22,7 +22,8 @@ function getAboutMe(url, uid) {
 			if (obj.myBlog_AboutMe_id != 0) {
 				var contactHtml = getContactHtml(obj);
 				var context = [ obj.aboutMe_Describe, obj.aboutMe_Skill,
-						obj.aboutMe_Hobby, obj.aboutMe_Other, contactHtml ];
+						obj.aboutMe_Development, obj.aboutMe_Hobby,
+						obj.aboutMe_Other, contactHtml ];
 				var html = getAboutMeListHtml(context);
 				$(".about_me_context").html(html);
 			} else {
@@ -48,9 +49,9 @@ function getLoaingHtml(text) {
 // 读取一行html
 function getAboutMeListHtml(context) {
 	var html = '<ul class="context_list">';
-	var icon = [ "fa-commenting-o", "fa-cogs ", "fa-music", "fa-bookmark-o",
-			"fa-phone-square" ];
-	var title = [ "个人描述", "技能介绍", "爱好介绍", "其他描述", "联系方式" ];
+	var icon = [ "fa-commenting-o", "fa-cogs ", "fa-bug", "fa-music",
+			"fa-bookmark-o", "fa-phone-square" ];
+	var title = [ "个人描述", "技能介绍", "开发经验", "爱好介绍", "其他描述", "联系方式" ];
 	var temp_html = "";
 	for (var i = 0; i < title.length; i++) {
 		if (context[i] != null && context[i] != '') {
