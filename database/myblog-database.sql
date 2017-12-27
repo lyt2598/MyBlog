@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2017-12-26 04:26:48
+Date: 2017-12-27 10:56:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,7 +39,7 @@ CREATE TABLE `myblog_aboutme` (
 -- ----------------------------
 -- Records of myblog_aboutme
 -- ----------------------------
-INSERT INTO `myblog_aboutme` VALUES ('3', '<p>后端技术：JAVA（主攻）、Python（业余）、PHP（业余）、易语言（业余）</p><p>前端技术：HTML、CSS、JQuery、JavaScript、AJAX、Json、BootStrap、Echarts等</p><p>数据库：SQLServer、MySQL、PostgreSQL</p><p>JAVA框架：Spring、SpringMVC、MyBatis、Struts2、Hibernate、ICE（分布式框架）</p><p>其他：Maven、Tomcat、Git等</p>', '电子竞技、听歌、旅游', '<p>2017年6月毕业于湖南科技职业学院软件开发专业，在学校期间参加学校创办的虚拟公司进行自主学习，每个学期都会根据自己所学的知识制作小型练手项目。</p><p>2017年2月份进入湖南星岳天璇科技有限公司进行实训，经过3个月的实训转正成为正式员工，在公司参与JAVAWeb端的开发工作。</p>', '<p>自我描述：</p><p>1.勤奋认真，做事热情积极，较强的责任心。</p><p>2.环境适应能力强，能够很快的适应新的环境。</p><p>3.具备团队合作意识，善于协调团队中的人际关系。</p><p>4.能够虚心接受他人的意见与建议，对符合的予以采纳。</p><p>5.自主学习能力强和思维逻辑能力强，对不懂的知识求知欲望能力强。</p><p>6.有较强的创新能力。</p>', '54b70f611f46181e1bfe7e3714bb2eeb', '1', '1', '1', '1', '0000000000', '2017-12-26 12:20:30', '<p>开发经历：</p><p>一、在校期间开发经历：<p><p>1.C/S结构：图书馆管理系统、超市购物管理系统、JQQ桌面应用</p><p>2.采用Servlet编写在线音乐网站。</p><p>3.采用Struts2和Hibernate编写个人博客和论坛。</p><p>4.采用Struts2、Spring、Hibernate编写购物网站和个人博客（模仿新浪博客编写）</p><p>5.采用PHP语言编写论坛。</p><p>二、工作期间开发经历</p><p>1.JAVA开发北斗导航监控系统（正在进行中，Web）</p><p>2.Python开发株洲县智慧渌口大数据分析服务决策系统（正在进行中，Web）。</p>');
+INSERT INTO `myblog_aboutme` VALUES ('3', '<p>后端技术：JAVA（主攻）、Python（业余）、PHP（业余）、易语言（业余）</p><p>前端技术：HTML、CSS、JQuery、JavaScript、AJAX、Json、BootStrap、Echarts等</p><p>数据库：SQLServer、MySQL、PostgreSQL</p><p>JAVA框架：Spring、SpringMVC、MyBatis、Struts2、Hibernate、ICE（分布式框架）</p><p>其他：Maven、Tomcat、Git等</p>', '电子竞技、听歌、旅游', '<p>2017年6月毕业于湖南科技职业学院软件开发专业，在学校期间参加学校创办的虚拟公司进行自主学习，每个学期都会根据自己所学的知识制作小型练手项目。</p><p>2017年2月份进入湖南星岳天璇科技有限公司进行实训，经过3个月的实训转正成为正式员工，在公司参与JAVAWeb端的开发工作。</p>', '<p>自我描述：</p><p>1.勤奋认真，做事热情积极，较强的责任心。</p><p>2.环境适应能力强，能够很快的适应新的环境。</p><p>3.具备团队合作意识，善于协调团队中的人际关系。</p><p>4.能够虚心接受他人的意见与建议，对符合的予以采纳。</p><p>5.自主学习能力强和思维逻辑能力强，对不懂的知识求知欲望能力强。</p><p>6.有较强的创新能力。</p>', '54b70f611f46181e1bfe7e3714bb2eeb', '1', '1', '1', '1', '0000000045', '2017-12-26 12:20:30', '<p>开发经历：</p><p>一、在校期间开发经历：<p><p>1.C/S结构：图书馆管理系统、超市购物管理系统、JQQ桌面应用</p><p>2.采用Servlet编写在线音乐网站。</p><p>3.采用Struts2和Hibernate编写个人博客和论坛。</p><p>4.采用Struts2、Spring、Hibernate编写购物网站和个人博客（模仿新浪博客编写）</p><p>5.采用PHP语言编写论坛。</p><p>二、工作期间开发经历</p><p>1.JAVA开发北斗导航监控系统（正在进行中，Web）</p><p>2.Python开发株洲县智慧渌口大数据分析服务决策系统（正在进行中，Web）。</p>');
 
 -- ----------------------------
 -- Table structure for myblog_headmenu
@@ -51,17 +51,16 @@ CREATE TABLE `myblog_headmenu` (
   `headMenu_URL` varchar(1000) DEFAULT NULL,
   `headMenu_Father` int(11) unsigned zerofill NOT NULL,
   `headMenu_UserId` varchar(32) NOT NULL,
-  `hearMenu_IFrame` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`myBlog_HeadMenu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of myblog_headmenu
 -- ----------------------------
-INSERT INTO `myblog_headmenu` VALUES ('7', '首页', 'index/54b70f611f46181e1bfe7e3714bb2eeb', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb', '0');
-INSERT INTO `myblog_headmenu` VALUES ('8', '个人介绍', 'about/aboutMe', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb', '1');
-INSERT INTO `myblog_headmenu` VALUES ('9', '学习笔记', 'learningNotes/getLearningNotesList', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb', '1');
-INSERT INTO `myblog_headmenu` VALUES ('10', '给我留言', 'message/board', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb', '1');
+INSERT INTO `myblog_headmenu` VALUES ('7', '首页', 'index/54b70f611f46181e1bfe7e3714bb2eeb', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb');
+INSERT INTO `myblog_headmenu` VALUES ('8', '个人介绍', 'aboutMe/54b70f611f46181e1bfe7e3714bb2eeb', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb');
+INSERT INTO `myblog_headmenu` VALUES ('9', '学习笔记', 'learningNotesList/54b70f611f46181e1bfe7e3714bb2eeb', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb');
+INSERT INTO `myblog_headmenu` VALUES ('10', '给我留言', 'message/board/54b70f611f46181e1bfe7e3714bb2eeb', '00000000000', '54b70f611f46181e1bfe7e3714bb2eeb');
 
 -- ----------------------------
 -- Table structure for myblog_learningnotes
