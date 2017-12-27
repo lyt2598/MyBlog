@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.entity.index;
+package com.liaoyingtai.blog.entity.headMenu;
 
 import java.util.List;
 

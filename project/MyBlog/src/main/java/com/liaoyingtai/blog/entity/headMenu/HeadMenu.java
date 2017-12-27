@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.entity.index;
+package com.liaoyingtai.blog.entity.headMenu;
 
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 
@@ -9,7 +9,6 @@ public class HeadMenu {
 	private String headMenu_URL;
 	private int headMenu_Father;
 	private String headMenu_UserId;
-	private int hearMenu_IFrame;
 	private UserInfo userInfo;
 
 	public HeadMenu() {
@@ -17,27 +16,24 @@ public class HeadMenu {
 	}
 
 	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
-			String headMenu_URL, int headMenu_Father, String headMenu_UserId,
-			int hearMenu_IFrame) {
+			String headMenu_URL, int headMenu_Father, String headMenu_UserId) {
 		super();
 		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;
 		this.headMenu_Name = headMenu_Name;
 		this.headMenu_URL = headMenu_URL;
 		this.headMenu_Father = headMenu_Father;
 		this.headMenu_UserId = headMenu_UserId;
-		this.hearMenu_IFrame = hearMenu_IFrame;
 	}
 
 	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
 			String headMenu_URL, int headMenu_Father, String headMenu_UserId,
-			int hearMenu_IFrame, UserInfo userInfo) {
+			UserInfo userInfo) {
 		super();
 		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;
 		this.headMenu_Name = headMenu_Name;
 		this.headMenu_URL = headMenu_URL;
 		this.headMenu_Father = headMenu_Father;
 		this.headMenu_UserId = headMenu_UserId;
-		this.hearMenu_IFrame = hearMenu_IFrame;
 		this.userInfo = userInfo;
 	}
 
@@ -89,21 +85,13 @@ public class HeadMenu {
 		this.headMenu_UserId = headMenu_UserId;
 	}
 
-	public int getHearMenu_IFrame() {
-		return hearMenu_IFrame;
-	}
-
-	public void setHearMenu_IFrame(int hearMenu_IFrame) {
-		this.hearMenu_IFrame = hearMenu_IFrame;
-	}
-
 	@Override
 	public String toString() {
 		return "HeadMenu [myBlog_HeadMenu_id=" + myBlog_HeadMenu_id
 				+ ", headMenu_Name=" + headMenu_Name + ", headMenu_URL="
 				+ headMenu_URL + ", headMenu_Father=" + headMenu_Father
-				+ ", headMenu_UserId=" + headMenu_UserId + ", hearMenu_IFrame="
-				+ hearMenu_IFrame + "]";
+				+ ", headMenu_UserId=" + headMenu_UserId + ", userInfo="
+				+ userInfo + "]";
 	}
 
 }

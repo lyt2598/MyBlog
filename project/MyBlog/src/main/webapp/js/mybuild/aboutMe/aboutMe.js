@@ -1,12 +1,15 @@
-$(document).ready(function(e) {
-	var uid = $("#currentViewsUser", window.parent.document).val();
-	var url = window.parent.locationValue;
-	getAboutMe(url, uid);
-});
+function getAboutBaseHtml() {
+	var html = '<div><div class="about_me_head">'
+			+ '<div class="about_me_head_img" align="center"><img alt="头像" id="headImg" />'
+			+ '</div><div class="about_me_name"><p id="name"></p><p>'
+			+ '<i class="fa fa-envelope" aria-hidden="true"></i> Email：<span id="email"></span>'
+			+ '</p></div></div><div class="about_me_context"></div></div>';
+	return html;
+}
 
 function getAboutMe(url, uid) {
 	$.ajax({
-		url : url + "/about/aboutMe",
+		url : url + "/aboutMe",
 		method : "post",
 		data : "uid=" + uid,
 		dataType : 'json',
@@ -34,9 +37,6 @@ function getAboutMe(url, uid) {
 		error : function(e) {
 			$(".about_me_context").html(
 					"<h1 style='text-align:center;'>读取时出错，请刷新页面重试！</h1>");
-		},
-		complete : function(e) {
-			window.parent.loadFrame();
 		}
 	});
 }

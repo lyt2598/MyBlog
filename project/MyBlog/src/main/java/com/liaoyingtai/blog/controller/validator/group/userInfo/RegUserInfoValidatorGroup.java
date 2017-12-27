@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.controller.validator.userInfo;
+package com.liaoyingtai.blog.controller.validator.group.userInfo;
 
 /**
  * 用户注册校验分组

@@ -9,8 +9,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.liaoyingtai.blog.controller.validator.userInfo.LoginUserInfoValidatorGroup;
-import com.liaoyingtai.blog.controller.validator.userInfo.RegUserInfoValidatorGroup;
+import com.liaoyingtai.blog.controller.validator.group.userInfo.LoginUserInfoValidatorGroup;
+import com.liaoyingtai.blog.controller.validator.group.userInfo.RegUserInfoValidatorGroup;
 
 public class UserInfo {
 

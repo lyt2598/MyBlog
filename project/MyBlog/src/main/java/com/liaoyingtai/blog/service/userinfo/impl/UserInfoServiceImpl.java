@@ -13,7 +13,7 @@ import com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.entity.userInfo.UserJurisdiction;
 import com.liaoyingtai.blog.service.about.AboutMeService;
-import com.liaoyingtai.blog.service.index.HeadMenuService;
+import com.liaoyingtai.blog.service.headMenu.HeadMenuService;
 import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
 @Service("userInfoService")

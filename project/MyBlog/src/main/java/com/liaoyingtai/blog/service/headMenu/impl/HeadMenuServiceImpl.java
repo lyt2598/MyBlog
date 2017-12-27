@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.service.index.impl;
+package com.liaoyingtai.blog.service.headMenu.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.liaoyingtai.blog.controller.exception.BaseExceptionCustom;
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
-import com.liaoyingtai.blog.dao.mapper.index.HeadMenuMapper;
-import com.liaoyingtai.blog.entity.index.HeadMenu;
-import com.liaoyingtai.blog.entity.index.HeadMenuCustom;
-import com.liaoyingtai.blog.service.index.HeadMenuService;
+import com.liaoyingtai.blog.dao.mapper.headMenu.HeadMenuMapper;
+import com.liaoyingtai.blog.entity.headMenu.HeadMenu;
+import com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom;
+import com.liaoyingtai.blog.service.headMenu.HeadMenuService;
 
 @Transactional
 @Service("headMenuService")
@@ -46,16 +46,14 @@ public class HeadMenuServiceImpl implements HeadMenuService {
 
 	private List<HeadMenu> getDefaultHeadMenu(String userId) {
 		List<HeadMenu> headMenus = new ArrayList<HeadMenu>();
-		HeadMenu headMenu = new HeadMenu(0, "首页", "index/" + userId, 0, userId,
-				0);
+		HeadMenu headMenu = new HeadMenu(0, "首页", "index/" + userId, 0, userId);
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "个人介绍", "aboutMe/aboutMe.action", 0, userId,
-				1);
+		headMenu = new HeadMenu(0, "个人介绍", "aboutMe/" + userId, 0, userId);
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "首页",
-				"learningNotes/getLearningNotesList.action", 0, userId, 1);
+		headMenu = new HeadMenu(0, "学习笔记", "learningNotesList/" + userId, 0,
+				userId);
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "给我留言", "message/board.action", 0, userId, 1);
+		headMenu = new HeadMenu(0, "给我留言", "message/board.action", 0, userId);
 		headMenus.add(headMenu);
 		return headMenus;
 	}

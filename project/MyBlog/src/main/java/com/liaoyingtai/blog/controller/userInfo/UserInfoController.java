@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
-import com.liaoyingtai.blog.controller.validator.userInfo.RegUserInfoValidatorGroup;
+import com.liaoyingtai.blog.controller.validator.group.userInfo.RegUserInfoValidatorGroup;
 import com.liaoyingtai.blog.entity.userInfo.UserInfoCustom;
 import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
@@ -38,13 +38,13 @@ public class UserInfoController {
 		return "baseView/reg";
 	}
 
-	//注册用户信息
+	// 注册用户信息
 	@RequestMapping(value = "/regUser", method = { RequestMethod.POST })
 	public String regUser(
 			Model model,
 			@Validated(value = { RegUserInfoValidatorGroup.class }) @ModelAttribute UserInfoCustom userInfo,
 			BindingResult result) throws Exception {
-		if (result.hasErrors()) {//判断校验是否有错误信息
+		if (result.hasErrors()) {// 判断校验是否有错误信息
 			List<ObjectError> oList = result.getAllErrors();
 			model.addAttribute("userInfo", userInfo);
 			model.addAttribute("errorList", oList);
@@ -69,7 +69,7 @@ public class UserInfoController {
 			resultMap.put("result", bool);
 		} catch (UserRegisteredException e) {
 			resultMap.put("status", 0);// 0表示查询失败(包括报错)
-			resultMap.put("result", e.getErrorMsg());
+			resultMap.put("result", e.getMessage());
 		}
 		return resultMap;
 	}

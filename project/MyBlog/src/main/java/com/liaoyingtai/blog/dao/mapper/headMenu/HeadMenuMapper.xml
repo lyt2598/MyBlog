@@ -3,45 +3,44 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.liaoyingtai.blog.dao.mapper.index.HeadMenuMapper">
+<mapper namespace="com.liaoyingtai.blog.dao.mapper.headMenu.HeadMenuMapper">
 
 	<sql id="headMenuInfo_Field">
-		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_UserId,hearMenu_IFrame
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_UserId
 	</sql>
 	<sql id="headMenuInfo_Table">
 		myblog_headmenu
 	</sql>
 	<sql id="headMenuInfo_insert_Field">
-		myBlog_HeadMenu_id,headMenu_Name,headMenu_Father,headMenu_UserId,hearMenu_IFrame
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_Father,headMenu_UserId
 		<if test="headMenu_URL!=null and headMenu_URL!=''">
 			,headMenu_URL
 		</if>
 	</sql>
 	<sql id="headMenuInfo_insert_Values">
-		#{myBlog_HeadMenu_id},#{headMenu_Name},#{headMenu_Father},#{headMenu_UserId},#{hearMenu_IFrame}
+		#{myBlog_HeadMenu_id},#{headMenu_Name},#{headMenu_Father},#{headMenu_UserId}
 		<if test="headMenu_URL!=null and headMenu_URL!=''">
 			,#{headMenu_URL}
 		</if>
 	</sql>
 	<!-- 对应数据库中的所有字段的实体类 -->
-	<resultMap type="com.liaoyingtai.blog.entity.index.HeadMenu"
+	<resultMap type="com.liaoyingtai.blog.entity.headMenu.HeadMenu"
 		id="headMenuInfoResultMap">
 		<id column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
 		<result column="headMenu_Name" property="headMenu_Name" />
 		<result column="headMenu_URL" property="headMenu_URL" />
 		<result column="headMenu_Father" property="headMenu_Father" />
 		<result column="headMenu_UserId" property="headMenu_UserId" />
-		<result column="hearMenu_IFrame" property="hearMenu_IFrame" />
 		<!-- 暂时用不上先屏蔽 -->
 		<!-- <association property="userInfo" column="headMenu_UserId" select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getUserInfoById" 
 			/> -->
 	</resultMap>
 
 	<!-- 此层type用来标识返回的类型 -->
-	<resultMap type="com.liaoyingtai.blog.entity.index.HeadMenuCustom"
+	<resultMap type="com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom"
 		id="getHeadMenuInfoResultMap" extends="headMenuInfoResultMap">
 		<collection property="blogHeadMenus"
-			ofType="com.liaoyingtai.blog.entity.index.HeadMenu" column="myBlog_HeadMenu_id"
+			ofType="com.liaoyingtai.blog.entity.headMenu.HeadMenu" column="myBlog_HeadMenu_id"
 			select="getChildHeadMenuInfo">
 			<id column="headMenu_Father" property="headMenu_Father" />
 			<result column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
@@ -50,7 +49,7 @@
 		</collection>
 	</resultMap>
 
-	<select id="getHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.index.HeadMenuCustom"
+	<select id="getHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom"
 		resultMap="getHeadMenuInfoResultMap">
 		SELECT
 		<include refid="headMenuInfo_Field" />
@@ -63,7 +62,7 @@
 		</if>
 	</select>
 	<select id="getChildHeadMenuInfo" parameterType="int"
-		resultType="com.liaoyingtai.blog.entity.index.HeadMenu">
+		resultType="com.liaoyingtai.blog.entity.headMenu.HeadMenu">
 		SELECT
 		<include refid="headMenuInfo_Field" />
 		FROM
@@ -72,7 +71,7 @@
 		headMenu_Father = #{headMenu_Father}
 	</select>
 
-	<insert id="insertHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.index.HeadMenu">
+	<insert id="insertHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.headMenu.HeadMenu">
 		insert into
 		<include refid="headMenuInfo_Table" />
 		(

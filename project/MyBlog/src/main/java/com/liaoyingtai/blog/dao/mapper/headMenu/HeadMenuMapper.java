@@ -1,9 +1,9 @@
-package com.liaoyingtai.blog.dao.mapper.index;
+package com.liaoyingtai.blog.dao.mapper.headMenu;
 
 import java.util.List;
 
-import com.liaoyingtai.blog.entity.index.HeadMenu;
-import com.liaoyingtai.blog.entity.index.HeadMenuCustom;
+import com.liaoyingtai.blog.entity.headMenu.HeadMenu;
+import com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom;
 
 public interface HeadMenuMapper {
 

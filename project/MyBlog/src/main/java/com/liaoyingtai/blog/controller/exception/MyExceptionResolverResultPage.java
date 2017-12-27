@@ -3,13 +3,14 @@ package com.liaoyingtai.blog.controller.exception;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
 
-public class MyExceptionResolver implements HandlerExceptionResolver {
+public class MyExceptionResolverResultPage {
 
+	@ExceptionHandler
 	public ModelAndView resolveException(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3) {
 		ModelAndView mad = new ModelAndView();
