@@ -23,4 +23,12 @@ public class LearningNotesController extends MyExceptionResolverResultPage {
 		return "learningNotes/learningNotesList";
 	}
 
+	@RequestMapping(value = "pubLearningNotes", method = { RequestMethod.GET })
+	public String pubLearningNotes(Model model) throws Exception {
+		// 需要判断当前用户是否已经登录,如果没有登录就跳转到登录页面
+		// 将当前用户的ID设置到model中，拦截器要通过id获取头部菜单
+		model.addAttribute("userId", "54b70f611f46181e1bfe7e3714bb2eeb");
+		return "learningNotes/pubLearningNotes";
+	}
+
 }

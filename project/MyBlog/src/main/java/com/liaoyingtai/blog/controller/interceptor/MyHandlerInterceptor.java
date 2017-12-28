@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,21 +23,15 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// 加载头部菜单信息
 		if (modelAndView != null) {
-			HttpSession session = request.getSession();
-			List<HeadMenuCustom> list = (List<HeadMenuCustom>) session
-					.getAttribute("headMenu");
-			if (list == null || list.size() <= 0) {
-				Map<String, Object> modelMap = modelAndView.getModel();
-				String uid = (String) modelMap.get("userId");
-				list = headMenuService.getIndexHeadMenu(uid);
-				session.setAttribute("headMenuList", list);
-			}
+			Map<String, Object> modelMap = modelAndView.getModel();
+			String uid = (String) modelMap.get("userId");
+			List<HeadMenuCustom> list = headMenuService.getIndexHeadMenu(uid);
+			request.getSession().setAttribute("headMenuList", list);
 		}
 	}
 

@@ -19,6 +19,8 @@ public class LNUploadServiceImpl implements LNUploadFileService {
 
 	@Value("${uploadSavePath.learningNotesImg}")
 	private String savePath;
+	@Value("${uploadResultPath.learningNotes}")
+	private String resultPath;
 
 	@PostConstruct
 	public void init() throws Exception {
@@ -47,8 +49,7 @@ public class LNUploadServiceImpl implements LNUploadFileService {
 		temp_file = new File(temp_savePath);
 		// 将文件写入到磁盘当中
 		file.transferTo(temp_file);
-		String resultURL = "http://localhost:8080/MyBlog/img/learningNotes/"
-				+ uid + "/" + fileName;
+		String resultURL = resultPath + uid + "/" + fileName;
 		return resultURL;
 	}
 }

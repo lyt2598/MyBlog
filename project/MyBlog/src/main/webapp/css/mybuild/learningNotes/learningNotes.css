@@ -57,10 +57,10 @@
 
 .searchDiv button {
 	padding: 0px;
-	height:32px;
+	height: 32px;
 	width: 30px;
 	border: 0px;
-	background:#fff;
+	background: #fff;
 	border-radius: 0px 3px 3px 0px;
 }
 
@@ -70,4 +70,52 @@
 
 .table-menu {
 	margin: 10px;
+}
+
+.pubTitle {
+	margin: 20px;
+}
+
+.pubTitle #pubTitleValue {
+	border-radius: 3px;
+	border: 1px #999 solid;
+	line-height: 30px;
+	width: 60%;
+	margin: 0 10px;
+}
+
+.pubTitleMsg {
+	color: red;
+	font-weight: bold;
+}
+
+.pubConfig {
+	margin: 20px;
+}
+
+.pubConfig input {
+	margin: 0px 10px;
+	border-radius: 3px;
+	border: 1px #999 solid;
+	line-height: 20px;
+}
+.pubConfig #pubTags{
+	width: 185px;
+}
+.pubConfig select {
+	border-radius: 3px;
+	border: 1px #999 solid;
+	width: 180px;
+}
+
+.pubSubmit {
+	margin: 20px;
+}
+
+.pubSubmit button {
+	margin: 0px 10px;
+}
+
+#editor {
+	margin: 0px 20px;
 }
