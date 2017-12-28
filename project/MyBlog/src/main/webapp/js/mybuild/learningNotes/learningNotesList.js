@@ -58,8 +58,9 @@ function getTableList(tableList) {
 			html = html
 					+ '<tr><td class="textAlign"><i class="fa fa-list-alt" aria-hidden="true"></i>';
 		}
-		html += '</td><td><a href="">' + tableList[i].learningNotes_Title
-				+ '</a>';
+		html += '</td><td><a href=""><span class="lnListType">['
+				+ tableList[i].learningNotesType.learningNotes_Type_Name + ']</span>&nbsp;'
+				+ tableList[i].learningNotes_Title + '</a>';
 		if (tableList[i].learningNotes_Private == 1) {
 			html += '<a class="a-i" title="此文章仅自己可见"><i class="fa fa-eye-slash i-red" aria-hidden="true"></i></a>';
 		}

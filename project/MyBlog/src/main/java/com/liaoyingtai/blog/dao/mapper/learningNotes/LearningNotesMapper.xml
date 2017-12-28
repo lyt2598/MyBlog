@@ -34,10 +34,8 @@
 			javaType="com.liaoyingtai.blog.entity.userInfo.UserInfo">
 			<id column="learningNotes_PubUser" property="myBlog_UserInfo_id" />
 		</association>
-		<association property="learningNotesType"
-			javaType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesType">
-			<id column="learningNotes_Type_id" property="myBlog_LearningNotes_Type_id" />
-		</association>
+		<association property="learningNotesType" column="learningNotes_Type_id"
+			select="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesTypeMapper.getLearningNotesTypeById" />
 	</resultMap>
 
 	<sql id="learningNotes_Field">
