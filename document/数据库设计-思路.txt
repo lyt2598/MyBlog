@@ -54,6 +54,7 @@ learningNotes_ViewCount：浏览次数
 learningNotes_RelayCount：转发次数
 learningNotes_CommentCount：评论次数
 learningNotes_Type_id:学习笔记类别
+learningNotes_Tags:关键字，用英文逗号(,)隔开
 //下面两项暂时不添加，后续再设计是单独开表还是字段标识
 //learningNotes_RelayLN：标记是否为转发文章（0：不是  1：是）
 //learningNotes_CollectLN：标记是否为收藏文章（0：不是  1：是） 

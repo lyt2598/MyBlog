@@ -21,6 +21,7 @@ public class LearningNotes {
 	private int learningNotes_CommentCount;
 	private String learningNotes_PubUser;
 	private int learningNotes_Type_id;
+	private String learningNotes_Tags;
 	private UserInfo userInfo;
 	private LearningNotesType learningNotesType;
 
@@ -36,7 +37,7 @@ public class LearningNotes {
 			Date learningNotes_ModDate, int learningNotes_ViewCount,
 			int learningNotes_RelayCount, int learningNotes_CommentCount,
 			String learningNotes_PubUser, int learningNotes_Type_id,
-			UserInfo userInfo, LearningNotesType learningNotesType) {
+			String learningNotes_Tags) {
 		super();
 		this.myBlog_LearningNotes_id = myBlog_LearningNotes_id;
 		this.learningNotes_Title = learningNotes_Title;
@@ -53,8 +54,7 @@ public class LearningNotes {
 		this.learningNotes_CommentCount = learningNotes_CommentCount;
 		this.learningNotes_PubUser = learningNotes_PubUser;
 		this.learningNotes_Type_id = learningNotes_Type_id;
-		this.userInfo = userInfo;
-		this.learningNotesType = learningNotesType;
+		this.learningNotes_Tags = learningNotes_Tags;
 	}
 
 	public int getLearningNotes_RelayCount() {
@@ -193,6 +193,14 @@ public class LearningNotes {
 		this.learningNotesType = learningNotesType;
 	}
 
+	public String getLearningNotes_Tags() {
+		return learningNotes_Tags;
+	}
+
+	public void setLearningNotes_Tags(String learningNotes_Tags) {
+		this.learningNotes_Tags = learningNotes_Tags;
+	}
+
 	@Override
 	public String toString() {
 		return "LearningNotes [myBlog_LearningNotes_id="
@@ -210,7 +218,8 @@ public class LearningNotes {
 				+ learningNotes_RelayCount + ", learningNotes_CommentCount="
 				+ learningNotes_CommentCount + ", learningNotes_PubUser="
 				+ learningNotes_PubUser + ", learningNotes_Type_id="
-				+ learningNotes_Type_id + ", userInfo=" + userInfo
+				+ learningNotes_Type_id + ", learningNotes_Tags="
+				+ learningNotes_Tags + ", userInfo=" + userInfo
 				+ ", learningNotesType=" + learningNotesType + "]";
 	}
 
