@@ -26,7 +26,7 @@
 		<h2>500</h2>
 		<h3>对不起，出错啦!</h3>
 		<p>错误信息如下：</p>
-		<p>${errorMsg.errorMsg==null || errorMsg.errorMsg==''?'运行时发生未知异常,请与管理员取的联系！':errorMsg.errorMsg }</p>
+		<p>${errorMsg.message==null || errorMsg.message==''?'运行时发生未知异常,请与管理员取的联系！':errorMsg.message }</p>
 		<a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i>返回上一页</a>
 	</div>
 </body>

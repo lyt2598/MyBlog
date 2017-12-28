@@ -4,32 +4,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
+import com.liaoyingtai.blog.utils.ResultUtils;
 
 public class MyExceptionResolverResultJson {
 
 	@ExceptionHandler
-	public ModelAndView resolveException(HttpServletRequest arg0,
+	public @ResponseBody
+	ResultUtils resolveException(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3) {
 		arg3.printStackTrace();
-		ModelAndView mad = new ModelAndView();
-		String viewName = "other/error";
-		if (arg3 instanceof BaseExceptionCustom) {
-			BaseExceptionCustom baseException = (BaseExceptionCustom) arg3;
-			mad.addObject("errorMsg", baseException);
-		} else if (arg3 instanceof UserRegisteredException) {
-			UserRegisteredException userRegisteredException = (UserRegisteredException) arg3;
-			viewName = "baseView/message";
-			mad.addObject("errorMsg", userRegisteredException);
-		} else {
-			BaseExceptionCustom baseException = new BaseExceptionCustom(
-					"运行过程中发生未知异常,请立即与管理员取的联系！");
-			mad.addObject("errorMsg", baseException);
+		if (!(arg3 instanceof BaseExceptionCustom)
+				&& !(arg3 instanceof UserRegisteredException)) {
+			arg3 = new BaseExceptionCustom("运行过程中发生未知异常,请立即与管理员取的联系！");
 		}
-		mad.setViewName(viewName);
-		return mad;
+		ResultUtils resultUtils = new ResultUtils();
+		resultUtils.setStatus(ResultUtils.STATUS_ERROR);
+		resultUtils.setMessage(arg3.getMessage());
+		return resultUtils;
 	}
-
 }

@@ -2,9 +2,14 @@ package com.liaoyingtai.blog.utils;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class ResultUtils {
 
+	// @JsonIgnore：忽略字段
+	@JsonIgnore
 	public final static int STATUS_OK = 1;
+	@JsonIgnore
 	public final static int STATUS_ERROR = -1;
 
 	private int status;// 1:成功 -1:失败
@@ -25,14 +30,6 @@ public class ResultUtils {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public static int getStatusOk() {
-		return STATUS_OK;
-	}
-
-	public static int getStatusError() {
-		return STATUS_ERROR;
 	}
 
 	public Map<String, Object> getResult() {

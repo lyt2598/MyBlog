@@ -23,7 +23,7 @@
 		Nerver Give Up - <span>消息页面 </span>
 	</h1>
 	<div class="w3layout-agileits">
-		<h3>${errorMsg.errorMsg==null || errorMsg.errorMsg==''?'运行时发生未知异常,请与管理员取的联系！':errorMsg.errorMsg }</h3>
+		<h3>${errorMsg.message==null || errorMsg.message==''?'运行时发生未知异常,请与管理员取的联系！':errorMsg.message }</h3>
 		<a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i>返回上一页</a>
 	</div>
 </body>

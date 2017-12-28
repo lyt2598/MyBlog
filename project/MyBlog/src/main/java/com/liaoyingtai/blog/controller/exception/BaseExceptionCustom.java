@@ -1,21 +1,26 @@
 package com.liaoyingtai.blog.controller.exception;
 
+/**
+ * 基础异常类型
+ * @author Lyt
+ *
+ */
 @SuppressWarnings("serial")
 public class BaseExceptionCustom extends Exception {
 
-	private String errorMsg;
+	private String message;
 
 	public BaseExceptionCustom(String errorMsg) {
-		super();
-		this.errorMsg = errorMsg;
+		super(errorMsg);
+		this.message = errorMsg;
 	}
 
-	public String getErrorMsg() {
-		return errorMsg;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }
