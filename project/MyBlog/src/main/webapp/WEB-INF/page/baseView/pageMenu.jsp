@@ -40,26 +40,27 @@
 						</a>
 							<ul class="dropdown-menu dropdown-menu-sw">
 								<li class="dropdown-header">当前用户：<strong
-									style="font-size: 16px;">lyt2598de</strong></li>
+									style="font-size: 16px;">${sessionScope.currentUser.userInfo_Name}</strong></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"
-									target="indexFrame"><span class="dropdown-menu-left-logo"><i
-											class="fa fa-cog" aria-hidden="true"></i> </span>个人中心</a></li>
+								<li><a href="${pageContext.request.contextPath}/#"><span
+										class="dropdown-menu-left-logo"><i class="fa fa-cog"
+											aria-hidden="true"></i> </span>个人中心</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"
-									target="indexFrame"><span class="dropdown-menu-left-logo"><i
+								<li><a href="${pageContext.request.contextPath}/#"><span
+										class="dropdown-menu-left-logo"><i
 											class="fa fa-plus-square" aria-hidden="true"></i> </span>生活分享</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"
-									target="indexFrame"><span class="dropdown-menu-left-logo"><i
+								<li><a
+									href="${pageContext.request.contextPath}/pubLearningNotes"><span
+										class="dropdown-menu-left-logo"><i
 											class="fa fa-plus-square" aria-hidden="true"></i> </span>学习笔记</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"
-									target="indexFrame"><span class="dropdown-menu-left-logo"><i
+								<li><a href="${pageContext.request.contextPath}/#"><span
+										class="dropdown-menu-left-logo"><i
 											class="fa fa-plus-square" aria-hidden="true"></i> </span>进入后台</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/loginOut"
-									target="indexFrame"><span class="dropdown-menu-left-logo"><i
+								<li><a href="${pageContext.request.contextPath}/loginOut"><span
+										class="dropdown-menu-left-logo"><i
 											class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
 								<li class="divider"></li>
 							</ul></li>
