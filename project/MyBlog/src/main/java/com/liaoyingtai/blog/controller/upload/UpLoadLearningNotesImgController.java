@@ -1,9 +1,6 @@
 package com.liaoyingtai.blog.controller.upload;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +15,7 @@ import com.liaoyingtai.blog.service.learningNotes.LNUploadFileService;
 import com.liaoyingtai.blog.utils.UpLoadUtils;
 
 @Controller
-@RequestMapping("upload")
+@RequestMapping("/upload")
 public class UpLoadLearningNotesImgController extends UpLoadExceptionResolver {
 
 	@Autowired
@@ -26,19 +23,18 @@ public class UpLoadLearningNotesImgController extends UpLoadExceptionResolver {
 
 	@RequestMapping(value = "/uploadLearningNotesImg", method = { RequestMethod.POST })
 	public @ResponseBody
-	UpLoadUtils uploadLearningNotesImg(HttpSession session,
+	UpLoadUtils uploadLearningNotesImg(HttpServletRequest request,
 			@RequestParam("learningNotesFile") MultipartFile file)
 			throws Exception {
-		// UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
+		// UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
+		// "currentUser");
 		// String uid = userInfo.getMyBlog_UserInfo_id();
-		String saveUrl = lnUploadFileService.upLoadFile("1", file);
+		String saveUrl = lnUploadFileService.upLoadFile("1", file, request);
 		UpLoadUtils upLoadUtils = new UpLoadUtils();
 		upLoadUtils.setStatus(1);
 		upLoadUtils.setMessage("上传成功");
-		List<String> data = new ArrayList<String>();
-		data.add(saveUrl);
-		upLoadUtils.setData(data);
-		upLoadUtils.setErrno(0);
+		upLoadUtils.setUrl(saveUrl);
 		return upLoadUtils;
 	}
+
 }

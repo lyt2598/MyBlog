@@ -1,7 +1,5 @@
 package com.liaoyingtai.blog.utils;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UpLoadUtils {
@@ -14,10 +12,7 @@ public class UpLoadUtils {
 
 	private int status;// 1:上传成功 -1：上传失败
 	private String message;// 一般用于上传失败后显示错误信息
-
-	// 使用wangEditor上传时需要返回的内容
-	private int errno;// 上传状态 0：成功 其他值：失败
-	private List<String> data;// 上传成功后的文件路径
+	private String url;// 文件保存路径
 
 	public int getStatus() {
 		return status;
@@ -35,28 +30,12 @@ public class UpLoadUtils {
 		this.message = message;
 	}
 
-	public List<String> getData() {
-		return data;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setData(List<String> data) {
-		this.data = data;
-	}
-
-	public int getErrno() {
-		return errno;
-	}
-
-	public void setErrno(int errno) {
-		this.errno = errno;
-	}
-
-	public static int getUploadOk() {
-		return UPLOAD_OK;
-	}
-
-	public static int getUploadError() {
-		return UPLOAD_ERROR;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

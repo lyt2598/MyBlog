@@ -27,30 +27,17 @@
 		var E = window.wangEditor
 		var editor = new E('#editor')
 		editor.customConfig.uploadImgMaxLength = 5
-		//editor.uploadImgServer = 'http://localhost:8080/MyBlog/upload/uploadLearningNotesImg'
 		editor.customConfig.debug = location.href
 				.indexOf('wangeditor_debug_mode=1') > 0
-		editor.customConfig.uploadImgServer = 'http://localhost:8080/MyBlog/upload/uploadLearningNotesImg'
+		editor.customConfig.uploadImgServer = '${pageContext.request.contextPath}/upload/uploadLearningNotesImg'
 		editor.customConfig.uploadImgMaxSize = 2 * 1024 * 1024
 		editor.customConfig.uploadFileName = 'learningNotesFile'
-		editor.customConfig.uploadImgHeaders = {
-			'Accept' : 'multipart/form-data'
+		editor.customConfig.uploadImgHooks = {
+			customInsert : function(insertImg, result, editor) {
+				var url = result.url
+				insertImg(url)
+			}
 		}
-		//editor.customConfig.customUploadImg = function(files, insert) {
-			// files 是 input 中选中的文件列表
-			// insert 是获取图片 url 后，插入到编辑器的方法
-			// 上传代码返回结果之后，将图片插入到编辑器中
-			//insert(imgUrl)
-		//}
-		/* editor.customConfig.uploadImgHooks = {
-			// 图片上传出错时触发      xhr 是 XMLHttpRequst 对象，editor 是编辑器对象
-			 error : function(xhr, editor) {
-				alert("2:" + xhr);
-			},
-			fail : function(xhr, editor, result) {
-				alert("1:" + xhr);
-			}, 
-		} */
 		editor.create()
 	</script>
 </body>

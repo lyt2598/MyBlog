@@ -21,7 +21,7 @@ public class UpLoadExceptionResolver {
 		UpLoadUtils upLoadUtils = new UpLoadUtils();
 		upLoadUtils.setStatus(-1);
 		upLoadUtils.setMessage(arg3.getMessage());
-		upLoadUtils.setErrno(-1);
+		upLoadUtils.setUrl("");
 		return upLoadUtils;
 	}
 

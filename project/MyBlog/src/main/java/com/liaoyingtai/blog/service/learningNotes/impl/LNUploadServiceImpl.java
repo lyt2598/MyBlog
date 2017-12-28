@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,19 +27,28 @@ public class LNUploadServiceImpl implements LNUploadFileService {
 		}
 	}
 
-	public String upLoadFile(String uid, MultipartFile file) throws Exception {
-		String temp_savePath = savePath.replace("#uid", uid) + "/"
-				+ UUID.randomUUID();
+	@SuppressWarnings("deprecation")
+	public String upLoadFile(String uid, MultipartFile file,
+			HttpServletRequest request) throws Exception {
+		String temp_savePath = request.getRealPath("/")
+				+ savePath.replace("#uid", uid);
 		if (file == null) {
 			throw new BaseExceptionCustom("上传的文件不能为空");
 		}
-		String fileName = file.getOriginalFilename();
-		temp_savePath = temp_savePath
-				+ fileName.substring(fileName.lastIndexOf("."));
 		File temp_file = new File(temp_savePath);
+		// 判断保存路径文件夹是否存在，不存在则建立新文件夹
+		if (!temp_file.exists()) {
+			temp_file.mkdir();
+		}
+		String fileName = file.getOriginalFilename();
+		fileName = UUID.randomUUID()
+				+ fileName.substring(fileName.lastIndexOf("."));
+		temp_savePath = temp_savePath + "/" + fileName;
+		temp_file = new File(temp_savePath);
 		// 将文件写入到磁盘当中
 		file.transferTo(temp_file);
-		return savePath;
+		String resultURL = "http://localhost:8080/MyBlog/img/learningNotes/"
+				+ uid + "/" + fileName;
+		return resultURL;
 	}
-
 }
