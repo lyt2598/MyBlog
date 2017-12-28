@@ -34,11 +34,8 @@ function getHeadMenuHtml(headMenu, url) {
 			}
 			resultHtml += '</ul></li>';
 		} else {
-			resultHtml += '<li id="index_menu_${index_menu.headMenu_URL}"><a href="'
-					+ url
-					+ '/'
-					+ headMenu[i].headMenu_URL
-					+ '">'
+			resultHtml += '<li><a href="' + url + '/'
+					+ headMenu[i].headMenu_URL + '">'
 					+ headMenu[i].headMenu_Name + '</a></li>';
 		}
 	}

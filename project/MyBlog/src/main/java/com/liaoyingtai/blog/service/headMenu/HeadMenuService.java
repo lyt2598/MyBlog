@@ -10,13 +10,12 @@ public interface HeadMenuService {
 	/**
 	 * 读取首页头部菜单项
 	 * 
-	 * @param selectParam
-	 *            查詢條件,目前只能通过UserId来进行查找
+	 * @param uid
+	 *            用户ID
 	 * @return 返回头部菜单信息
 	 * @throws Exception
 	 */
-	public List<HeadMenuCustom> getIndexHeadMenu(HeadMenuCustom selectParam)
-			throws Exception;
+	public List<HeadMenuCustom> getIndexHeadMenu(String uid) throws Exception;
 
 	/**
 	 * 添加首页顶部菜单项信息

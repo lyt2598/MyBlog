@@ -18,8 +18,8 @@
 	<%@ include file="../baseView/pageBody.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function(e) {
-			var uid = '${userId }';
-			loadPageContent('${pageContext.request.contextPath}', uid);
+			/* var uid = '${userId }'; */
+			/* loadPageContent('${pageContext.request.contextPath}', uid); */
 		});
 	</script>
 </body>

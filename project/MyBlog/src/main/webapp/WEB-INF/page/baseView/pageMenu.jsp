@@ -6,7 +6,30 @@
 			<span class="navbar-brand">NGU&nbsp;-&nbsp;个人主页</span>
 		</div>
 		<div>
-			<ul class="nav navbar-nav navbar-left" id="indexMenu"></ul>
+			<ul class="nav navbar-nav navbar-left" id="indexMenu">
+				<c:forEach items="${sessionScope.headMenuList }" var="pmenu">
+					<c:choose>
+						<c:when
+							test="${pmenu.headMenu_URL == null || pmenu.headMenu_URL == ''}">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">${pmenu.headMenu_Name } <b
+									class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<c:forEach items="${pmenu.blogHeadMenus }" var="cmenu">
+										<li class="divider"></li>
+										<li><a
+											href="${pageContext.request.contextPath }/${cmenu.headMenu_URL }">
+												${cmenu.headMenu_Name }</a></li>
+									</c:forEach>
+								</ul></li>
+						</c:when>
+						<c:otherwise>
+							<li><a
+								href="${pageContext.request.contextPath }/${pmenu.headMenu_URL }">${pmenu.headMenu_Name }</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
 					<c:when test="${sessionScope.currentUser!=null}">

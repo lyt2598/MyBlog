@@ -24,7 +24,7 @@
 		$(document).ready(function(e) {
 			var uid = '${userId}';
 			var url = '${pageContext.request.contextPath }';
-			loadPageContent(url, uid);
+			/* loadPageContent(url, uid); */
 			var html = getAboutBaseHtml();
 			setPanelBody(html);
 			getAboutMe(url, uid);

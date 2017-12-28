@@ -46,25 +46,26 @@
 	height: 35px;
 	margin-left: 30px;
 	border-radius: 5px;
+	padding: 0px !important;
 }
 
 .searchDiv input {
 	border: 0px;
 	height: 100%;
-	margin: 0px 10px;
+	margin: 0px 5px;
 }
 
 .searchDiv button {
 	padding: 0px;
-	height: 100%;
+	height:32px;
 	width: 30px;
 	border: 0px;
+	background:#fff;
 	border-radius: 0px 3px 3px 0px;
 }
 
 .searchDiv button:hover {
 	color: blue;
-	background: #999;
 }
 
 .table-menu {

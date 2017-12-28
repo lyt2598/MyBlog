@@ -14,7 +14,7 @@ public class MyExceptionResolverResultPage {
 	public ModelAndView resolveException(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3) {
 		ModelAndView mad = new ModelAndView();
-		String viewName = "baseView/error";
+		String viewName = "other/error";
 		if (arg3 instanceof BaseExceptionCustom) {
 			BaseExceptionCustom baseException = (BaseExceptionCustom) arg3;
 			mad.addObject("errorMsg", baseException);

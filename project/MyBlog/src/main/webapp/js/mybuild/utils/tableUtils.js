@@ -1,5 +1,5 @@
 function getLoadingHtml(text) {
-	var html = '<th><td colspan="5" class="textAlign table-load"><i class="fa fa-repeat table-load-logo" aria-hidden="true"></i>'
+	var html = '<th><td colspan="5" class="textAlign table-load"><i class="fa fa-repeat loading-logo" aria-hidden="true"></i>'
 			+ text + '</td></th>';
 	return html;
 }

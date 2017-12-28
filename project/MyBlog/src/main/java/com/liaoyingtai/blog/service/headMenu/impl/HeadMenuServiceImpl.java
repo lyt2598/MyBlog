@@ -21,8 +21,12 @@ public class HeadMenuServiceImpl implements HeadMenuService {
 	@Autowired
 	private HeadMenuMapper headMenuMapper;
 
-	public List<HeadMenuCustom> getIndexHeadMenu(HeadMenuCustom selectParam)
-			throws Exception {
+	public List<HeadMenuCustom> getIndexHeadMenu(String uid) throws Exception {
+		if (uid == null || "".equals(uid)) {
+			throw new BaseExceptionCustom("参数错误：查询用户菜单时用户ID不能为空");
+		}
+		HeadMenuCustom selectParam = new HeadMenuCustom();
+		selectParam.setHeadMenu_UserId(uid);
 		List<HeadMenuCustom> myBlogHeadMenu = headMenuMapper
 				.getHeadMenuInfo(selectParam);
 		if (myBlogHeadMenu.size() <= 0) {

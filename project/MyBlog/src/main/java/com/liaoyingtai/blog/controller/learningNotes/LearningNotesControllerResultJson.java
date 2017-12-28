@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.controller.exception.MyExceptionResolverResultJson;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
 
 @Controller
-@RequestMapping("learningNotes/json/")
-public class LearningNotesControllerResultJson {
+public class LearningNotesControllerResultJson extends
+		MyExceptionResolverResultJson {
 
 	@Autowired
 	private LearningNotesService learningNotesService;

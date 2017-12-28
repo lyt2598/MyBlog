@@ -28,7 +28,21 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/html/" mapping="/html/**" />
-
+	<!-- 自定义拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截所有请求 -->
+			<mvc:mapping path="/**/*" />
+			<!-- 不用拦截的资源，一般静态资源不用拦截 -->
+			<mvc:exclude-mapping path="/css/**" />
+			<mvc:exclude-mapping path="/js/**" />
+			<mvc:exclude-mapping path="/img/**" />
+			<mvc:exclude-mapping path="/html/**" />
+			<!-- 拦截请求，加载头部菜单 -->
+			<bean
+				class="com.liaoyingtai.blog.controller.interceptor.MyHandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- 配置校验器 -->
 	<bean id="myValidator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -47,7 +61,8 @@
 
 	<!-- 配置全局异常处理 -->
 	<!-- 使用注解来配置异常处理器 -->
-	<!-- <bean class="com.liaoyingtai.blog.controller.exception.MyExceptionResolver" /> -->
+	<!-- <bean class="com.liaoyingtai.blog.controller.exception.MyExceptionResolver" 
+		/> -->
 
 	<!-- 配置component所在的包，自动加载需要管理的Bean -->
 	<context:component-scan base-package="com.liaoyingtai.blog.service" />

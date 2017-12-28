@@ -26,10 +26,7 @@ public class LoadBaseContentController extends MyExceptionResolverResultJson {
 	ResultUtils loadContent(String uid) throws Exception {
 		ResultUtils resultUtils = new ResultUtils();
 		resultUtils.setStatus(ResultUtils.STATUS_OK);
-		HeadMenuCustom headMenuCustom = new HeadMenuCustom();
-		headMenuCustom.setHeadMenu_UserId(uid);
-		List<HeadMenuCustom> hm = headMenuService
-				.getIndexHeadMenu(headMenuCustom);
+		List<HeadMenuCustom> hm = headMenuService.getIndexHeadMenu(uid);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("headMenu", hm);
 		resultMap.put("userInfo", null);

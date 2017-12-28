@@ -19,13 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.controller.exception.MyExceptionResolverResultPage;
 import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredException;
 import com.liaoyingtai.blog.controller.validator.group.userInfo.RegUserInfoValidatorGroup;
 import com.liaoyingtai.blog.entity.userInfo.UserInfoCustom;
 import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
 @Controller
-public class UserInfoController {
+public class UserInfoController extends MyExceptionResolverResultPage {
 
 	@Autowired
 	private UserInfoService userInfoService;

@@ -1,30 +1,18 @@
-$(document).ready(function(e) {
-	getLearningNotestList(1, 20);
-	$("#searchData").keydown(function(e) {
-		if (e.keyCode == 13) {
-			search();
-		}
-	});
-});
-
-function search() {
+function search(url, uid) {
 	var searchData = $("#searchData").val();
-	getLearningNotestList(1, 20, searchData);
+	getLearningNotestList(url, uid, 1, 20, searchData);
 }
 
-function getLearningNotestList(page, limit, title) {
+function getLearningNotestList(url, uid, page, limit, title) {
 	if (title == "undefined" || title == null) {
 		title = "";
 	}
-	var uid = $("#currentViewsUser", window.parent.document).val();
-	var requestURL = window.parent.locationValue
-			+ "/learningNotes/json/getLearningNotesList.action";
-	requestLearningNotestList(uid, title, page, limit, requestURL);
+	requestLearningNotestList(uid, title, page, limit, url);
 }
 
 function requestLearningNotestList(uid, title, page, limit, requestURL) {
 	$.ajax({
-		url : requestURL,
+		url : requestURL + '/getLearningNotesList',
 		data : "uid=" + uid + "&page=" + page + "&limit=" + limit + "&title="
 				+ title,
 		method : "POST",
@@ -51,9 +39,6 @@ function requestLearningNotestList(uid, title, page, limit, requestURL) {
 		},
 		error : function(e) {
 			console.log(e);
-		},
-		complete : function(e) {
-			window.parent.loadFrame();
 		}
 	});
 }
@@ -90,5 +75,26 @@ function getTableList(tableList) {
 				+ '<td><i class="fa fa-commenting-o i-blue" aria-hidden="true"></i>'
 				+ tableList[i].learningNotes_CommentCount + '</td></tr>';
 	}
+	return html;
+}
+
+function getLearningNotesListBaseHtml(url, uid) {
+	var html = '<div class="lnBody"><div class="page-header"><h1>学习笔记 <small>学无止境</small></h1></div>'
+			+ '<p>以下文章均为个人学习时得出的结论以及碰到的问题的整理,如果有不对的地方欢迎大家指出。</p>'
+			+ '<div class="table-menu"><button type="button" class="btn btn-primary">'
+			+ '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'
+			+ '发表学习笔记 </button><div class="searchDiv"><input type="text" id="searchData" placeholder="请输入需要查询的内容">'
+			+ '<button title="点击查询" onclick="search(\''
+			+ url
+			+ '\',\''
+			+ uid
+			+ '\')">'
+			+ '<i class="fa fa-search" aria-hidden="true"></i></button> </div> </div>'
+			+ '<table class="table table-bordered table-condensed"><thead>'
+			+ '<tr class="success"> <th class="textAlign" style="width:5%;">#</th>'
+			+ '<th>文章标题</th> <th style="width:10%; min-width:155px;">发布时间</th>'
+			+ '<th style="width:5%; min-width:100px;">浏览次数</th>'
+			+ '<th style="width:5%; min-width:100px;">评论次数</th> </tr> </thead>'
+			+ '<tbody id="table-body"></tbody> </table> <div id="paging" align="center"></div></div>';
 	return html;
 }
