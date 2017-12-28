@@ -15,7 +15,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/errorPage.css">
+	href="${pageContext.request.contextPath }/css/mybuild/other/errorPage.css">
 </head>
 
 <body>
