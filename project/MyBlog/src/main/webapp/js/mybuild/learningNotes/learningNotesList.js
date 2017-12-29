@@ -1,15 +1,16 @@
+//搜索文章
 function search(url, uid) {
 	var searchData = $("#searchData").val();
 	getLearningNotestList(url, uid, 1, 20, searchData);
 }
-
+// 读取文章列表信息
 function getLearningNotestList(url, uid, page, limit, title) {
 	if (title == "undefined" || title == null) {
 		title = "";
 	}
 	requestLearningNotestList(uid, title, page, limit, url);
 }
-
+// 读取文章列表信息请求
 function requestLearningNotestList(uid, title, page, limit, requestURL) {
 	$.ajax({
 		url : requestURL + '/getLearningNotesList',
@@ -42,7 +43,7 @@ function requestLearningNotestList(uid, title, page, limit, requestURL) {
 		}
 	});
 }
-
+// 读取文章列表html
 function getTableList(tableList) {
 	var html;
 	var intervalHtml = '<tr><td colspan="5"></td></tr>';
@@ -79,7 +80,7 @@ function getTableList(tableList) {
 	}
 	return html;
 }
-
+// 读取文章列表界面
 function getLearningNotesListBaseHtml(url, uid) {
 	var html = '<div class="lnBody"><div class="page-header"><h1>学习笔记 <small>学无止境</small></h1></div>'
 			+ '<p>以下文章均为个人学习时得出的结论以及碰到的问题的整理,如果有不对的地方欢迎大家指出。</p>'
@@ -102,27 +103,27 @@ function getLearningNotesListBaseHtml(url, uid) {
 			+ '<tbody id="table-body"></tbody> </table> <div id="paging" align="center"></div></div>';
 	return html;
 }
-
+// 点击发布文章按钮跳转
 function pubLN(url) {
 	window.location.href = url + "/pubLearningNotes";
 }
-
+// 读取编辑文章界面
 function getPubLNBaseHtml(url) {
 	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/></div>'
 			+ '<div id="editor"></div><div class="pubConfig">显示设置：'
-			+ '<label><input type="checkbox">置顶博文</label>'
-			+ '<label><input type="checkbox">仅自己可见</label>'
+			+ '<label><input type="checkbox" id="lnStick">置顶博文</label>'
+			+ '<label><input type="checkbox" id="lnPrivate">仅自己可见</label>'
 			+ '</div><div class="pubConfig">其他设置：'
-			+ '<label><input type="checkbox">允许转发</label>'
-			+ '<label><input type="checkbox">允许评论</label>'
+			+ '<label><input type="checkbox" id="lnRelay" checked="checked">允许转发</label>'
+			+ '<label><input type="checkbox" id="lnComment" checked="checked">允许评论</label>'
 			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select></div>'
 			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags"><span class="pubTitleMsg">关键字用英文逗号[ , ]隔开</span></div>'
 			+ '<div class="pubSubmit" align="center">'
-			+ '<button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button>'
+			+ '<button type="button" class="btn btn-success" id="publishLN"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button>'
 			+ '<button type="button" class="btn btn-warning"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;保存到草稿箱</button></div>';
 	return html;
 }
-
+// 读取文章类型
 function getLNType(url) {
 	$.ajax({
 		url : url + "/getLNType",
@@ -147,5 +148,38 @@ function getLNType(url) {
 			alert("请求出错,请刷新页面重新请求。错误信息：" + e);
 			console.log(e);
 		}
+	})
+}
+// 发表文章
+function pubLearningNotes(editor, url) {
+	var title = $("#pubTitleValue").val();
+	if (title == "") {
+		alert("请输入标题");
+		return;
+	}
+	var context = editor.txt.html();
+	if (editor.txt.text() == "") {
+		alert("请输入正文内容");
+		return;
+	}
+	var lnStick = 0;
+	if ($("#lnStick").is(':checked')) {
+		lnStick = 1;
+	}
+	var lnPrivate = 0;
+	if ($("#lnPrivate").is(':checked')) {
+		lnPrivate = 1;
+	}
+	var lnRelay = 0;
+	if ($("#lnRelay").is(':checked')) {
+		lnRelay = 1;
+	}
+	var lnComment = 0;
+	if ($("#lnComment").is(':checked')) {
+		lnComment = 1;
+	}
+	var pubType = $("#pubType").val();
+	$.ajax({
+		url:url+"/"
 	})
 }

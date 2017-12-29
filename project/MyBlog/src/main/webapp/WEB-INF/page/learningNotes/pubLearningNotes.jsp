@@ -23,13 +23,13 @@
 
 <body>
 	<%@ include file="../baseView/pageBody.jsp"%>
-
 	<script type="text/javascript">
 		$(document).ready(
 				function(e) {
 					var url = '${pageContext.request.contextPath }';
 					var html = getPubLNBaseHtml();
 					setPanelBody(html);
+					getLNType(url);
 					var E = window.wangEditor;
 					var editor = new E('#editor');
 					editor.customConfig.uploadImgMaxLength = 5;
@@ -46,7 +46,9 @@
 						}
 					}
 					editor.create();
-					getLNType(url);
+					$('#publishLN').click(function() {
+						pubLearningNotes(editor);
+					});
 				})
 	</script>
 </body>
