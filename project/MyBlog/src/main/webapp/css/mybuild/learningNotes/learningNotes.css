@@ -51,8 +51,7 @@
 
 .searchDiv input {
 	border: 0px;
-	height: 33px !important;
-	line-height: 33px !important;
+	line-height: 30px !important;
 	margin: 0px 5px;
 }
 
