@@ -2,12 +2,20 @@ package com.liaoyingtai.blog.entity.learningNotes;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.liaoyingtai.blog.controller.validator.group.learningNotes.PublishLearningNotesValidatorGroup;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 
 public class LearningNotes {
 
 	private int myBlog_LearningNotes_id;
+
 	private String learningNotes_Title;
+	@NotNull(message = "{learningNotes.context.notNull}", groups = { PublishLearningNotesValidatorGroup.class })
+	@NotBlank(message = "{learningNotes.context.notBlank}", groups = { PublishLearningNotesValidatorGroup.class })
 	private String learningNotes_Context;
 	private Date learningNotes_PubDate;
 	private int learningNotes_Stick;

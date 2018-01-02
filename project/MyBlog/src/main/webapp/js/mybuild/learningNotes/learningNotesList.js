@@ -117,8 +117,8 @@ function getPubLNBaseHtml(url) {
 			+ '<label><input type="checkbox" id="lnRelay" checked="checked">允许转发</label>'
 			+ '<label><input type="checkbox" id="lnComment" checked="checked">允许评论</label>'
 			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select></div>'
-			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags"><span class="pubTitleMsg">关键字用英文逗号[ , ]隔开</span></div>'
-			+ '<div class="pubSubmit" align="center">'
+			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags" onchange="keywordFormat()">'
+			+ '<span class="pubTitleMsg">关键字用逗号[ , ]隔开</span></div><div class="pubSubmit" align="center">'
 			+ '<button type="button" class="btn btn-success" id="publishLN"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button>'
 			+ '<button type="button" class="btn btn-warning"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;保存到草稿箱</button></div>';
 	return html;
@@ -153,10 +153,6 @@ function getLNType(url) {
 // 发表文章
 function pubLearningNotes(editor, url) {
 	var title = $("#pubTitleValue").val();
-	if (title == "") {
-		alert("请输入标题");
-		return;
-	}
 	var context = editor.txt.html();
 	if (editor.txt.text() == "") {
 		alert("请输入正文内容");
@@ -181,7 +177,7 @@ function pubLearningNotes(editor, url) {
 	var pubType = $("#pubType").val();
 	var pubTags = $("#pubTags").val();
 	$.ajax({
-		url : url + "/pubLearningNotes",
+		url : url + "/publish/pubLearningNotes",
 		method : 'post',
 		data : "learningNotes_Title=" + title + "&learningNotes_Context="
 				+ context + "&learningNotes_Stick=" + lnStick
@@ -191,11 +187,23 @@ function pubLearningNotes(editor, url) {
 				+ "&learningNotes_Type_id=" + pubType,
 		dataType : 'json',
 		success : function(data) {
-
+			var obj = eval(data);
+			if (obj.status == 1) {
+				var uid = obj.result.userId;
+				window.location.href = url + "/learningNotesList/" + uid;
+			} else {
+				alert("发布文章出错啦！\n错误信息：" + obj.message)
+			}
 		},
 		error : function(e) {
 			alert("发布文章出错啦！\n错误信息：" + e);
 			console.log(e);
 		}
 	})
+}
+// 关键字格式化
+function keywordFormat() {
+	var value = $("#pubTags").val();
+	value = value.replace("，", ",");
+	$("#pubTags").val(value);
 }
