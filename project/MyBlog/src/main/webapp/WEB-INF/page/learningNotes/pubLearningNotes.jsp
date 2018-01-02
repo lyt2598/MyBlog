@@ -47,7 +47,7 @@
 					}
 					editor.create();
 					$('#publishLN').click(function() {
-						pubLearningNotes(editor);
+						pubLearningNotes(editor, url);
 					});
 				})
 	</script>

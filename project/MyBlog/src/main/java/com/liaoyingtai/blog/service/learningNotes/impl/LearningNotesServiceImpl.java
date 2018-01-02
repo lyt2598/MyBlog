@@ -1,5 +1,7 @@
 package com.liaoyingtai.blog.service.learningNotes.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
+import com.mysql.fabric.xmlrpc.base.Data;
 
 @Service("learningNotes")
 @Transactional
@@ -60,6 +63,27 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 			selectParam.setLearningNotes(learningNotes);
 		}
 		return selectParam;
+	}
+
+	public void insertLearningNotesList(String uid, LearningNotes learningNotes)
+			throws Exception {
+		if (uid == null || "".equals(uid)) {
+			throw new BaseExceptionCustom("参数错误：发表文章时用户ID不能为空");
+		}
+		// 如果标题为空，那么使用当前时间作为标题
+		if (learningNotes.getLearningNotes_Title() == null
+				|| "".equals(learningNotes.getLearningNotes_Title())) {
+			learningNotes.setLearningNotes_Title(new SimpleDateFormat(
+					"yyyy-MM-dd").format(new Data()));
+		}
+		if (learningNotes.getLearningNotes_Context() == null
+				|| "".equals(learningNotes.getLearningNotes_Context())) {
+			throw new BaseExceptionCustom("参数错误：发表文章时正文内容不能为空");
+		}
+		Date pubDate = new Date();
+		learningNotes.setLearningNotes_PubDate(pubDate);
+		learningNotes.setLearningNotes_ModDate(pubDate);
+		learningNotesMapper.insertLearningNotes(learningNotes);
 	}
 
 }

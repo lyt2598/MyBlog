@@ -93,5 +93,28 @@
 		<include refid="learningNotes_table" />
 		<include refid="learningNotes_Where" />
 	</select>
+	<sql id="learningNotes_insert_Value">
+		#{learningNotes_Title},#{learningNotes_Context},#{learningNotes_PubDate},
+		#{learningNotes_PubUser},#{learningNotes_Stick},#{learningNotes_Recommend},
+		#{learningNotes_Private},#{learningNotes_Comment},#{learningNotes_Relay},
+		#{learningNotes_RelayCount},#{learningNotes_CommentCount},#{learningNotes_ViewCount},
+		#{learningNotes_Type_id},#{learningNotes_Tags},#{learningNotes_ModDate}
+	</sql>
+	<sql id="learningNotes_insert_Field">
+		learningNotes_Title,learningNotes_Context,learningNotes_PubDate,learningNotes_PubUser,
+		learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,learningNotes_Comment,
+		learningNotes_Relay,learningNotes_RelayCount,learningNotes_CommentCount,learningNotes_ViewCount,
+		learningNotes_Type_id,learningNotes_Tags,learningNotes_ModDate
+	</sql>
+	<insert id="insertLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		insert into
+		<include refid="learningNotes_table" />
+		(
+		<include refid="learningNotes_insert_Field" />
+		)VALUES(
+		<include refid="learningNotes_insert_Value" />
+		)
+	</insert>
 
 </mapper>

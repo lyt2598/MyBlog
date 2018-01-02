@@ -179,7 +179,23 @@ function pubLearningNotes(editor, url) {
 		lnComment = 1;
 	}
 	var pubType = $("#pubType").val();
+	var pubTags = $("#pubTags").val();
 	$.ajax({
-		url:url+"/"
+		url : url + "/pubLearningNotes",
+		method : 'post',
+		data : "learningNotes_Title=" + title + "&learningNotes_Context="
+				+ context + "&learningNotes_Stick=" + lnStick
+				+ "&learningNotes_Private=" + lnPrivate
+				+ "&learningNotes_Relay=" + lnRelay + "&learningNotes_Comment="
+				+ lnComment + "&learningNotes_Tags=" + pubTags
+				+ "&learningNotes_Type_id=" + pubType,
+		dataType : 'json',
+		success : function(data) {
+
+		},
+		error : function(e) {
+			alert("发布文章出错啦！\n错误信息：" + e);
+			console.log(e);
+		}
 	})
 }

@@ -29,4 +29,13 @@ public interface LearningNotesMapper {
 	public int getLearningNotesListCount(LearningNotesCustom selectParam)
 			throws Exception;
 
+	/**
+	 * 添加学习笔记文章
+	 * 
+	 * @param insertParam
+	 *            添加的学习笔记内容
+	 * @throws Exception
+	 */
+	public void insertLearningNotes(LearningNotes insertParam) throws Exception;
+
 }
