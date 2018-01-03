@@ -33,8 +33,8 @@ function requestLearningNotestList(uid, title, page, limit, requestURL) {
 				var tableHtml = getTableList(obj.learningNotes);
 				$("#table-body").html(tableHtml);
 				// 设置分页页码
-				var pagingHtml = getPagingHtml(title, obj.page, obj.totalPage,
-						obj.limit);
+				var pagingHtml = getPagingHtml(requestURL, uid, title,
+						obj.page, obj.totalPage, obj.limit);
 				$("#paging").html(pagingHtml);
 			}
 		},

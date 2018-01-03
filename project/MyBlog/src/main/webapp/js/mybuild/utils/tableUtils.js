@@ -10,21 +10,29 @@ function getNullHtml(text) {
 	return html;
 }
 
-function getPagingHtml(title, currentPage, totalPage, limit) {
+function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 	var html = '<ul class="pagination">';
 	if (currentPage <= 1) {
 		html += '<li class="disabled"><a href="javascript:void(0);">&laquo;</a></li>';
 		html += '<li class="disabled"><a href="javascript:void(0);">上一页</a></li>';
 	} else {
-		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\'1\',\''
-				+ limit + '\',\'' + title + '\')">&laquo;</a></li>';
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
-				+ (currentPage - 1)
+				+ url
 				+ '\',\''
+				+ uid
+				+ '\',\'1\',\''
 				+ limit
 				+ '\',\''
 				+ title
-				+ '\')">上一页</a></li>';
+				+ '\')">&laquo;</a></li>';
+		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
+				+ url
+				+ '\,\''
+				+ uid
+				+ '\',\''
+				+ (currentPage - 1)
+				+ '\',\''
+				+ limit + '\',\'' + title + '\')">上一页</a></li>';
 	}
 	for (var i = 1; i <= totalPage; i++) {
 		if (totalPage == 1) {
@@ -35,14 +43,14 @@ function getPagingHtml(title, currentPage, totalPage, limit) {
 					+ '</a></li>'
 		} else {
 			html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
+					+ url
+					+ '\',\''
+					+ uid
+					+ '\',\''
 					+ i
 					+ '\',\''
 					+ limit
-					+ '\',\''
-					+ title
-					+ '\')">'
-					+ i
-					+ '</a></li>'
+					+ '\',\'' + title + '\')">' + i + '</a></li>'
 		}
 	}
 	if (totalPage == 1 || currentPage >= totalPage) {
@@ -50,19 +58,22 @@ function getPagingHtml(title, currentPage, totalPage, limit) {
 		html += '<li class="disabled"><a href="javascript:void(0);">&raquo;</a></li>';
 	} else {
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
+				+ url
+				+ '\,\''
+				+ uid
+				+ '\',\''
 				+ (currentPage + 1)
 				+ '\',\''
-				+ limit
-				+ '\',\''
-				+ title
-				+ '\')">下一页</a></li>';
+				+ limit + '\',\'' + title + '\')">下一页</a></li>';
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
+				+ url
+				+ '\,\''
+				+ uid
+				+ '\',\''
 				+ totalPage
 				+ '\',\''
 				+ limit
-				+ '\',\''
-				+ title
-				+ '\')">&raquo;</a></li>';
+				+ '\',\'' + title + '\')">&raquo;</a></li>';
 	}
 	html += '</ul>';
 	return html;
