@@ -99,9 +99,11 @@
 	border: 1px #999 solid;
 	line-height: 20px;
 }
-.pubConfig #pubTags{
+
+.pubConfig #pubTags {
 	width: 185px;
 }
+
 .pubConfig select {
 	border-radius: 3px;
 	border: 1px #999 solid;
@@ -119,6 +121,17 @@
 #editor {
 	margin: 0px 20px;
 }
-.lnListType{
-	color:#999 !important;
+
+.lnListType {
+	color: #999 !important;
+}
+
+.lnBody table #table-body .title {
+	width: 500px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }

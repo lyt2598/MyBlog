@@ -61,7 +61,8 @@ function getTableList(tableList) {
 		}
 		html += '</td><td><span class="lnListType">['
 				+ tableList[i].learningNotesType.learningNotes_Type_Name
-				+ ']</span>&nbsp;<a href="">'
+				+ ']</span>&nbsp;<a href="" class="title" title="'
+				+ tableList[i].learningNotes_Title + '">'
 				+ tableList[i].learningNotes_Title + '</a>';
 		if (tableList[i].learningNotes_Private == 1) {
 			html += '<a class="a-i" title="此文章仅自己可见"><i class="fa fa-eye-slash i-red" aria-hidden="true"></i></a>';
