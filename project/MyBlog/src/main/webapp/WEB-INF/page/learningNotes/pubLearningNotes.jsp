@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>My JSP 'pubLearningNotes.jsp' starting page</title>
+<title>发布我的学习笔记</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

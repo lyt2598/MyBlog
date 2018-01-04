@@ -110,14 +110,14 @@ function pubLN(url) {
 }
 // 读取编辑文章界面
 function getPubLNBaseHtml(url) {
-	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/></div>'
+	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/><span class="pubTitleMsg">如果标题为空，默认使用当前日期作为标题内容。</span></div>'
 			+ '<div id="editor"></div><div class="pubConfig">显示设置：'
 			+ '<label><input type="checkbox" id="lnStick">置顶博文</label>'
 			+ '<label><input type="checkbox" id="lnPrivate">仅自己可见</label>'
 			+ '</div><div class="pubConfig">其他设置：'
 			+ '<label><input type="checkbox" id="lnRelay" checked="checked">允许转发</label>'
 			+ '<label><input type="checkbox" id="lnComment" checked="checked">允许评论</label>'
-			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select></div>'
+			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select><span class="pubTitleMsg">&nbsp;*</span></div>'
 			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags" onchange="keywordFormat()">'
 			+ '<span class="pubTitleMsg">关键字用逗号[ , ]隔开</span></div><div class="pubSubmit" align="center">'
 			+ '<button type="button" class="btn btn-success" id="publishLN"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button>'
@@ -134,6 +134,7 @@ function getLNType(url) {
 			var obj = eval(data);
 			if (obj.status == 1) {
 				var result = obj.result.lnType;
+				$("#pubType").append("<option value='-1'>请选择文章类型</option>");
 				for (var i = 0; i < result.length; i++) {
 					$("#pubType").append(
 							"<option value='"
@@ -159,6 +160,7 @@ function pubLearningNotes(editor, url) {
 		alert("请输入正文内容");
 		return;
 	}
+	alert(context);
 	var lnStick = 0;
 	if ($("#lnStick").is(':checked')) {
 		lnStick = 1;
@@ -176,6 +178,10 @@ function pubLearningNotes(editor, url) {
 		lnComment = 1;
 	}
 	var pubType = $("#pubType").val();
+	if (pubType == -1) {
+		alert("请选择文章类型！")
+		return;
+	}
 	var pubTags = $("#pubTags").val();
 	$.ajax({
 		url : url + "/publish/pubLearningNotes",

@@ -34,23 +34,38 @@ function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 				+ '\',\''
 				+ limit + '\',\'' + title + '\')">上一页</a></li>';
 	}
-	for (var i = 1; i <= totalPage; i++) {
+	var starPage = 1;
+	var endPage = 5;
+	if (totalPage > 5 && currentPage >= 3) {
+		if (currentPage + 2 <= totalPage) {
+			starPage = currentPage - 2;
+			endPage = currentPage + 2;
+		} else {
+			starPage = totalPage - 4;// 减4是因为包含了当前页，只需要显示前面的4页页码
+			endPage = totalPage;
+		}
+	}
+	for (; starPage <= endPage; starPage++) {
 		if (totalPage == 1) {
-			html += '<li class="disabled"><a href="javascript:void(0);">' + i
-					+ '</a></li>'
-		} else if (i == currentPage) {
-			html += '<li class="active"><a href="javascript:void(0);">' + i
-					+ '</a></li>'
+			html += '<li class="disabled"><a href="javascript:void(0);">'
+					+ starPage + '</a></li>'
+		} else if (starPage == currentPage) {
+			html += '<li class="active"><a href="javascript:void(0);">'
+					+ starPage + '</a></li>'
 		} else {
 			html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
 					+ url
 					+ '\',\''
 					+ uid
 					+ '\',\''
-					+ i
+					+ starPage
 					+ '\',\''
 					+ limit
-					+ '\',\'' + title + '\')">' + i + '</a></li>'
+					+ '\',\''
+					+ title
+					+ '\')">'
+					+ starPage
+					+ '</a></li>'
 		}
 	}
 	if (totalPage == 1 || currentPage >= totalPage) {
@@ -59,7 +74,7 @@ function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 	} else {
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
 				+ url
-				+ '\,\''
+				+ '\',\''
 				+ uid
 				+ '\',\''
 				+ (currentPage + 1)
@@ -67,7 +82,7 @@ function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 				+ limit + '\',\'' + title + '\')">下一页</a></li>';
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
 				+ url
-				+ '\,\''
+				+ '\',\''
 				+ uid
 				+ '\',\''
 				+ totalPage
