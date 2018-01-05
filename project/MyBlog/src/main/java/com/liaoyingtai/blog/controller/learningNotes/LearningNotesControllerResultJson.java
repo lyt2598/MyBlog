@@ -19,33 +19,36 @@ import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
+import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
-public class LearningNotesControllerResultJson extends
-		MyExceptionResolverResultJson {
+public class LearningNotesControllerResultJson extends MyExceptionResolverResultJson {
 
 	@Autowired
 	private LearningNotesService learningNotesService;
+	@Autowired
+	private UserInfoService userInfoService;
 
+	// 获取学习笔记文章列表
 	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.POST })
-	public @ResponseBody
-	LearningNotesCustom getLearningNotesList(HttpServletRequest request,
-			String uid, LearningNotesCustom learningNotesCustom)
-			throws Exception {
+	public @ResponseBody ResultUtils getLearningNotesList(HttpServletRequest request, String uid,
+			LearningNotesCustom learningNotesCustom) throws Exception {
+		ResultUtils resultUtils = new ResultUtils();
+		resultUtils.setStatus(ResultUtils.STATUS_OK);
 		// 读取当前登录的用户
-		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
-				"currentUser");
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("currentUser");
 		learningNotesCustom.setLearningNotes_PubUser(uid);
-		learningNotesCustom = learningNotesService.getLearningNotesList(
-				userInfo, learningNotesCustom);
-		return learningNotesCustom;
+		learningNotesCustom = learningNotesService.getLearningNotesList(userInfo, learningNotesCustom);
+		Map<String, Object> result = new HashMap<>();
+		result.put("learningNotesList", learningNotesCustom);
+		resultUtils.setResult(result);
+		return resultUtils;
 	}
 
+	// 发表学习笔记
 	@RequestMapping(value = "/publish/pubLearningNotes", method = { RequestMethod.POST })
-	public @ResponseBody
-	ResultUtils pubLearningNotes(
-			HttpSession session,
+	public @ResponseBody ResultUtils pubLearningNotes(HttpSession session,
 			@Validated(value = { PublishLearningNotesValidatorGroup.class }) LearningNotes learningNotes)
 			throws Exception {
 		// 从session中读取当前用户的id来发表文章
@@ -60,6 +63,20 @@ public class LearningNotesControllerResultJson extends
 		// 将发表文章的用户id返回，前台用做跳转参数
 		resultMap.put("userId", uid);
 		resultUtils.setResult(resultMap);
+		return resultUtils;
+	}
+
+	// 读取学习笔记文章内容
+	@RequestMapping(value = "/learningNotes", method = { RequestMethod.POST })
+	public @ResponseBody ResultUtils learningNotes(Integer lnId) throws Exception {
+		ResultUtils resultUtils = new ResultUtils();
+		resultUtils.setStatus(ResultUtils.STATUS_OK);
+		LearningNotes learningNotes = learningNotesService.getLearningNotesById(lnId);
+		UserInfo userInfo = userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
+		Map<String, Object> result = new HashMap<>();
+		result.put("learningNotes", learningNotes);
+		result.put("userInfo", userInfo);
+		resultUtils.setResult(result);
 		return resultUtils;
 	}
 }

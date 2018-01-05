@@ -16,11 +16,11 @@ public interface LearningNotesService {
 	 * @return
 	 * @throws Exception
 	 */
-	public LearningNotesCustom getLearningNotesList(UserInfo currentUser,
-			LearningNotesCustom selectParam) throws Exception;
+	public LearningNotesCustom getLearningNotesList(UserInfo currentUser, LearningNotesCustom selectParam)
+			throws Exception;
 
 	/**
-	 * 發表學習筆記文章
+	 * 发表学习笔记文章
 	 * 
 	 * @param uid
 	 *            用来发表文章的用户，建议使用当前登录的用户
@@ -28,7 +28,16 @@ public interface LearningNotesService {
 	 *            文章信息，如果title为空，那么使用当前时间作为标题，时间格式：yyyy-MM-dd
 	 * @throws Exception
 	 */
-	public void insertLearningNotesList(String uid, LearningNotes learningNotes)
-			throws Exception;
+	public void insertLearningNotesList(String uid, LearningNotes learningNotes) throws Exception;
+
+	/**
+	 * 通过文章ID搜索文章
+	 * 
+	 * @param lnId
+	 *            文章id
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getLearningNotesById(Integer lnId) throws Exception;
 
 }

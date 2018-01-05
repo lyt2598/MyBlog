@@ -1,137 +1,93 @@
-@charset "utf-8";
-/* CSS Document */
-.lnBody {
-	padding: 0px 20px 20px 20px;
+@CHARSET "UTF-8";
+
+.lnLeft {
+	float: left;
+	width: 20%;
+	margin: 0px 0px 10px 1%;
 }
 
-.table i {
-	padding: 0px 5px;
-	color: #999;
+.lnUserInfo {
+	width: 100%;
+	height: 200px;
+	background: #F0F0F0;
 }
 
-.i-red {
-	color: red !important;
+.lnContext {
+	width: 77%;
+	min-height: 500px;
+	margin: 10px 1% 10px 22%;
+	background: #F0F0F0;
 }
 
-.i-yellow {
-	color: #F90 !important;
+.lnList {
+	margin-top: 10px;
+	background: #F0F0F0;
+	height: 200px;
+	background: #F0F0F0;
 }
 
-.i-blue {
-	color: blue !important;
-}
-
-.i-pink {
-	color: #FF6EB4 !important;
-}
-
-.textAlign {
+.userHead {
 	text-align: center;
+	width: 100%;
+	padding-top: 20px;
 }
 
-.a-i {
-	text-decoration: none;
-}
-
-.table-load {
-	font-size: 30px;
-	font-weight: bold;
-	line-height: 100px;
-	color: #000 !important;
-}
-
-.searchDiv {
+.userHead img {
+	width: 80px;
+	height: 80px;
+	display: block;
+	border-radius: 50%;
+	border: 2px solid #fff;
 	display: inline-block;
-	border: 1px solid #999;
-	height: 35px;
-	margin-left: 30px;
-	border-radius: 5px;
-	padding: 0px !important;
 }
 
-.searchDiv input {
-	border: 0px;
-	line-height: 30px !important;
+.userInfo {
+	width: 100%;
+	height: 80px;
+	padding-top: 20px;
+}
+
+.userInfo i {
 	margin: 0px 5px;
 }
 
-.searchDiv button {
+.userInfo .one {
+	height: 30px;
 	padding: 0px;
-	height: 32px;
-	width: 30px;
-	border: 0px;
-	background: #fff;
-	border-radius: 0px 3px 3px 0px;
-}
-
-.searchDiv button:hover {
-	color: blue;
-}
-
-.table-menu {
-	margin: 10px;
-}
-
-.pubTitle {
-	margin: 20px;
-}
-
-.pubTitle #pubTitleValue {
-	border-radius: 3px;
-	border: 1px #999 solid;
-	line-height: 30px;
-	width: 60%;
-	margin: 0 10px;
-}
-
-.pubTitleMsg {
-	color: red;
+	text-align: center;
 	font-weight: bold;
 }
 
-.pubConfig {
-	margin: 20px;
+.userInfo .two {
+	height: 30px;
+	text-align: center;
+	padding: 10px 0px;
 }
 
-.pubConfig input {
-	margin: 0px 10px;
-	border-radius: 3px;
-	border: 1px #999 solid;
+.lnList .title {
+	padding: 6px 10px;
+	width: 100%;
+	border-bottom: 2px solid #fff;
+	font-size: 12px;
+}
+
+.lnList .title .more {
+	float: right;
+	width: 50px;
+	text-align: right;
+}
+
+.lnList .list {
+	width: 100%;
+}
+
+.lnList .list ul {
+	list-style-type: none;
 	line-height: 20px;
+	padding: 0px;
 }
 
-.pubConfig #pubTags {
-	width: 185px;
-}
-
-.pubConfig select {
-	border-radius: 3px;
-	border: 1px #999 solid;
-	width: 180px;
-}
-
-.pubSubmit {
-	margin: 20px;
-}
-
-.pubSubmit button {
-	margin: 0px 10px;
-}
-
-#editor {
-	margin: 0px 20px;
-}
-
-.lnListType {
-	color: #999 !important;
-}
-
-.lnBody table #table-body .title {
-	width: 500px;
-	vertical-align: top;
-	display: inline-block;
-	overflow: hidden;
-	word-break: keep-all;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+.lnList .list  li {
+	padding: 5px 10px;
+	border-bottom: 1px solid #fff;
 }

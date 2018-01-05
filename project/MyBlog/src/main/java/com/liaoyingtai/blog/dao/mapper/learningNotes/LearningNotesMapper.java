@@ -15,8 +15,7 @@ public interface LearningNotesMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<LearningNotes> getLearningNotesList(
-			LearningNotesCustom selectParam) throws Exception;
+	public List<LearningNotes> getLearningNotesList(LearningNotesCustom selectParam) throws Exception;
 
 	/**
 	 * 读取学习笔记文章数量
@@ -26,8 +25,7 @@ public interface LearningNotesMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	public int getLearningNotesListCount(LearningNotesCustom selectParam)
-			throws Exception;
+	public int getLearningNotesListCount(LearningNotesCustom selectParam) throws Exception;
 
 	/**
 	 * 添加学习笔记文章
@@ -37,5 +35,15 @@ public interface LearningNotesMapper {
 	 * @throws Exception
 	 */
 	public void insertLearningNotes(LearningNotes insertParam) throws Exception;
+
+	/**
+	 * 通过文章id查询文章信息
+	 * 
+	 * @param lnId
+	 *            文章id
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getLearningNotesById(Integer lnId) throws Exception;
 
 }

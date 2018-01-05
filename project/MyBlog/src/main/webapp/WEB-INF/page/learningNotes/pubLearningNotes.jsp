@@ -14,11 +14,11 @@
 <%@ include file="../baseView/pageBaseJS.jsp"%>
 <%@ include file="../baseView/pageBaseCSS.jsp"%>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotes.css">
+	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/pubLearningNotes.css">
 <script
 	src="${pageContext.request.contextPath }/editor/wangEditor.min.js"></script>
 <script
-	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/learningNotesList.js"></script>
+	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/pubLearningNotes.js"></script>
 </head>
 
 <body>

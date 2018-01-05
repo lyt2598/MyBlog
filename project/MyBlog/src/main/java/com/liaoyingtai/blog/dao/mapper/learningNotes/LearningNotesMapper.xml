@@ -115,5 +115,12 @@
 		<include refid="learningNotes_insert_Value" />
 		)
 	</insert>
-
+	<select id="getLearningNotesById" parameterType="int"
+		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id = #{value}
+	</select>
 </mapper>
