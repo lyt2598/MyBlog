@@ -6,7 +6,6 @@
 <mapper
 	namespace="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesMapper">
 
-
 	<resultMap
 		type="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
 		id="learningNotesReultMap">

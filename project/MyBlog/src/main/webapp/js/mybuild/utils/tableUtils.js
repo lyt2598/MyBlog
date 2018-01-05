@@ -27,7 +27,7 @@ function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 				+ '\')">&laquo;</a></li>';
 		html += '<li><a href="javascript:void(0);" onclick="getLearningNotestList(\''
 				+ url
-				+ '\,\''
+				+ '\',\''
 				+ uid
 				+ '\',\''
 				+ (currentPage - 1)
