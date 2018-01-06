@@ -65,6 +65,7 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:validator/userInfo</value>
+				<value>classpath:validator/learningNotes</value>
 			</list>
 		</property>
 	</bean>

@@ -1,7 +1,7 @@
 // 读取编辑文章界面
 function getPubLNBaseHtml(url) {
 	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/><span class="pubTitleMsg">如果标题为空，默认使用当前日期作为标题内容。</span></div>'
-			+ '<div id="editor"></div><div class="pubConfig">显示设置：'
+			+ '<script id="myEditor" style="width:100%;height:360px;" type="text/plain"></script><div class="pubConfig">显示设置：'
 			+ '<label><input type="checkbox" id="lnStick">置顶博文</label>'
 			+ '<label><input type="checkbox" id="lnPrivate">仅自己可见</label>'
 			+ '</div><div class="pubConfig">其他设置：'
@@ -43,10 +43,10 @@ function getLNType(url) {
 	})
 }
 // 发表文章
-function pubLearningNotes(editor, url) {
+function pubLearningNotes(um, url) {
 	var title = $("#pubTitleValue").val();
-	var context = editor.txt.html();
-	if (editor.txt.text() == "") {
+	var context = um.getContent();
+	if (um.hasContents() == false) {
 		alert("请输入正文内容");
 		return;
 	}

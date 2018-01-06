@@ -72,7 +72,7 @@
 
 .lnList .title .more {
 	float: right;
-	width: 50px;
+	width: 41px;
 	text-align: right;
 }
 
@@ -121,4 +121,22 @@
 
 .lnContext #lnValue {
 	min-height: 350px;
+}
+
+#lnValue table, #lnValue tr, #lnValue td {
+	border: 1px solid #000;
+}
+
+#lnValue img {
+	max-width: 100%;
+	display: block;
+	padding: 4px;
+	margin-bottom: 20px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	-o-transition: border .2s ease-in-out;
+	transition: border .2s ease-in-out;
 }

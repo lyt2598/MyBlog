@@ -37,15 +37,11 @@ public class LearningNotes {
 		super();
 	}
 
-	public LearningNotes(int myBlog_LearningNotes_id,
-			String learningNotes_Title, String learningNotes_Context,
-			Date learningNotes_PubDate, int learningNotes_Stick,
-			int learningNotes_Recommend, int learningNotes_Private,
-			int learningNotes_Comment, int learningNotes_Relay,
-			Date learningNotes_ModDate, int learningNotes_ViewCount,
-			int learningNotes_RelayCount, int learningNotes_CommentCount,
-			String learningNotes_PubUser, int learningNotes_Type_id,
-			String learningNotes_Tags) {
+	public LearningNotes(int myBlog_LearningNotes_id, String learningNotes_Title, String learningNotes_Context,
+			Date learningNotes_PubDate, int learningNotes_Stick, int learningNotes_Recommend, int learningNotes_Private,
+			int learningNotes_Comment, int learningNotes_Relay, Date learningNotes_ModDate, int learningNotes_ViewCount,
+			int learningNotes_RelayCount, int learningNotes_CommentCount, String learningNotes_PubUser,
+			int learningNotes_Type_id, String learningNotes_Tags) {
 		super();
 		this.myBlog_LearningNotes_id = myBlog_LearningNotes_id;
 		this.learningNotes_Title = learningNotes_Title;
@@ -211,24 +207,16 @@ public class LearningNotes {
 
 	@Override
 	public String toString() {
-		return "LearningNotes [myBlog_LearningNotes_id="
-				+ myBlog_LearningNotes_id + ", learningNotes_Title="
-				+ learningNotes_Title + ", learningNotes_Context="
-				+ learningNotes_Context + ", learningNotes_PubDate="
-				+ learningNotes_PubDate + ", learningNotes_Stick="
-				+ learningNotes_Stick + ", learningNotes_Recommend="
-				+ learningNotes_Recommend + ", learningNotes_Private="
-				+ learningNotes_Private + ", learningNotes_Comment="
-				+ learningNotes_Comment + ", learningNotes_Relay="
-				+ learningNotes_Relay + ", learningNotes_ModDate="
-				+ learningNotes_ModDate + ", learningNotes_ViewCount="
-				+ learningNotes_ViewCount + ", learningNotes_RelayCount="
-				+ learningNotes_RelayCount + ", learningNotes_CommentCount="
-				+ learningNotes_CommentCount + ", learningNotes_PubUser="
-				+ learningNotes_PubUser + ", learningNotes_Type_id="
-				+ learningNotes_Type_id + ", learningNotes_Tags="
-				+ learningNotes_Tags + ", userInfo=" + userInfo
-				+ ", learningNotesType=" + learningNotesType + "]";
+		return "LearningNotes [myBlog_LearningNotes_id=" + myBlog_LearningNotes_id + ", learningNotes_Title="
+				+ learningNotes_Title + ", learningNotes_Context=" + learningNotes_Context + ", learningNotes_PubDate="
+				+ learningNotes_PubDate + ", learningNotes_Stick=" + learningNotes_Stick + ", learningNotes_Recommend="
+				+ learningNotes_Recommend + ", learningNotes_Private=" + learningNotes_Private
+				+ ", learningNotes_Comment=" + learningNotes_Comment + ", learningNotes_Relay=" + learningNotes_Relay
+				+ ", learningNotes_ModDate=" + learningNotes_ModDate + ", learningNotes_ViewCount="
+				+ learningNotes_ViewCount + ", learningNotes_RelayCount=" + learningNotes_RelayCount
+				+ ", learningNotes_CommentCount=" + learningNotes_CommentCount + ", learningNotes_PubUser="
+				+ learningNotes_PubUser + ", learningNotes_Type_id=" + learningNotes_Type_id + ", learningNotes_Tags="
+				+ learningNotes_Tags + ", userInfo=" + userInfo + ", learningNotesType=" + learningNotesType + "]";
 	}
 
 }
