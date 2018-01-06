@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.controller.exception.BaseExceptionCustom;
 import com.liaoyingtai.blog.controller.exception.MyExceptionResolverResultJson;
 import com.liaoyingtai.blog.controller.validator.group.learningNotes.PublishLearningNotesValidatorGroup;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
@@ -49,8 +51,11 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 	// 发表学习笔记
 	@RequestMapping(value = "/publish/pubLearningNotes", method = { RequestMethod.POST })
 	public @ResponseBody ResultUtils pubLearningNotes(HttpSession session,
-			@Validated(value = { PublishLearningNotesValidatorGroup.class }) LearningNotes learningNotes)
-			throws Exception {
+			@Validated(value = { PublishLearningNotesValidatorGroup.class }) LearningNotes learningNotes,
+			BindingResult bindingResult) throws Exception {
+		if (bindingResult.hasErrors()) {
+			throw new BaseExceptionCustom(bindingResult.getAllErrors().get(0).getDefaultMessage());
+		}
 		// 从session中读取当前用户的id来发表文章
 		// UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
 		// String uid = userInfo.getMyBlog_UserInfo_id();

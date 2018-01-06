@@ -17,6 +17,8 @@
 	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotes.css">
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/learningNotes.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
 </head>
 
 <body>

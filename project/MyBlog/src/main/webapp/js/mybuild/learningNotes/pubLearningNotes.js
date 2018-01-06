@@ -1,7 +1,3 @@
-// 点击发布文章按钮跳转
-function pubLN(url) {
-	window.location.href = url + "/pubLearningNotes";
-}
 // 读取编辑文章界面
 function getPubLNBaseHtml(url) {
 	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/><span class="pubTitleMsg">如果标题为空，默认使用当前日期作为标题内容。</span></div>'

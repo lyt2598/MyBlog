@@ -113,3 +113,7 @@ function getLearningNotesListBaseHtml(url, uid) {
 			+ '<tbody id="table-body"></tbody> </table> <div id="paging" align="center"></div></div>';
 	return html;
 }
+// 点击发布文章按钮跳转
+function pubLN(url) {
+	window.location.href = url + "/pubLearningNotes";
+}
