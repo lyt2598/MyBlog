@@ -24,8 +24,8 @@ function getLearningNotesBaseHtml() {
 			+ '</div></div><div id="lnValue"></div><div id="lnBottom">'
 			+ '<a href="" data-toggle="tooltip" title="上一篇">上一篇：</a>'
 			+ '<a href="" data-toggle="tooltip" title="下一篇">下一篇：</a>'
-			+ '</div><div id="message"><div id="SOHUCS" sid="请将此处替换为配置SourceID的语句" ></div></div></div>';
-
+			+ '</div><div id="message"><div id="SOHUCS" sid="'
+			+ window.location.pathname + '" ></div></div></div>';
 	return html;
 }
 
@@ -79,7 +79,6 @@ function getLearningNotesInfo(url, lnId) {
 								obj.result.learningNotes.learningNotes_ModDate)
 								.format("yyyy年MM月dd日");
 						$("#menu-modTime").html(temp_date);
-						$("#SOHUCS").attr("sid", "ln-" + lnId);
 					} else {
 						alert(obj.message);
 					}
