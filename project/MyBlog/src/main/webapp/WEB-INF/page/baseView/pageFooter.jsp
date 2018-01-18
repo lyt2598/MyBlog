@@ -5,5 +5,5 @@
 			href="http://fzhnb.com" target="_black">豪豪商城</a>
 	</p>
 	<p>Copyright&copy; Nerver Give Up - lyt 版权所有</p>
-	<p>Design by DanceSmile 湘ICP备XXXXXXXXXXXXXX号-1</p>
+	<p>Design by DanceSmile <a href="http://www.miitbeian.gov.cn/" target="_black">湘ICP备18000987号</a></p>
 </div>

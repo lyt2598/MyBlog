@@ -46,6 +46,7 @@
 			<mvc:exclude-mapping path="/js/**" />
 			<mvc:exclude-mapping path="/img/**" />
 			<mvc:exclude-mapping path="/html/**" />
+			<mvc:exclude-mapping path="/userInfo/**" />
 			<!-- 发表东西时不进行拦截 -->
 			<mvc:exclude-mapping path="/publish/**" />
 			<!-- 拦截请求，加载头部菜单 -->

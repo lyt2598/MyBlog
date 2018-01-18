@@ -59,15 +59,15 @@
 										class="dropdown-menu-left-logo"><i
 											class="fa fa-plus-square" aria-hidden="true"></i> </span>进入后台</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/loginOut"><span
+								<li><a href="${pageContext.request.contextPath}/userInfo/loginOut"><span
 										class="dropdown-menu-left-logo"><i
 											class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
 								<li class="divider"></li>
 							</ul></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath }/regUser"
-							target="indexFrame"><i class="fa fa-plus" aria-hidden="true"></i>
+						<li><a href="${pageContext.request.contextPath }/userInfo/regUser"
+							target="blank"><i class="fa fa-plus" aria-hidden="true"></i>
 								注册</a></li>
 						<li><a href="javascript:void(0)" data-toggle="modal"
 							data-target="#loginModal"><i class="fa fa-sign-in"

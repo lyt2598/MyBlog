@@ -44,7 +44,7 @@ function getPagingHtml(url, uid, title, currentPage, totalPage, limit) {
 			starPage = totalPage - 4;// 减4是因为包含了当前页，只需要显示前面的4页页码
 			endPage = totalPage;
 		}
-	} else {
+	} else if(totalPage<=5) {
 		endPage = totalPage;
 	}
 	for (; starPage <= endPage; starPage++) {

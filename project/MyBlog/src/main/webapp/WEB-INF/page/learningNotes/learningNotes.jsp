@@ -19,6 +19,8 @@
 	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/learningNotes.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/utils/changyan.js"></script>
 </head>
 
 <body>

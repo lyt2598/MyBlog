@@ -155,7 +155,7 @@ function checkAccountAlreadyExist(account) {
 	}
 	var url = window.parent.locationValue;
 	$.ajax({
-		url : url + "/checkAccountAlreadyExist.action",
+		url : url + "/userInfo/checkAccountAlreadyExist.action",
 		method : "POST",
 		data : "account=" + account,
 		dataType : "json",
