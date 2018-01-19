@@ -77,6 +77,8 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 		ResultUtils resultUtils = new ResultUtils();
 		resultUtils.setStatus(ResultUtils.STATUS_OK);
 		LearningNotes learningNotes = learningNotesService.getLearningNotesById(lnId);
+		//将数据库中的文章数据修改，此处作用是访问次数+1
+		learningNotesService.updateLearningNotes(learningNotes.getMyBlog_LearningNotes_id(), learningNotes);
 		UserInfo userInfo = userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
 		Map<String, Object> result = new HashMap<>();
 		result.put("learningNotes", learningNotes);

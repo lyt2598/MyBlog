@@ -84,7 +84,18 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 			throw new BaseExceptionCustom("参数错误：查询文章时文章id不能为空");
 		}
 		LearningNotes learningNotes = learningNotesMapper.getLearningNotesById(lnId);
+		int viewCount = learningNotes.getLearningNotes_ViewCount() + 1;
+		learningNotes.setLearningNotes_ViewCount(viewCount);
 		return learningNotes;
+	}
+
+	@Override
+	public void updateLearningNotes(Integer lnId, LearningNotes learningNotes) throws Exception {
+		if (lnId == null || lnId <= 0) {
+			throw new BaseExceptionCustom("参所错误：请填写需要修改的文章id");
+		}
+		learningNotes.setMyBlog_LearningNotes_id(lnId);
+		learningNotesMapper.updateLearningNotes(learningNotes);
 	}
 
 }

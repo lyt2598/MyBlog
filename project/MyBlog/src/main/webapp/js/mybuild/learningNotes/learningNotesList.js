@@ -85,8 +85,13 @@ function getTableList(tableList, uid, url) {
 				+ '</td><td><i class="fa fa-eye i-blue" aria-hidden="true"></i>'
 				+ tableList[i].learningNotes_ViewCount
 				+ '</td>'
-				+ '<td><i class="fa fa-commenting-o i-blue" aria-hidden="true"></i>'
-				+ tableList[i].learningNotes_CommentCount + '</td></tr>';
+				+ '<td><i class="fa fa-commenting-o i-blue" aria-hidden="true"></i><span id = "sourceId::'
+				+ '/learningNotes/'
+				+ uid
+				+ '/'
+				+ tableList[i].myBlog_LearningNotes_id
+				+ '" class = "cy_cmt_count" ></span><script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B">'
+				+ '</script></td></tr>';
 	}
 	return html;
 }

@@ -21,12 +21,10 @@ public class LearningNotes {
 	private int learningNotes_Stick;
 	private int learningNotes_Recommend;
 	private int learningNotes_Private;
-	private int learningNotes_Comment;
 	private int learningNotes_Relay;
 	private Date learningNotes_ModDate;
 	private int learningNotes_ViewCount;
 	private int learningNotes_RelayCount;
-	private int learningNotes_CommentCount;
 	private String learningNotes_PubUser;
 	private int learningNotes_Type_id;
 	private String learningNotes_Tags;
@@ -39,9 +37,9 @@ public class LearningNotes {
 
 	public LearningNotes(int myBlog_LearningNotes_id, String learningNotes_Title, String learningNotes_Context,
 			Date learningNotes_PubDate, int learningNotes_Stick, int learningNotes_Recommend, int learningNotes_Private,
-			int learningNotes_Comment, int learningNotes_Relay, Date learningNotes_ModDate, int learningNotes_ViewCount,
-			int learningNotes_RelayCount, int learningNotes_CommentCount, String learningNotes_PubUser,
-			int learningNotes_Type_id, String learningNotes_Tags) {
+			int learningNotes_Relay, Date learningNotes_ModDate, int learningNotes_ViewCount,
+			int learningNotes_RelayCount, String learningNotes_PubUser, int learningNotes_Type_id,
+			String learningNotes_Tags, UserInfo userInfo, LearningNotesType learningNotesType) {
 		super();
 		this.myBlog_LearningNotes_id = myBlog_LearningNotes_id;
 		this.learningNotes_Title = learningNotes_Title;
@@ -50,15 +48,15 @@ public class LearningNotes {
 		this.learningNotes_Stick = learningNotes_Stick;
 		this.learningNotes_Recommend = learningNotes_Recommend;
 		this.learningNotes_Private = learningNotes_Private;
-		this.learningNotes_Comment = learningNotes_Comment;
 		this.learningNotes_Relay = learningNotes_Relay;
 		this.learningNotes_ModDate = learningNotes_ModDate;
 		this.learningNotes_ViewCount = learningNotes_ViewCount;
 		this.learningNotes_RelayCount = learningNotes_RelayCount;
-		this.learningNotes_CommentCount = learningNotes_CommentCount;
 		this.learningNotes_PubUser = learningNotes_PubUser;
 		this.learningNotes_Type_id = learningNotes_Type_id;
 		this.learningNotes_Tags = learningNotes_Tags;
+		this.userInfo = userInfo;
+		this.learningNotesType = learningNotesType;
 	}
 
 	public int getLearningNotes_RelayCount() {
@@ -67,14 +65,6 @@ public class LearningNotes {
 
 	public void setLearningNotes_RelayCount(int learningNotes_RelayCount) {
 		this.learningNotes_RelayCount = learningNotes_RelayCount;
-	}
-
-	public int getLearningNotes_CommentCount() {
-		return learningNotes_CommentCount;
-	}
-
-	public void setLearningNotes_CommentCount(int learningNotes_CommentCount) {
-		this.learningNotes_CommentCount = learningNotes_CommentCount;
 	}
 
 	public int getMyBlog_LearningNotes_id() {
@@ -149,14 +139,6 @@ public class LearningNotes {
 		this.learningNotes_Private = learningNotes_Private;
 	}
 
-	public int getLearningNotes_Comment() {
-		return learningNotes_Comment;
-	}
-
-	public void setLearningNotes_Comment(int learningNotes_Comment) {
-		this.learningNotes_Comment = learningNotes_Comment;
-	}
-
 	public int getLearningNotes_Relay() {
 		return learningNotes_Relay;
 	}
@@ -211,12 +193,11 @@ public class LearningNotes {
 				+ learningNotes_Title + ", learningNotes_Context=" + learningNotes_Context + ", learningNotes_PubDate="
 				+ learningNotes_PubDate + ", learningNotes_Stick=" + learningNotes_Stick + ", learningNotes_Recommend="
 				+ learningNotes_Recommend + ", learningNotes_Private=" + learningNotes_Private
-				+ ", learningNotes_Comment=" + learningNotes_Comment + ", learningNotes_Relay=" + learningNotes_Relay
-				+ ", learningNotes_ModDate=" + learningNotes_ModDate + ", learningNotes_ViewCount="
-				+ learningNotes_ViewCount + ", learningNotes_RelayCount=" + learningNotes_RelayCount
-				+ ", learningNotes_CommentCount=" + learningNotes_CommentCount + ", learningNotes_PubUser="
-				+ learningNotes_PubUser + ", learningNotes_Type_id=" + learningNotes_Type_id + ", learningNotes_Tags="
-				+ learningNotes_Tags + ", userInfo=" + userInfo + ", learningNotesType=" + learningNotesType + "]";
+				+ ", learningNotes_Relay=" + learningNotes_Relay + ", learningNotes_ModDate=" + learningNotes_ModDate
+				+ ", learningNotes_ViewCount=" + learningNotes_ViewCount + ", learningNotes_RelayCount="
+				+ learningNotes_RelayCount + ", learningNotes_PubUser=" + learningNotes_PubUser
+				+ ", learningNotes_Type_id=" + learningNotes_Type_id + ", learningNotes_Tags=" + learningNotes_Tags
+				+ ", userInfo=" + userInfo + ", learningNotesType=" + learningNotesType + "]";
 	}
 
 }

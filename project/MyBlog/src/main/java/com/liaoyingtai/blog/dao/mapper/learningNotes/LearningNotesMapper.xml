@@ -16,12 +16,10 @@
 		<result column="learningNotes_Stick" property="learningNotes_Stick" />
 		<result column="learningNotes_Recommend" property="learningNotes_Recommend" />
 		<result column="learningNotes_Private" property="learningNotes_Private" />
-		<result column="learningNotes_Comment" property="learningNotes_Comment" />
 		<result column="learningNotes_Relay" property="learningNotes_Relay" />
 		<result column="learningNotes_ModDate" property="learningNotes_ModDate" />
 		<result column="learningNotes_ViewCount" property="learningNotes_ViewCount" />
 		<result column="learningNotes_RelayCount" property="learningNotes_ViewCount" />
-		<result column="learningNotes_CommentCount" property="learningNotes_ViewCount" />
 		<result column="learningNotes_PubUser" property="learningNotes_PubUser" />
 		<result column="learningNotes_Type_id" property="learningNotes_Type_id" />
 		<result column="learningNotes_Tags" property="learningNotes_Tags" />
@@ -40,8 +38,8 @@
 	<sql id="learningNotes_Field">
 		myBlog_LearningNotes_id,learningNotes_Title,learningNotes_Context,learningNotes_PubDate,
 		learningNotes_PubUser,learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,
-		learningNotes_Comment,learningNotes_Relay,learningNotes_ModDate,learningNotes_ViewCount,
-		learningNotes_RelayCount,learningNotes_CommentCount,learningNotes_Type_id,learningNotes_Tags
+		learningNotes_Relay,learningNotes_ModDate,learningNotes_ViewCount,
+		learningNotes_RelayCount,learningNotes_Type_id,learningNotes_Tags
 	</sql>
 	<sql id="learningNotes_Where">
 		<where>
@@ -95,14 +93,14 @@
 	<sql id="learningNotes_insert_Value">
 		#{learningNotes_Title},#{learningNotes_Context},#{learningNotes_PubDate},
 		#{learningNotes_PubUser},#{learningNotes_Stick},#{learningNotes_Recommend},
-		#{learningNotes_Private},#{learningNotes_Comment},#{learningNotes_Relay},
-		#{learningNotes_RelayCount},#{learningNotes_CommentCount},#{learningNotes_ViewCount},
+		#{learningNotes_Private},#{learningNotes_Relay},
+		#{learningNotes_RelayCount},#{learningNotes_ViewCount},
 		#{learningNotes_Type_id},#{learningNotes_Tags},#{learningNotes_ModDate}
 	</sql>
 	<sql id="learningNotes_insert_Field">
 		learningNotes_Title,learningNotes_Context,learningNotes_PubDate,learningNotes_PubUser,
-		learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,learningNotes_Comment,
-		learningNotes_Relay,learningNotes_RelayCount,learningNotes_CommentCount,learningNotes_ViewCount,
+		learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,
+		learningNotes_Relay,learningNotes_RelayCount,learningNotes_ViewCount,
 		learningNotes_Type_id,learningNotes_Tags,learningNotes_ModDate
 	</sql>
 	<insert id="insertLearningNotes"
@@ -123,4 +121,21 @@
 		<include refid="learningNotes_table" />
 		where myBlog_LearningNotes_id = #{value}
 	</select>
+	<sql id="learningNotes_update_Field">
+		learningNotes_Title=#{learningNotes_Title},learningNotes_Context=#{learningNotes_Context},
+		learningNotes_PubDate=#{learningNotes_PubDate},learningNotes_PubUser=#{learningNotes_PubUser},
+		learningNotes_Stick=#{learningNotes_Stick},learningNotes_Recommend=#{learningNotes_Recommend},
+		learningNotes_Private=#{learningNotes_Private},learningNotes_Relay=#{learningNotes_Relay},
+		learningNotes_RelayCount=#{learningNotes_RelayCount},learningNotes_ViewCount=#{learningNotes_ViewCount},
+		learningNotes_Type_id=#{learningNotes_Type_id},learningNotes_Tags=#{learningNotes_Tags},
+		learningNotes_ModDate=#{learningNotes_ModDate}
+	</sql>
+	<update id="updateLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		update
+		<include refid="learningNotes_table" />
+		set
+		<include refid="learningNotes_update_Field" />
+		where myBlog_LearningNotes_id=#{myBlog_LearningNotes_id}
+	</update>
 </mapper>

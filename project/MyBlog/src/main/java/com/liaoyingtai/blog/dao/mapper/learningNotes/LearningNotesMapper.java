@@ -46,4 +46,13 @@ public interface LearningNotesMapper {
 	 */
 	public LearningNotes getLearningNotesById(Integer lnId) throws Exception;
 
+	/**
+	 * 修改学习笔记文章信息
+	 * 
+	 * @param updateParam
+	 *            修改的学习笔记内容
+	 * @throws Exception
+	 */
+	public void updateLearningNotes(LearningNotes updateParam) throws Exception;
+
 }

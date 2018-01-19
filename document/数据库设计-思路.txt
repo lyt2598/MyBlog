@@ -47,12 +47,10 @@ learningNotes_PubUser：发布用户
 learningNotes_Stick：置顶文章（0：不置顶  1：置顶）
 learningNotes_Recommend：首页推存（用于整个博客的首页）（0：不推存  1：推存）
 learningNotes_Private：是否私有（如果设置成私有，那么就只有自己可以看见 0：公开  1：私有 2：被举报后需要整改）
-learningNotes_Comment：是否允许评论（0：允许评论 1：不允许评论）
 learningNotes_Relay：是否允许转发（0：允许转发 1：不允许转发）
 learningNotes_ModDate：修改时间
 learningNotes_ViewCount：浏览次数
 learningNotes_RelayCount：转发次数
-learningNotes_CommentCount：评论次数
 learningNotes_Type_id:学习笔记类别
 learningNotes_Tags:关键字，用英文逗号(,)隔开
 //下面两项暂时不添加，后续再设计是单独开表还是字段标识

@@ -40,4 +40,12 @@ public interface LearningNotesService {
 	 */
 	public LearningNotes getLearningNotesById(Integer lnId) throws Exception;
 
+	/**
+	 * 通过文章ID修改文章信息
+	 * @param lnId 文章id
+	 * @param learningNotes 需要修改的信息
+	 * @throws Exception
+	 */
+	public void updateLearningNotes(Integer lnId, LearningNotes learningNotes) throws Exception;
+
 }

@@ -16,9 +16,10 @@ function getLearningNotesBaseHtml() {
 			+ '<div class="title">Ta的其他文章<div class="more"><a href="">更多&nbsp;>></a></div></div>'
 			+ '<div class="list"><ul><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ul></div>'
 			+ '</div></div><div class="lnContext"><div id="lnTitle"><div class="menu"><h3></h3>'
-			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="浏览次数"><i class="fa fa-eye" aria-hidden="true"></i><span id="menu-viewCount" class="menu-title">浏览次数</span></a>'
-			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="转发次数"><i class="fa fa-code-fork" aria-hidden="true"></i><span id="menu-relayCount" class="menu-title">转发次数</span></a>'
-			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="评论次数"><i class="fa fa-comments" aria-hidden="true"></i><span id="menu-commentCount" class="menu-title">评论次数</span></a>'
+			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="浏览次数"><i class="fa fa-eye" aria-hidden="true"></i><span id="menu-viewCount" class="menu-title">0次</span></a>'
+			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="转发次数"><i class="fa fa-code-fork" aria-hidden="true"></i><span id="menu-relayCount" class="menu-title">0次</span></a>'
+			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="评论次数"><i class="fa fa-comments" aria-hidden="true"></i><span id="menu-commentCount" class="menu-title">'
+			+ '<span href="#SOHUCS" id="changyan_count_unit">0</span>次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="发表时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-pubTime" class="menu-title">发表时间</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="最后修改时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-modTime" class="menu-title">最后修改时间</span></a>'
 			+ '</div></div><div id="lnValue"></div><div id="lnBottom">'
@@ -68,9 +69,8 @@ function getLearningNotesInfo(url, lnId) {
 										obj.result.learningNotes.learningNotes_RelayCount
 												+ "次");
 						$("#menu-commentCount")
-								.html(
-										obj.result.learningNotes.learningNotes_CommentCount
-												+ "次");
+								.append(
+										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">');
 						var temp_date = new Date(
 								obj.result.learningNotes.learningNotes_PubDate)
 								.format("yyyy年MM月dd日");
