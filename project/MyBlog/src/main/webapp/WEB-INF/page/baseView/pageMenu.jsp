@@ -3,7 +3,7 @@
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<span class="navbar-brand">NGU&nbsp;-&nbsp;个人主页</span>
+			<span class="navbar-brand">LYT&nbsp;-&nbsp;个人主页</span>
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
@@ -66,9 +66,9 @@
 							</ul></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath }/userInfo/regUser"
+						<%-- <li><a href="${pageContext.request.contextPath }/userInfo/regUser"
 							target="blank"><i class="fa fa-plus" aria-hidden="true"></i>
-								注册</a></li>
+								注册</a></li> --%>
 						<li><a href="javascript:void(0)" data-toggle="modal"
 							data-target="#loginModal"><i class="fa fa-sign-in"
 								aria-hidden="true"></i> 登录</a></li>

@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>My JSP 'learningNotes.jsp' starting page</title>
+<title>学习笔记 - Nerver Give Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

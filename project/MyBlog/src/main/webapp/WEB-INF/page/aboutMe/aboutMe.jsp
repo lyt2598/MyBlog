@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>个人介绍</title>
+<title>个人介绍 - Nerver Give Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

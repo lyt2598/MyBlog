@@ -7,14 +7,13 @@ function getLearningNotesBaseHtml() {
 			+ '<a id="ln-github" target="_blank" href="" data-toggle="tooltip" title="进入GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>'
 			+ '<a id="ln-wechat" href="javascript:void(0);" data-toggle="tooltip" title="WeChat：ppctg______lyt"><i class="fa fa-weixin" aria-hidden="true"></i></a>'
 			+ '<a id="ln-email" href="javascript:void(0);" data-toggle="tooltip" title="邮箱：lyt2598@qq.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>'
-			+ '<a id="ln-fans" href="" data-toggle="tooltip" title="成为Ta粉丝"><i class="fa fa-heart-o" aria-hidden="true"></i></a>'
-			+ '<a id="ln-nofans" href="" data-toggle="tooltip" title="取消粉Ta"><i class="fa fa-heart" aria-hidden="true"></i></a>'
-			+ '<a id="ln-atte" href="" data-toggle="tooltip" title="关注Ta"><i class="fa fa-star" aria-hidden="true"></i></a>'
-			+ '<a id="ln-noatte" href="" data-toggle="tooltip" title="取消关注Ta"><i class="fa fa-star-o" aria-hidden="true"></i></a>'
 			+ '</div>'
 			+ '</div></div><div class="lnList">'
 			+ '<div class="title">Ta的其他文章<div class="more"><a href="">更多&nbsp;>></a></div></div>'
-			+ '<div class="list"><ul><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ul></div>'
+			+ '<div class="list"><ul><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ul></div></div>'
+			+ '<div class="lnList"><div id="cyReping" role="cylabs" data-use="reping" sourceid="'
+			+ window.location.pathname
+			+ '"></div>'
 			+ '</div></div><div class="lnContext"><div id="lnTitle"><div class="menu"><h3></h3>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="浏览次数"><i class="fa fa-eye" aria-hidden="true"></i><span id="menu-viewCount" class="menu-title">0次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="转发次数"><i class="fa fa-code-fork" aria-hidden="true"></i><span id="menu-relayCount" class="menu-title">0次</span></a>'
@@ -22,7 +21,9 @@ function getLearningNotesBaseHtml() {
 			+ '<span href="#SOHUCS" id="changyan_count_unit">0</span>次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="发表时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-pubTime" class="menu-title">发表时间</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="最后修改时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-modTime" class="menu-title">最后修改时间</span></a>'
-			+ '</div></div><div id="lnValue"></div><div id="lnBottom">'
+			+ '</div></div><div id="lnValue"></div><div id="lnEmoji"><div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="'
+			+ window.location.pathname
+			+ '"></div></div><div id="lnBottom">'
 			+ '<a href="" data-toggle="tooltip" title="上一篇">上一篇：</a>'
 			+ '<a href="" data-toggle="tooltip" title="下一篇">下一篇：</a>'
 			+ '</div><div id="message"><div id="SOHUCS" sid="'
@@ -58,6 +59,9 @@ function getLearningNotesInfo(url, lnId) {
 								obj.result.userInfo.userInfo_Email);
 						$("#lnTitle h3").html(
 								obj.result.learningNotes.learningNotes_Title);
+						$("title").html(
+								obj.result.learningNotes.learningNotes_Title
+										+ " - 个人主页 - Nerver Give Up");
 						$("#lnValue").html(
 								obj.result.learningNotes.learningNotes_Context);
 						$("#menu-viewCount")
@@ -79,6 +83,12 @@ function getLearningNotesInfo(url, lnId) {
 								obj.result.learningNotes.learningNotes_ModDate)
 								.format("yyyy年MM月dd日");
 						$("#menu-modTime").html(temp_date);
+						$(".lnLeft")
+								.append(
+										'<script type="text/javascript" charset="utf-8"'
+												+ 'src="https://changyan.itc.cn/js/lib/jquery.js"></script>'
+												+ '<script type="text/javascript" charset="utf-8"'
+												+ 'src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>');
 					} else {
 						alert(obj.message);
 					}

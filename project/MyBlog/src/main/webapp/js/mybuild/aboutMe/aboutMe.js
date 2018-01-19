@@ -96,5 +96,9 @@ function getContactHtml(obj) {
 				+ '" target="_blank">'
 				+ obj.userInfo.userInfo_GitHub + '</a></p>';
 	}
+	html += '<p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email：<a href="'
+			+ obj.userInfo.userInfo_Email
+			+ '" target="_blank">'
+			+ obj.userInfo.userInfo_GitHub + '</a></p>';
 	return html;
 }

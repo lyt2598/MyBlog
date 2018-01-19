@@ -6,7 +6,6 @@ function getPubLNBaseHtml(url) {
 			+ '<label><input type="checkbox" id="lnPrivate">仅自己可见</label>'
 			+ '</div><div class="pubConfig">其他设置：'
 			+ '<label><input type="checkbox" id="lnRelay" checked="checked">允许转发</label>'
-			+ '<label><input type="checkbox" id="lnComment" checked="checked">允许评论</label>'
 			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select><span class="pubTitleMsg">&nbsp;*</span></div>'
 			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags" onchange="keywordFormat()">'
 			+ '<span class="pubTitleMsg">关键字用逗号[ , ]隔开</span></div><div class="pubSubmit" align="center">'

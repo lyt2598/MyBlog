@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>发布我的学习笔记</title>
+<title>发布学习笔记 - Nerver Give Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

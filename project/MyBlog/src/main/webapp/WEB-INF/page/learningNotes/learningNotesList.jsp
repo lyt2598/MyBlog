@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>博文列表</title>
+<title>学习笔记列表 - Nerver Give Up</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
