@@ -21,6 +21,10 @@
 	color: blue !important;
 }
 
+.i-default {
+	color: #999 !important;
+}
+
 .i-pink {
 	color: #FF6EB4 !important;
 }
@@ -44,9 +48,12 @@
 	display: inline-block;
 	border: 1px solid #999;
 	height: 35px;
-	margin-left: 30px;
 	border-radius: 5px;
 	padding: 0px !important;
+}
+
+#pubLN {
+	margin-right: 30px;
 }
 
 .searchDiv input {
@@ -70,4 +77,29 @@
 
 .table-menu {
 	margin: 10px;
+}
+
+.lnTitle {
+	max-width: 500px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+	.lnTitle {
+		width: 230px !important;
+	}
+	.ln-hidden{
+		display:none !important;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.lnTitle {
+		width: 500px !important;
+	}
 }

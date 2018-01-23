@@ -1,7 +1,7 @@
 //提交登录
 function submitLogin() {
-	var username = $(".login-username").val();
-	if (checkUserName(username) == false) {
+	var userAccount = $(".login-username").val();
+	if (checkUserName(userAccount) == false) {
 		return false;
 	}
 	var password = $(".login-password").val();
@@ -12,7 +12,25 @@ function submitLogin() {
 	if (checkCheckCode(checkcode) == false) {
 		return false;
 	}
-	return true;
+	$.ajax({
+		url : basePath + "/userInfo/login",
+		method : "POST",
+		data : "userInfo_Account=" + userAccount + "&userInfo_Password="
+				+ password + "&checkCode=" + checkcode,
+		dataType : "json",
+		success : function(data) {
+			var obj = eval(data);
+			if (obj.status == 1) {
+				location.reload();
+			} else {
+				setErrorMessage(obj.message);
+			}
+		},
+		error : function(e) {
+			setErrorMessage("登录出错啦！请刷新页面重试");
+			console.log(e);
+		}
+	});
 }
 // 提交注册
 function submitReg() {
@@ -153,9 +171,8 @@ function checkAccountAlreadyExist(account) {
 	if (checkUserName(account) == false) {
 		return false;
 	}
-	var url = window.parent.locationValue;
 	$.ajax({
-		url : url + "/userInfo/checkAccountAlreadyExist.action",
+		url : baseView + "/userInfo/checkAccountAlreadyExist",
 		method : "POST",
 		data : "account=" + account,
 		dataType : "json",
@@ -177,4 +194,26 @@ function checkAccountAlreadyExist(account) {
 			setErrorMessage("校验时发生未知异常,请与管理员取的联系！");
 		}
 	});
+}
+
+function loginOut() {
+	$.ajax({
+		url : basePath + "/userInfo/loginOut",
+		method : "POST",
+		dataType : "json",
+		success : function(data) {
+			console.log(data);
+			var obj = eval(data);
+			console.log(obj);
+			if (obj.status == 1) {
+				location.reload();
+			} else {
+				alert(obj.message)
+			}
+		},
+		error : function(e) {
+			alert("注销时出现错误，请刷新后重试！")
+			console.log(e);
+		}
+	})
 }

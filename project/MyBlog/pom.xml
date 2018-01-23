@@ -9,6 +9,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<jstl-version>1.2</jstl-version>
 		<dbcp-version>1.4</dbcp-version>
 		<junit-version>4.12</junit-version>
@@ -195,7 +196,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

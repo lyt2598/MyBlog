@@ -5,3 +5,6 @@
 	src="${pageContext.request.contextPath }/js/referenced/bootstrap/bootstrap.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/loadPageContent.js"></script>
+<script>
+	var basePath = '${pageContext.request.contextPath}';
+</script>

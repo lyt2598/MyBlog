@@ -78,10 +78,4 @@ public class UserInfoController extends MyExceptionResolverResultPage {
 		return "other/login";
 	}
 
-	// 注销用户 清除session中currentUser
-	@RequestMapping(value = "/loginOut", method = { RequestMethod.GET })
-	public String loginOut(HttpSession session) throws Exception {
-		session.removeAttribute("currentUser");
-		return "login";
-	}
 }

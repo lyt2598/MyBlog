@@ -1,16 +1,15 @@
 // 读取编辑文章界面
 function getPubLNBaseHtml(url) {
-	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/><span class="pubTitleMsg">如果标题为空，默认使用当前日期作为标题内容。</span></div>'
+	var html = '<div class="pubTitle">标题：<input id="pubTitleValue" type="text"/><span class="pubTitleMsg">如果标题为空，默认当前日期作为标题。</span></div>'
 			+ '<script id="myEditor" style="width:100%;height:360px;" type="text/plain"></script><div class="pubConfig">显示设置：'
-			+ '<label><input type="checkbox" id="lnStick">置顶博文</label>'
-			+ '<label><input type="checkbox" id="lnPrivate">仅自己可见</label>'
+			+ '<label><input type="checkbox" id="lnStick" title="置顶笔记">置顶笔记</label>'
+			+ '<label><input type="checkbox" id="lnPrivate" title="仅自己可见">自己可见</label>'
 			+ '</div><div class="pubConfig">其他设置：'
 			+ '<label><input type="checkbox" id="lnRelay" checked="checked">允许转发</label>'
 			+ '</div><div class="pubConfig">文章类别：<select id="pubType"></select><span class="pubTitleMsg">&nbsp;*</span></div>'
 			+ '</div><div class="pubConfig">关键字：<input type="text" id="pubTags" onchange="keywordFormat()">'
-			+ '<span class="pubTitleMsg">关键字用逗号[ , ]隔开</span></div><div class="pubSubmit" align="center">'
-			+ '<button type="button" class="btn btn-success" id="publishLN"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button>'
-			+ '<button type="button" class="btn btn-warning"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;保存到草稿箱</button></div>';
+			+ '<span class="pubTitleMsg">关键字用逗号[ , ]隔开</span></div><div class="pubSubmit" align="center"><span id="publishLNMessage" class="pubTitleMsg"></span>'
+			+ '<button type="button" class="btn btn-success" id="publishLN"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;立即发表学习笔记</button></div>';
 	return html;
 }
 // 读取文章类型
@@ -46,7 +45,7 @@ function pubLearningNotes(um, url) {
 	var title = $("#pubTitleValue").val();
 	var context = um.getContent();
 	if (um.hasContents() == false) {
-		alert("请输入正文内容");
+		$("#publishLNMessage").html("请输入正文内容");
 		return;
 	}
 	var lnStick = 0;
@@ -67,19 +66,23 @@ function pubLearningNotes(um, url) {
 	}
 	var pubType = $("#pubType").val();
 	if (pubType == -1) {
-		alert("请选择文章类型！")
+		$("#publishLNMessage").html("请选择文章类型");
 		return;
 	}
 	var pubTags = $("#pubTags").val();
 	$.ajax({
 		url : url + "/publish/pubLearningNotes",
 		method : 'post',
-		data : "learningNotes_Title=" + title + "&learningNotes_Context="
-				+ context + "&learningNotes_Stick=" + lnStick
-				+ "&learningNotes_Private=" + lnPrivate
-				+ "&learningNotes_Relay=" + lnRelay + "&learningNotes_Comment="
-				+ lnComment + "&learningNotes_Tags=" + pubTags
-				+ "&learningNotes_Type_id=" + pubType,
+		data : {
+			"learningNotes_Title" : title,
+			"learningNotes_Context" : context,
+			"learningNotes_Stick" : lnStick,
+			"learningNotes_Private" : lnPrivate,
+			"learningNotes_Relay" : lnRelay,
+			"learningNotes_Comment" : lnComment,
+			"learningNotes_Tags" : pubTags,
+			"learningNotes_Type_id" : pubType
+		},
 		dataType : 'json',
 		success : function(data) {
 			var obj = eval(data);
@@ -87,11 +90,11 @@ function pubLearningNotes(um, url) {
 				var uid = obj.result.userId;
 				window.location.href = url + "/learningNotesList/" + uid;
 			} else {
-				alert("发布文章出错啦！\n错误信息：" + obj.message)
+				$("#publishLNMessage").html(obj.message);
 			}
 		},
 		error : function(e) {
-			alert("发布文章出错啦！\n错误信息：" + e);
+			alert("发布文章出错啦，请刷新后重试！");
 			console.log(e);
 		}
 	})

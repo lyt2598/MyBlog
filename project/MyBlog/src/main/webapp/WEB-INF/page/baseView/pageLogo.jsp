@@ -9,6 +9,6 @@
 						href="http://wpa.qq.com/msgrd?v=3&uin=31448522&site=qq&menu=yes"
 						target="_blank"><i class="fa fa-qq" aria-hidden="true"></i></a>
 				</div> -->
-		<img alt="logo" src="${pageContext.request.contextPath }/img/logo.png">
+		<img alt="logo" class="img-responsive" src="${pageContext.request.contextPath }/img/logo.png">
 	</h1>
 </div>

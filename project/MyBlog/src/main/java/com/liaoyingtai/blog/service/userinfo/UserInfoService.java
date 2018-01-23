@@ -37,4 +37,16 @@ public interface UserInfoService {
 	 */
 	public UserInfo getUserInfoById(String userId) throws Exception;
 
+	/**
+	 * 通过用户账号和密码验证用户账号密码信息是否正确
+	 * 
+	 * @param userAccount
+	 *            用户账号
+	 * @param password
+	 *            用户密码
+	 * @return 用户账号和密码匹配返回用戶信息，用户账号密码匹配失败抛出BaseExceptionCustom
+	 * @throws Exception
+	 */
+	public UserInfo getCheckUserAccountAndPassword(String userAccount, String password) throws Exception;
+
 }

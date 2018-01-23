@@ -9,6 +9,7 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
@@ -22,7 +23,7 @@
 	src="${pageContext.request.contextPath }/js/mybuild/utils/login.js"></script>
 </head>
 
-<body style="margin: 20px;height: 550px;">
+<body style="margin: 20px; height: 550px;">
 	<div class="page-header">
 		<h1>
 			登陆<small>Login</small>
@@ -39,15 +40,18 @@
 			<!-- 轮播（Carousel）项目 -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="${pageContext.request.contextPath }/img/loginPage/slide1.png"
+					<img
+						src="${pageContext.request.contextPath }/img/loginPage/slide1.png"
 						width="100%" height="100%" />
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath }/img/loginPage/slide2.png"
+					<img
+						src="${pageContext.request.contextPath }/img/loginPage/slide2.png"
 						width="100%" height="100%" />
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath }/img/loginPage/slide3.png"
+					<img
+						src="${pageContext.request.contextPath }/img/loginPage/slide3.png"
 						width="100%" height="100%" />
 				</div>
 			</div>

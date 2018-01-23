@@ -3,9 +3,14 @@
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<span class="navbar-brand">LYT&nbsp;-&nbsp;个人主页</span>
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#example-navbar-collapse">
+				<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">LYT&nbsp;-&nbsp;个人主页</a>
 		</div>
-		<div>
+		<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
 				<c:forEach items="${sessionScope.headMenuList }" var="pmenu">
 					<c:choose>
@@ -36,7 +41,9 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" target="indexFrame"> <img alt="头像"
 								src="${pageContext.request.contextPath }/img/user/head/default.png"
-								width="20" height="20">&nbsp;<b class="caret"></b>
+								width="20" height="20">&nbsp;<strong
+								style="font-size: 16px; margin: 0px 5px;">${sessionScope.currentUser.userInfo_Name}</strong><b
+								class="caret"></b>
 						</a>
 							<ul class="dropdown-menu dropdown-menu-sw">
 								<li class="dropdown-header">当前用户：<strong
@@ -44,24 +51,25 @@
 								<li class="divider"></li>
 								<li><a href="${pageContext.request.contextPath}/#"><span
 										class="dropdown-menu-left-logo"><i class="fa fa-cog"
-											aria-hidden="true"></i> </span>个人中心</a></li>
-								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"><span
-										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>生活分享</a></li>
+											aria-hidden="true"></i> </span>进入个人中心</a></li>
 								<li class="divider"></li>
 								<li><a
 									href="${pageContext.request.contextPath}/pubLearningNotes"><span
 										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>学习笔记</a></li>
+											class="fa fa-plus-square" aria-hidden="true"></i> </span>发表学习笔记</a></li>
+								<li class="divider"></li>
+								<li><a
+									href="${pageContext.request.contextPath}/pubLearningNotes"><span
+										class="dropdown-menu-left-logo"><i
+											class="fa fa-plus-square" aria-hidden="true"></i> </span>阅读学习笔记</a></li>
 								<li class="divider"></li>
 								<li><a href="${pageContext.request.contextPath}/#"><span
 										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>进入后台</a></li>
+											class="fa fa-plus-square" aria-hidden="true"></i> </span>进入管理后台</a></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/userInfo/loginOut"><span
+								<li onclick="loginOut()"><a href="javascript:void(0)"><span
 										class="dropdown-menu-left-logo"><i
-											class="fa fa-sign-out" aria-hidden="true"></i> </span>注销</a></li>
+											class="fa fa-sign-out" aria-hidden="true"></i> </span>注销登陆</a></li>
 								<li class="divider"></li>
 							</ul></li>
 					</c:when>
