@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,8 +36,13 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 	 */
 	@RequestMapping(value = "/login", method = { RequestMethod.POST })
 	public @ResponseBody ResultUtils login(@Validated(LoginUserInfoValidatorGroup.class) UserInfoCustom userInfoCustom,
-			HttpSession session) throws Exception {
+			BindingResult bindingResult, HttpSession session) throws Exception {
 		ResultUtils resultUtils = new ResultUtils();
+		if (bindingResult.hasErrors()) {
+			// 只返回第一个错误
+			String errorMsg = bindingResult.getAllErrors().get(0).getDefaultMessage();
+			throw new BaseExceptionCustom(errorMsg);
+		}
 		String account = userInfoCustom.getUserInfo_Account();
 		String password = userInfoCustom.getUserInfo_Password();
 		UserInfo userInfo = userInfoService.getCheckUserAccountAndPassword(account, password);

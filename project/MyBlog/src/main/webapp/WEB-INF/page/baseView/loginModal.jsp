@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
+	aria-labelledby="myModalLabel" data-backdrop="static" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -15,18 +15,18 @@
 				<div id="loginMessage"></div>
 				<div id="loginBody" align="center">
 					<div class="input-group col-sm-8" style="padding-bottom: 20px;">
-						<span class="input-group-addon">用户名：</span> <input type="text"
-							class="form-control login-username" placeholder="请输入用户名"
-							onblur="checkUserName(this.value)">
+						<span class="input-group-addon">用户名：</span> <input id="login_username" type="text"
+							class="form-control login-username" placeholder="请输入用户名">
 					</div>
 					<div class="input-group col-sm-8" style="padding-bottom: 20px;">
 						<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
-						<input type="password" class="form-control login-password"
-							placeholder="请输入用户口令" onblur="checkPassWord(this.value)">
+						<input id="login_password" type="password" class="form-control login-password"
+							placeholder="请输入用户口令" onfocus="checkUserName(this.value)">
 					</div>
 					<div class="input-group col-sm-8" style="padding-bottom: 20px;">
-						<span class="input-group-addon">验证码：</span> <input type="text"
+						<span class="input-group-addon">验证码：</span> <input id="login_checkcode" type="text"
 							class="form-control login-checkcode" placeholder="请输入验证码"
+							onfocus="checkPassWord(this.value)"
 							onblur="checkCheckCode(this.value)">
 					</div>
 					<div class="input-group col-sm-8">

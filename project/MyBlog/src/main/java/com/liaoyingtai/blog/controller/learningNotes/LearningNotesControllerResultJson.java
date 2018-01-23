@@ -54,12 +54,17 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 			@Validated(value = { PublishLearningNotesValidatorGroup.class }) LearningNotes learningNotes,
 			BindingResult bindingResult) throws Exception {
 		if (bindingResult.hasErrors()) {
-			throw new BaseExceptionCustom(bindingResult.getAllErrors().get(0).getDefaultMessage());
+			// 只返回第一个错误
+			String errorMsg = bindingResult.getAllErrors().get(0).getDefaultMessage();
+			throw new BaseExceptionCustom(errorMsg);
 		}
 		// 从session中读取当前用户的id来发表文章
-		// UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
-		// String uid = userInfo.getMyBlog_UserInfo_id();
-		String uid = "54b70f611f46181e1bfe7e3714bb2eeb";
+		UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
+		// 暂时先自己写权限判断用户是否登陆，到时候整合Shiro后再做修改
+		if (userInfo == null) {
+			throw new BaseExceptionCustom("请先登陆后再执行此操作！");
+		}
+		String uid = userInfo.getMyBlog_UserInfo_id();
 		learningNotes.setLearningNotes_PubUser(uid);
 		learningNotesService.insertLearningNotesList(uid, learningNotes);
 		ResultUtils resultUtils = new ResultUtils();
@@ -77,7 +82,7 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 		ResultUtils resultUtils = new ResultUtils();
 		resultUtils.setStatus(ResultUtils.STATUS_OK);
 		LearningNotes learningNotes = learningNotesService.getLearningNotesById(lnId);
-		//将数据库中的文章数据修改，此处作用是访问次数+1
+		// 将数据库中的文章数据修改，此处作用是访问次数+1
 		learningNotesService.updateLearningNotes(learningNotes.getMyBlog_LearningNotes_id(), learningNotes);
 		UserInfo userInfo = userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
 		Map<String, Object> result = new HashMap<>();

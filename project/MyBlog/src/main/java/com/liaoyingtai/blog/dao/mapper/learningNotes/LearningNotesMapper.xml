@@ -19,7 +19,7 @@
 		<result column="learningNotes_Relay" property="learningNotes_Relay" />
 		<result column="learningNotes_ModDate" property="learningNotes_ModDate" />
 		<result column="learningNotes_ViewCount" property="learningNotes_ViewCount" />
-		<result column="learningNotes_RelayCount" property="learningNotes_ViewCount" />
+		<result column="learningNotes_RelayCount" property="learningNotes_RelayCount" />
 		<result column="learningNotes_PubUser" property="learningNotes_PubUser" />
 		<result column="learningNotes_Type_id" property="learningNotes_Type_id" />
 		<result column="learningNotes_Tags" property="learningNotes_Tags" />
