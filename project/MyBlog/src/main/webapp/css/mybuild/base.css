@@ -63,11 +63,11 @@ body {
 	display: inline-block;
 	border: 0px;
 	background-color: #337ab7;
-	height:18px;
+	padding:0px 5px;
 }
 
 .panel-title{
-	display: inline-block;
+	display: inline-block !important;
 	padding-right:10px;
 	border-right: 2px solid #fff;
 }

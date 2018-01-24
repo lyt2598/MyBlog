@@ -8,7 +8,8 @@
 				<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">LYT&nbsp;-&nbsp;个人主页</a>
+			<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/index/${userId}">LYT&nbsp;-&nbsp;个人主页</a>
 		</div>
 		<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
