@@ -59,6 +59,19 @@ body {
 	-webkit-animation: rotating 1s infinite linear;
 }
 
+.panel-menu-button{
+	display: inline-block;
+	border: 0px;
+	background-color: #337ab7;
+	height:18px;
+}
+
+.panel-title{
+	display: inline-block;
+	padding-right:10px;
+	border-right: 2px solid #fff;
+}
+
 @-webkit-keyframes rotating {
 	0%{
 		-webkit-transform: rotate(0deg);

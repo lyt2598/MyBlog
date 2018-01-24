@@ -15,23 +15,24 @@ import com.liaoyingtai.blog.controller.validator.group.userInfo.RegUserInfoValid
 public class UserInfo {
 
 	private String myBlog_UserInfo_id;
-	@NotNull(message = "{userInfo.account.notNull}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
-	@NotBlank(message = "{userInfo.account.notBlank}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
-	@Length(min = 6, max = 18, message = "{userInfo.account.length}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
+	@NotNull(message = "{userInfo.account.notNull}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
+	@NotBlank(message = "{userInfo.account.notBlank}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
+	@Length(min = 6, max = 18, message = "{userInfo.account.length}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
 	private String userInfo_Account;
-	@NotNull(message = "{userInfo.password.notNull}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
-	@NotBlank(message = "{userInfo.password.notBlank}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
-	@Length(min = 6, max = 18, message = "{userInfo.password.length}", groups = {
-			LoginUserInfoValidatorGroup.class, RegUserInfoValidatorGroup.class })
+	@NotNull(message = "{userInfo.password.notNull}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
+	@NotBlank(message = "{userInfo.password.notBlank}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
+	@Length(min = 6, max = 18, message = "{userInfo.password.length}", groups = { LoginUserInfoValidatorGroup.class,
+			RegUserInfoValidatorGroup.class })
 	private String userInfo_Password;
 	@NotNull(message = "{userInfo.name.notNull}", groups = { RegUserInfoValidatorGroup.class })
 	@NotBlank(message = "{userInfo.name.notBlank}", groups = { RegUserInfoValidatorGroup.class })
-	@Pattern(regexp = "([0-9a-zA-z_]{6,12})|([\u4e00-\u9fa5]{3,6})", message = "{userInfo.name.format}", groups = { RegUserInfoValidatorGroup.class })
+	@Pattern(regexp = "([0-9a-zA-z_]{6,12})|([\u4e00-\u9fa5]{3,6})", message = "{userInfo.name.format}", groups = {
+			RegUserInfoValidatorGroup.class })
 	private String userInfo_Name;
 	private String userInfo_Phone;
 	private String userInfo_Tel;
@@ -41,6 +42,7 @@ public class UserInfo {
 	private String userInfo_QQaccount;
 	private String userInfo_HeadImg;
 	private String userInfo_GitHub;
+	private String userInfo_WeChat;
 	private Date userInfo_RegTime;
 	private Date userInfo_Birthday;
 	private int userInfo_Status;
@@ -50,13 +52,10 @@ public class UserInfo {
 		super();
 	}
 
-	public UserInfo(String myBlog_UserInfo_id, String userInfo_Account,
-			String userInfo_Password, String userInfo_Name,
-			String userInfo_Phone, String userInfo_Tel, String userInfo_Email,
-			String userInfo_QQaccount, String userInfo_HeadImg,
-			String userInfo_GitHub, Date userInfo_RegTime,
-			Date userInfo_Birthday, int userInfo_Status,
-			UserJurisdiction userJurisdiction) {
+	public UserInfo(String myBlog_UserInfo_id, String userInfo_Account, String userInfo_Password, String userInfo_Name,
+			String userInfo_Phone, String userInfo_Tel, String userInfo_Email, String userInfo_QQaccount,
+			String userInfo_HeadImg, String userInfo_GitHub, String userInfo_WeChat, Date userInfo_RegTime,
+			Date userInfo_Birthday, int userInfo_Status, UserJurisdiction userJurisdiction) {
 		super();
 		this.myBlog_UserInfo_id = myBlog_UserInfo_id;
 		this.userInfo_Account = userInfo_Account;
@@ -68,6 +67,7 @@ public class UserInfo {
 		this.userInfo_QQaccount = userInfo_QQaccount;
 		this.userInfo_HeadImg = userInfo_HeadImg;
 		this.userInfo_GitHub = userInfo_GitHub;
+		this.userInfo_WeChat = userInfo_WeChat;
 		this.userInfo_RegTime = userInfo_RegTime;
 		this.userInfo_Birthday = userInfo_Birthday;
 		this.userInfo_Status = userInfo_Status;
@@ -186,21 +186,23 @@ public class UserInfo {
 		this.userInfo_Name = userInfo_Name;
 	}
 
+	public String getUserInfo_WeChat() {
+		return userInfo_WeChat;
+	}
+
+	public void setUserInfo_WeChat(String userInfo_WeChat) {
+		this.userInfo_WeChat = userInfo_WeChat;
+	}
+
 	@Override
 	public String toString() {
-		return "UserInfo [myBlog_UserInfo_id=" + myBlog_UserInfo_id
-				+ ", userInfo_Account=" + userInfo_Account
-				+ ", userInfo_Password=" + userInfo_Password
-				+ ", userInfo_Name=" + userInfo_Name + ", userInfo_Phone="
-				+ userInfo_Phone + ", userInfo_Tel=" + userInfo_Tel
-				+ ", userInfo_Email=" + userInfo_Email
-				+ ", userInfo_QQaccount=" + userInfo_QQaccount
-				+ ", userInfo_HeadImg=" + userInfo_HeadImg
-				+ ", userInfo_GitHub=" + userInfo_GitHub
-				+ ", userInfo_RegTime=" + userInfo_RegTime
-				+ ", userInfo_Birthday=" + userInfo_Birthday
-				+ ", userInfo_Status=" + userInfo_Status
-				+ ", userJurisdiction=" + userJurisdiction + "]";
+		return "UserInfo [myBlog_UserInfo_id=" + myBlog_UserInfo_id + ", userInfo_Account=" + userInfo_Account
+				+ ", userInfo_Password=" + userInfo_Password + ", userInfo_Name=" + userInfo_Name + ", userInfo_Phone="
+				+ userInfo_Phone + ", userInfo_Tel=" + userInfo_Tel + ", userInfo_Email=" + userInfo_Email
+				+ ", userInfo_QQaccount=" + userInfo_QQaccount + ", userInfo_HeadImg=" + userInfo_HeadImg
+				+ ", userInfo_GitHub=" + userInfo_GitHub + ", userInfo_WeChat=" + userInfo_WeChat
+				+ ", userInfo_RegTime=" + userInfo_RegTime + ", userInfo_Birthday=" + userInfo_Birthday
+				+ ", userInfo_Status=" + userInfo_Status + ", userJurisdiction=" + userJurisdiction + "]";
 	}
 
 }

@@ -2,6 +2,14 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<h3 class="panel-title">Nerver Give Up</h3>
+		<button data-toggle="tooltip" onclick="javascript:history.back()"
+			title="点击返回上一页" class="panel-menu-button">
+			<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+		</button>
+		<button data-toggle="tooltip" onclick="javascript:location.reload()"
+			title="点击刷新" class="panel-menu-button">
+			<i class="fa fa-repeat" aria-hidden="true"></i>
+		</button>
 	</div>
 	<!-- <ol class="breadcrumb breadcrumb-default">
 				<li><a href="#">Home</a></li>

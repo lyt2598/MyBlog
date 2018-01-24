@@ -67,12 +67,11 @@ function getTableList(tableList, uid) {
 			html = html
 					+ '<tr><td class="textAlign ln-hidden"><i class="fa fa-list-alt" aria-hidden="true"></i>';
 		}
-		html += '</td><td><span class="lnListType">['
+		html += '</td><td><div class="lnTitle"><span class="lnListType">['
 				+ tableList[i].learningNotesType.learningNotes_Type_Name
 				+ ']</span>&nbsp;<a href="' + basePath + '/learningNotes/'
 				+ uid + '/' + tableList[i].myBlog_LearningNotes_id
-				+ '"  class="lnTitle" title="'
-				+ tableList[i].learningNotes_Title + '">'
+				+ '"  title="' + tableList[i].learningNotes_Title + '">'
 				+ tableList[i].learningNotes_Title + '</a>';
 		if (tableList[i].learningNotes_Private == 1) {
 			html += '<a class="a-i" title="此文章仅自己可见"><i class="fa fa-eye-slash i-red" aria-hidden="true"></i></a>';
@@ -80,7 +79,7 @@ function getTableList(tableList, uid) {
 		if (tableList[i].learningNotes_Private == 2) {
 			html += '<a class="a-i" title="此文章已被举报多次,禁止显示.请立即修改"><i class="fa fa-exclamation-triangle i-yellow" aria-hidden="true"></i></a>';
 		}
-		html += '</td><td class="ln-hidden"><i class="fa fa-clock-o i-default" aria-hidden="true"></i>'
+		html += '</div></td><td class="ln-hidden"><i class="fa fa-clock-o i-default" aria-hidden="true"></i>'
 				+ new Date(tableList[i].learningNotes_PubDate)
 						.format("yyyy年MM月dd日")
 				+ '</td><td class="ln-hidden"><i class="fa fa-eye i-default" aria-hidden="true"></i>'

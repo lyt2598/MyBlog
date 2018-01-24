@@ -44,6 +44,8 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 			// 任意设置一个非0的值即可查询所有文章
 			selectParam.setLearningNotes_Private(1);
 		}
+		// 将id设置为0，不加入查询条件，具体看learningNotesMapper配置
+		selectParam.setMyBlog_LearningNotes_id(0);
 		int totalCount = learningNotesMapper.getLearningNotesListCount(selectParam);
 		if (totalCount > 0) {
 			selectParam.setTotalCount(totalCount);
@@ -96,6 +98,40 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		}
 		learningNotes.setMyBlog_LearningNotes_id(lnId);
 		learningNotesMapper.updateLearningNotes(learningNotes);
+	}
+
+	@Override
+	public LearningNotes getTopLearningNotes(Integer lnId, String userId) throws Exception {
+		if (lnId == null || lnId <= 0) {
+			throw new BaseExceptionCustom("参数错误：请填写需要读取的文章id");
+		}
+		if (userId == null || "".equals(userId)) {
+			throw new BaseExceptionCustom("参数错误：请填写需要读取的文章的发表用户id");
+		}
+		LearningNotesCustom learningNotesCustom = new LearningNotesCustom();
+		learningNotesCustom.setMyBlog_LearningNotes_id(lnId);
+		learningNotesCustom.setLearningNotes_Private(0);
+		learningNotesCustom.setLearningNotes_PubUser(userId);
+		learningNotesCustom.setLimit(1);
+		LearningNotes learningNotes = learningNotesMapper.getTopLearningNotes(learningNotesCustom);
+		return learningNotes;
+	}
+
+	@Override
+	public LearningNotes getNextLearningNotes(Integer lnId, String userId) throws Exception {
+		if (lnId == null || lnId <= 0) {
+			throw new BaseExceptionCustom("参数错误：请填写需要读取的文章id");
+		}
+		if (userId == null || "".equals(userId)) {
+			throw new BaseExceptionCustom("参数错误：请填写需要读取的文章的发表用户id");
+		}
+		LearningNotesCustom learningNotesCustom = new LearningNotesCustom();
+		learningNotesCustom.setMyBlog_LearningNotes_id(lnId);
+		learningNotesCustom.setLearningNotes_Private(0);
+		learningNotesCustom.setLearningNotes_PubUser(userId);
+		learningNotesCustom.setLimit(1);
+		LearningNotes learningNotes = learningNotesMapper.getNextLearningNotes(learningNotesCustom);
+		return learningNotes;
 	}
 
 }

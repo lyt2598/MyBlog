@@ -28,9 +28,8 @@
 	<resultMap type="com.liaoyingtai.blog.entity.learningNotes.LearningNotes"
 		id="getLearningNotesListResultMap" extends="learningNotesReultMap">
 		<association property="userInfo"
-			javaType="com.liaoyingtai.blog.entity.userInfo.UserInfo">
-			<id column="learningNotes_PubUser" property="myBlog_UserInfo_id" />
-		</association>
+			javaType="com.liaoyingtai.blog.entity.userInfo.UserInfo" column="learningNotes_PubUser"
+			select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getPortionUserInfoById" />
 		<association property="learningNotesType" column="learningNotes_Type_id"
 			select="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesTypeMapper.getLearningNotesTypeById" />
 	</resultMap>
@@ -114,7 +113,7 @@
 		)
 	</insert>
 	<select id="getLearningNotesById" parameterType="int"
-		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		resultMap="getLearningNotesListResultMap">
 		SELECT
 		<include refid="learningNotes_Field" />
 		FROM
@@ -130,6 +129,30 @@
 		learningNotes_Type_id=#{learningNotes_Type_id},learningNotes_Tags=#{learningNotes_Tags},
 		learningNotes_ModDate=#{learningNotes_ModDate}
 	</sql>
+	<select id="getTopLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id &lt; #{myBlog_LearningNotes_id} and
+		learningNotes_Private=#{learningNotes_Private}
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
+	<select id="getNextLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id &gt; #{myBlog_LearningNotes_id} and
+		learningNotes_Private=#{learningNotes_Private}
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
 	<update id="updateLearningNotes"
 		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
 		update

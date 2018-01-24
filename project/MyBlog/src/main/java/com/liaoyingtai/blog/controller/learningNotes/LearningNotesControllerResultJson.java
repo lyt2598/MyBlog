@@ -21,7 +21,6 @@ import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
-import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
@@ -29,8 +28,6 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 
 	@Autowired
 	private LearningNotesService learningNotesService;
-	@Autowired
-	private UserInfoService userInfoService;
 
 	// 获取学习笔记文章列表
 	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.POST })
@@ -84,10 +81,15 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 		LearningNotes learningNotes = learningNotesService.getLearningNotesById(lnId);
 		// 将数据库中的文章数据修改，此处作用是访问次数+1
 		learningNotesService.updateLearningNotes(learningNotes.getMyBlog_LearningNotes_id(), learningNotes);
-		UserInfo userInfo = userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
+		String userId = learningNotes.getLearningNotes_PubUser();
+		LearningNotes topLn = learningNotesService.getTopLearningNotes(lnId, userId);
+		LearningNotes nextLn = learningNotesService.getNextLearningNotes(lnId, userId);
+		// UserInfo userInfo =
+		// userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
 		Map<String, Object> result = new HashMap<>();
 		result.put("learningNotes", learningNotes);
-		result.put("userInfo", userInfo);
+		result.put("topLearningNotes", topLn);
+		result.put("nextLearningNotes", nextLn);
 		resultUtils.setResult(result);
 		return resultUtils;
 	}

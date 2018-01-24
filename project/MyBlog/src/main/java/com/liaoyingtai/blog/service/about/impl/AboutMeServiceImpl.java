@@ -21,6 +21,12 @@ public class AboutMeServiceImpl implements AboutMeService {
 			throw new BaseExceptionCustom("参数错误：查询用户介绍时用户ID不能为空");
 		}
 		AboutMe aboutMe = aboutMeMapper.getAboutMeInfoByUserId(userId);
+		// 以下信息为不返回信息
+		aboutMe.getUserInfo().setUserInfo_Account(null);
+		aboutMe.getUserInfo().setUserInfo_Password(null);
+		aboutMe.getUserInfo().setUserJurisdiction(null);
+		aboutMe.getUserInfo().setUserInfo_RegTime(null);
+		aboutMe.getUserInfo().setUserInfo_Status(0);
 		// 判断以下信息是否显示在页面上
 		if (aboutMe.getAboutMe_Tel() == 0) {
 			aboutMe.getUserInfo().setUserInfo_Tel(null);

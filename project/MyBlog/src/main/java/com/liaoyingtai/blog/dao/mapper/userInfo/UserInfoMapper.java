@@ -33,4 +33,14 @@ public interface UserInfoMapper {
 	 */
 	public UserInfo getUserInfoById(String userId) throws Exception;
 
+	/**
+	 * 通过用户ID查询用户部分信息
+	 * 
+	 * @param userId
+	 *            用户id
+	 * @return 用户信息
+	 * @throws Exception
+	 */
+	public UserInfo getPortionUserInfoById(String userId) throws Exception;
+
 }

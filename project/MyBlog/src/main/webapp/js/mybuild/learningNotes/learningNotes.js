@@ -12,7 +12,7 @@ function getLearningNotesBaseHtml() {
 			+ '<div class="title">Ta的其他文章<div class="more"><a href="">更多&nbsp;>></a></div></div>'
 			+ '<div class="list"><ul><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ul></div></div>'
 			+ '<div class="lnList"><div id="cyReping" role="cylabs" data-use="reping"></div>'
-			+ '</div><div class="lnList"><div id="cyHotnews" role="cylabs" data-use="hotnews"></div></div></div><div class="lnContext"><div id="lnTitle"><div class="menu"><span style="color:#999;">标题：</span><span id="lnTitle_Span"></span><hr/><div class="hiddenUserInfo">'
+			+ '</div><div class="lnList"><div id="cyHotnews" role="cylabs" data-use="hotnews"></div></div></div><div class="lnContext"><div id="lnTitle"><div class="menu"><span style="color:#999;">标题：</span><p id="lnTitle_Span"></p><hr/><div class="hiddenUserInfo">'
 			+ '<img src="#"/><span class="userName"></span>'
 			+ '<a class="ln-qq" target="_blank" href="" data-toggle="tooltip" title="联系Ta-QQ"><i class="fa fa-qq" aria-hidden="true"></i></a>'
 			+ '<a class="ln-github" target="_blank" href="" data-toggle="tooltip" title="进入GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>'
@@ -27,8 +27,8 @@ function getLearningNotesBaseHtml() {
 			+ '</div></div><div id="lnValue"></div><div id="lnEmoji" class="ln-hidden"><div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="'
 			+ window.location.pathname
 			+ '"></div></div><div id="lnBottom">'
-			+ '<a href="" data-toggle="tooltip" title="上一篇">上一篇：</a>'
-			+ '<a href="" data-toggle="tooltip" title="下一篇">下一篇：</a>'
+			+ '<a href="" data-toggle="tooltip" title="上一篇" class="lnTitleA" id="topLn"></a>'
+			+ '<a href="" data-toggle="tooltip" title="下一篇" class="lnTitleA" id="nextLn">下一篇：</a>'
 			+ '</div><div id="message" class="ln-hidden"><div id="SOHUCS" sid="'
 			+ window.location.pathname + '" ></div></div></div>';
 	return html;
@@ -44,27 +44,39 @@ function getLearningNotesInfo(url, lnId) {
 				success : function(data) {
 					var obj = eval(data);
 					if (obj.status == 1) {
-						$(".userHead img").attr(
-								"src",
-								url + "/img/user/head/"
-										+ obj.result.userInfo.userInfo_HeadImg);
-						$(".hiddenUserInfo img").attr(
-								"src",
-								url + "/img/user/head/"
-										+ obj.result.userInfo.userInfo_HeadImg);
-						$(".userName").html(obj.result.userInfo.userInfo_Name);
+						$(".userHead img")
+								.attr(
+										"src",
+										url
+												+ "/img/user/head/"
+												+ obj.result.learningNotes.userInfo.userInfo_HeadImg);
+						$(".hiddenUserInfo img")
+								.attr(
+										"src",
+										url
+												+ "/img/user/head/"
+												+ obj.result.learningNotes.userInfo.userInfo_HeadImg);
+						$(".userName")
+								.html(
+										obj.result.learningNotes.userInfo.userInfo_Name);
 						$(".ln-qq")
 								.attr(
 										"href",
 										"http://wpa.qq.com/msgrd?v=3&uin="
-												+ obj.result.userInfo.userInfo_QQaccount
+												+ obj.result.learningNotes.userInfo.userInfo_QQaccount
 												+ "&site=qq&menu=yes");
-						$(".ln-github").attr("href",
-								obj.result.userInfo.userInfo_GitHub);
-						$(".ln-wechat").attr("title",
-								obj.result.userInfo.userInfo_QQaccount);
-						$(".ln-email").attr("title",
-								obj.result.userInfo.userInfo_Email);
+						$(".ln-github")
+								.attr(
+										"href",
+										obj.result.learningNotes.userInfo.userInfo_GitHub);
+						$(".ln-wechat")
+								.attr(
+										"title",
+										obj.result.learningNotes.userInfo.userInfo_QQaccount);
+						$(".ln-email")
+								.attr(
+										"title",
+										obj.result.learningNotes.userInfo.userInfo_Email);
 						$("#lnTitle #lnTitle_Span").html(
 								obj.result.learningNotes.learningNotes_Title);
 						$("title").html(
@@ -97,6 +109,31 @@ function getLearningNotesInfo(url, lnId) {
 												+ 'src="https://changyan.itc.cn/js/lib/jquery.js"></script>'
 												+ '<script type="text/javascript" charset="utf-8"'
 												+ 'src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>');
+						if (obj.result.topLearningNotes != null) {
+							var topLn = obj.result.topLearningNotes;
+							$("#topLn").attr(
+									"href",
+									basePath + "/learningNotes/"
+											+ topLn.learningNotes_PubUser + "/"
+											+ topLn.myBlog_LearningNotes_id);
+							$("#topLn")
+									.html("上一篇：" + topLn.learningNotes_Title);
+						} else {
+							$("#topLn").remove();
+						}
+						if (obj.result.nextLearningNotes != null) {
+							var nextLn = obj.result.nextLearningNotes;
+							$("#nextLn").attr(
+									"href",
+									basePath + "/learningNotes/"
+											+ nextLn.learningNotes_PubUser
+											+ "/"
+											+ nextLn.myBlog_LearningNotes_id);
+							$("#nextLn").html(
+									"下一篇：" + nextLn.learningNotes_Title);
+						} else {
+							$("#nextLn").remove();
+						}
 					} else {
 						alert(obj.message);
 					}

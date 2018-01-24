@@ -11,11 +11,31 @@ public interface LearningNotesMapper {
 	 * 读取学习笔记文章列表
 	 * 
 	 * @param selectParam
-	 *            查询参数，目前只有uid
+	 *            查询参数
 	 * @return
 	 * @throws Exception
 	 */
 	public List<LearningNotes> getLearningNotesList(LearningNotesCustom selectParam) throws Exception;
+
+	/**
+	 * 读取上一篇学习笔记
+	 * 
+	 * @param selectParam
+	 *            查询参数
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getTopLearningNotes(LearningNotesCustom selectParam) throws Exception;
+
+	/**
+	 * 读取下一篇学习笔记
+	 * 
+	 * @param selectParam
+	 *            查询参数
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getNextLearningNotes(LearningNotesCustom selectParam) throws Exception;
 
 	/**
 	 * 读取学习笔记文章数量

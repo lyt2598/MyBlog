@@ -25,6 +25,7 @@ userInfo_Email:邮箱
 userInfo_QQaccount:QQ号码
 userInfo_HeadImg:用户头像
 userInfo_GitHub:GitHub主页
+userInfo_WeChat:微信账号
 userInfo_RegTime:注册时间
 userInfo_Birthday:出生日期
 userInfo_Status:用户状态 （0：正常 1：冻结 2：封停）

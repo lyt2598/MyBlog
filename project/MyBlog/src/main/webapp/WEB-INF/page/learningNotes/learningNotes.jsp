@@ -34,7 +34,6 @@
 			var html = getLearningNotesBaseHtml(url, uid);
 			setPanelBody(html);
 			getLearningNotesInfo(url, lnId);
-			$("[data-toggle='tooltip']").tooltip();
 		})
 	</script>
 </body>

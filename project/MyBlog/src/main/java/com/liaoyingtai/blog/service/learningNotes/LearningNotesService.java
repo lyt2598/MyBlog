@@ -42,10 +42,37 @@ public interface LearningNotesService {
 
 	/**
 	 * 通过文章ID修改文章信息
-	 * @param lnId 文章id
-	 * @param learningNotes 需要修改的信息
+	 * 
+	 * @param lnId
+	 *            文章id
+	 * @param learningNotes
+	 *            需要修改的信息
 	 * @throws Exception
 	 */
 	public void updateLearningNotes(Integer lnId, LearningNotes learningNotes) throws Exception;
+
+	/**
+	 * 读取上一篇学习笔记
+	 * 
+	 * @param lnId
+	 *            读取此ID的上一篇非私有的文章
+	 * @param userId
+	 *            用户id
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getTopLearningNotes(Integer lnId, String userId) throws Exception;
+
+	/**
+	 * 读取下一篇学习笔记
+	 * 
+	 * @param lnId
+	 *            读取此ID的下一篇非私有的文章
+	 * @param userId
+	 *            用户id
+	 * @return
+	 * @throws Exception
+	 */
+	public LearningNotes getNextLearningNotes(Integer lnId, String userId) throws Exception;
 
 }

@@ -102,6 +102,8 @@
 .lnContext #lnTitle {
 	padding: 10px 10px;
 	border-bottom: 1px solid #4398ed;
+	word-wrap: break-word;
+	word-break: normal;
 }
 
 .lnContext #lnTitle .menu a {
@@ -159,6 +161,16 @@
 
 .hiddenUserInfo {
 	display: none;
+}
+
+.lnTitleA {
+	max-width: 300px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 767px) {
