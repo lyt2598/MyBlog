@@ -134,4 +134,20 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		return learningNotes;
 	}
 
+	@Override
+	public List<LearningNotes> getOtherLearningNotes(int lnId, int limit) throws Exception {
+		if (lnId <= 0) {
+			throw new BaseExceptionCustom("参数错误：请填写需要读取的文章id");
+		}
+		if (limit <= 0) {
+			limit = 10;
+		}
+		LearningNotesCustom learningNotesCustom = new LearningNotesCustom();
+		learningNotesCustom.setLearningNotes_Private(0);
+		learningNotesCustom.setMyBlog_LearningNotes_id(lnId);
+		learningNotesCustom.setLimit(limit);
+		List<LearningNotes> learningNotes = learningNotesMapper.getOtherLearningNotes(learningNotesCustom);
+		return learningNotes;
+	}
+
 }

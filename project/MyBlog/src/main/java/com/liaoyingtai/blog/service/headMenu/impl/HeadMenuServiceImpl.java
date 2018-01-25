@@ -27,16 +27,14 @@ public class HeadMenuServiceImpl implements HeadMenuService {
 		}
 		HeadMenuCustom selectParam = new HeadMenuCustom();
 		selectParam.setHeadMenu_UserId(uid);
-		List<HeadMenuCustom> myBlogHeadMenu = headMenuMapper
-				.getHeadMenuInfo(selectParam);
+		List<HeadMenuCustom> myBlogHeadMenu = headMenuMapper.getHeadMenuInfo(selectParam);
 		if (myBlogHeadMenu.size() <= 0) {
 			throw new BaseExceptionCustom("user menu is not found（用户菜单没有找到）");
 		}
 		return myBlogHeadMenu;
 	}
 
-	public void insertIndexHeadMenu(List<HeadMenu> headMenuInfo, String userId)
-			throws Exception {
+	public void insertIndexHeadMenu(List<HeadMenu> headMenuInfo, String userId) throws Exception {
 		if (userId == null || "".equals(userId)) {
 			throw new UserRegisteredException("參數錯誤：创建菜单时用户ID不能为空");
 		}
@@ -50,14 +48,13 @@ public class HeadMenuServiceImpl implements HeadMenuService {
 
 	private List<HeadMenu> getDefaultHeadMenu(String userId) {
 		List<HeadMenu> headMenus = new ArrayList<HeadMenu>();
-		HeadMenu headMenu = new HeadMenu(0, "首页", "index/" + userId, 0, userId);
+		HeadMenu headMenu = new HeadMenu(0, "首页", "index/" + userId, 0, userId, "fa-university");
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "个人介绍", "aboutMe/" + userId, 0, userId);
+		headMenu = new HeadMenu(0, "个人介绍", "aboutMe/" + userId, 0, userId, "fa-address-card-o");
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "学习笔记", "learningNotesList/" + userId, 0,
-				userId);
+		headMenu = new HeadMenu(0, "学习笔记", "learningNotesList/" + userId, 0, userId, "fa-book");
 		headMenus.add(headMenu);
-		headMenu = new HeadMenu(0, "给我留言", "message/board.action", 0, userId);
+		headMenu = new HeadMenu(0, "给我留言", "message/board.action", 0, userId, "fa-commenting");
 		headMenus.add(headMenu);
 		return headMenus;
 	}

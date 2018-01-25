@@ -99,13 +99,16 @@ function getTableList(tableList, uid) {
 function getLearningNotesListBaseHtml(uid) {
 	var html = '<div class="lnBody"><div class="page-header"><h1>学习笔记 <small>学无止境</small></h1></div>'
 			+ '<p>以下文章均为个人学习时得出的结论以及碰到的问题的整理,如果有不对的地方欢迎大家指出。</p>'
-			+ '<div class="table-menu">'
-			+ '<div class="searchDiv"><input type="text" id="searchData" placeholder="请输入需要查询的内容">'
-			+ '<button title="点击查询" onclick="search(\''
+			+ '<div class="table-menu"><form class="bs-example bs-example-form form-inline" onsubmit="return false;">'
+			+ '<div class="input-group"><input type="text" id="searchData" class="form-control" placeholder="请输入需要查询的内容">'
+			+ '<span class="input-group-btn"><button title="点击查询" class="btn btn-default" onclick="search(\''
 			+ uid
 			+ '\')">'
-			+ '<i class="fa fa-search" aria-hidden="true"></i></button> </div> </div>'
-			+ '<table class="table table-striped table-bordered table-condensed"><thead>'
+			+ '<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button></span></div></form>'
+			// + '<div class="panel panel-default"><div class="panel-body"
+			// id="lnTags"><span class="label
+			// label-default">PostgreSQL</span></div></div>'
+			+ '</div><table class="table table-striped table-bordered table-condensed"><thead>'
 			+ '<tr> <th class="textAlign ln-hidden">#</th>'
 			+ '<th>文章标题</th> <th class="ln-hidden">发布时间</th>'
 			+ '<th class="ln-hidden">浏览次数</th>'

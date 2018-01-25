@@ -21,7 +21,6 @@
 
 .lnList {
 	margin-top: 10px;
-	height: 186px;
 	border: 1px #4398ed solid;
 }
 
@@ -86,6 +85,16 @@
 
 .lnList .list {
 	width: 100%;
+}
+
+.lnList .list a {
+	max-width: 90%;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .lnList .list ul {

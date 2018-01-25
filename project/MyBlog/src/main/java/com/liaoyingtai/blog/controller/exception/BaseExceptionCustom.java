@@ -2,6 +2,7 @@ package com.liaoyingtai.blog.controller.exception;
 
 /**
  * 基础异常类型
+ * 
  * @author Lyt
  *
  */

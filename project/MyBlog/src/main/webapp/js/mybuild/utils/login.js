@@ -1,17 +1,17 @@
 //提交登录
 function submitLogin() {
+	if (checkUserName() == false) {
+		return false;
+	}
+	if (checkPassWord() == false) {
+		return false;
+	}
+	if (checkCheckCode() == false) {
+		return false;
+	}
 	var userAccount = $(".login-username").val();
-	if (checkUserName(userAccount) == false) {
-		return false;
-	}
 	var password = $(".login-password").val();
-	if (checkPassWord(password) == false) {
-		return false;
-	}
 	var checkcode = $(".login-checkcode").val();
-	if (checkCheckCode(checkcode) == false) {
-		return false;
-	}
 	$.ajax({
 		url : basePath + "/userInfo/login",
 		method : "POST",
@@ -65,6 +65,8 @@ function submitReg() {
 }
 // 检查用户账号
 function checkUserName(username) {
+	if (username == null || username == undefined)
+		username = $(".login-username").val();
 	var username_regex = /^[0-9a-zA-z_]{6,12}$/
 	if (username == null || username == "") {
 		setErrorMessage("用户名不能为空");
@@ -91,6 +93,8 @@ function checkName(name) {
 }
 // 检查用户密码
 function checkPassWord(password) {
+	if (password == null || password == undefined)
+		password = $(".login-password").val();
 	var password_regex = /^[0-9a-zA-z_\.\+\-_]{6,12}$/
 	if (password == null || password == "") {
 		setErrorMessage("密码不能为空");
@@ -104,7 +108,6 @@ function checkPassWord(password) {
 }
 // 检查用户再次输入密码
 function checkPassWord1(password1) {
-	console.log("校验再次输入密码");
 	var password = $(".login-password").val();
 	if (password1 == null || password1 == "") {
 		setErrorMessage("请再次输入密码");
@@ -118,7 +121,6 @@ function checkPassWord1(password1) {
 }
 // 检查邮箱
 function checkEmail(email) {
-	console.log("校验邮箱");
 	var email_regex = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
 	if (email == null || email == "") {
 		setErrorMessage("邮箱不能为空");
@@ -132,7 +134,8 @@ function checkEmail(email) {
 }
 // 检查验证码
 function checkCheckCode(checkcode) {
-	console.log("校验验证码");
+	if (checkcode == null || checkcode == undefined)
+		checkcode = $(".login-checkcode").val();
 	var checkCode_regex = /^[0-9a-zA-Z]{4}$/
 	if (checkcode == null || checkcode == "") {
 		setErrorMessage("验证码不能为空");

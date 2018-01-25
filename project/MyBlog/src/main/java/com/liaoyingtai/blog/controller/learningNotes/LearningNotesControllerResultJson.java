@@ -1,6 +1,7 @@
 package com.liaoyingtai.blog.controller.learningNotes;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -84,12 +86,22 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 		String userId = learningNotes.getLearningNotes_PubUser();
 		LearningNotes topLn = learningNotesService.getTopLearningNotes(lnId, userId);
 		LearningNotes nextLn = learningNotesService.getNextLearningNotes(lnId, userId);
-		// UserInfo userInfo =
-		// userInfoService.getUserInfoById(learningNotes.getLearningNotes_PubUser());
 		Map<String, Object> result = new HashMap<>();
 		result.put("learningNotes", learningNotes);
 		result.put("topLearningNotes", topLn);
 		result.put("nextLearningNotes", nextLn);
+		resultUtils.setResult(result);
+		return resultUtils;
+	}
+
+	@RequestMapping(value = "/otherLearningNotes/{limit}/{lnId}", method = { RequestMethod.POST })
+	public @ResponseBody ResultUtils otherLearningNotes(@PathVariable("lnId") Integer lnId,
+			@PathVariable("limit") Integer limit) throws Exception {
+		List<LearningNotes> learningNotes = learningNotesService.getOtherLearningNotes(lnId, limit);
+		ResultUtils resultUtils = new ResultUtils();
+		resultUtils.setStatus(ResultUtils.STATUS_OK);
+		Map<String, Object> result = new HashMap<>();
+		result.put("otherLearningNotesList", learningNotes);
 		resultUtils.setResult(result);
 		return resultUtils;
 	}

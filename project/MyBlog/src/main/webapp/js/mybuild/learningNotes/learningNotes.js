@@ -10,9 +10,8 @@ function getLearningNotesBaseHtml() {
 			+ '</div>'
 			+ '</div></div><div class="lnList">'
 			+ '<div class="title">Ta的其他文章<div class="more"><a href="">更多&nbsp;>></a></div></div>'
-			+ '<div class="list"><ul><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ul></div></div>'
-			+ '<div class="lnList"><div id="cyReping" role="cylabs" data-use="reping"></div>'
-			+ '</div><div class="lnList"><div id="cyHotnews" role="cylabs" data-use="hotnews"></div></div></div><div class="lnContext"><div id="lnTitle"><div class="menu"><span style="color:#999;">标题：</span><p id="lnTitle_Span"></p><hr/><div class="hiddenUserInfo">'
+			+ '<div class="list" id="otherLn"></div></div>'
+			+ '</div><div class="lnContext"><div id="lnTitle"><div class="menu"><span style="color:#999;">标题：</span><p id="lnTitle_Span"></p><hr/><div class="hiddenUserInfo">'
 			+ '<img src="#"/><span class="userName"></span>'
 			+ '<a class="ln-qq" target="_blank" href="" data-toggle="tooltip" title="联系Ta-QQ"><i class="fa fa-qq" aria-hidden="true"></i></a>'
 			+ '<a class="ln-github" target="_blank" href="" data-toggle="tooltip" title="进入GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>'
@@ -29,15 +28,15 @@ function getLearningNotesBaseHtml() {
 			+ '"></div></div><div id="lnBottom">'
 			+ '<a href="" data-toggle="tooltip" title="上一篇" class="lnTitleA" id="topLn"></a>'
 			+ '<a href="" data-toggle="tooltip" title="下一篇" class="lnTitleA" id="nextLn">下一篇：</a>'
-			+ '</div><div id="message" class="ln-hidden"><div id="SOHUCS" sid="'
+			+ '</div><div id="message"><div id="SOHUCS" sid="'
 			+ window.location.pathname + '" ></div></div></div>';
 	return html;
 }
 
-function getLearningNotesInfo(url, lnId) {
+function getLearningNotesInfo(lnId) {
 	$
 			.ajax({
-				url : url + "/learningNotes",
+				url : basePath + "/learningNotes",
 				method : "post",
 				data : "lnId=" + lnId,
 				dataType : "json",
@@ -47,13 +46,13 @@ function getLearningNotesInfo(url, lnId) {
 						$(".userHead img")
 								.attr(
 										"src",
-										url
+										basePath
 												+ "/img/user/head/"
 												+ obj.result.learningNotes.userInfo.userInfo_HeadImg);
 						$(".hiddenUserInfo img")
 								.attr(
 										"src",
-										url
+										basePath
 												+ "/img/user/head/"
 												+ obj.result.learningNotes.userInfo.userInfo_HeadImg);
 						$(".userName")
@@ -143,4 +142,32 @@ function getLearningNotesInfo(url, lnId) {
 					console.log(e);
 				}
 			})
+}
+function getOtherLearningNotesInfo(lnId) {
+	$.ajax({
+		url : basePath + "/otherLearningNotes/10/" + lnId,
+		method : "post",
+		dataType : "json",
+		success : function(data) {
+			var obj = eval(data);
+			if (obj.status == 1) {
+				var html = "<ul>";
+				var otherList = obj.result.otherLearningNotesList;
+				for (var i = 0; i < otherList.length; i++) {
+					html += "<li><a href='" + basePath + "/learningNotes/"
+							+ otherList[i].learningNotes_PubUser + "/"
+							+ otherList[i].myBlog_LearningNotes_id + "'>"
+							+ otherList[i].learningNotes_Title + "</a></li>";
+				}
+				html += "</ul>";
+				$("#otherLn").html(html);
+			} else {
+				$("#otherLn").html("<ul><li>" + obj.message + "</li></ul>");
+			}
+		},
+		error : function(e) {
+			alert("加载文章过程中发生未知错误！\n错误可在控制台中查看~\n" + e);
+			console.log(e);
+		}
+	})
 }

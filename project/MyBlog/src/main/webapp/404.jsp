@@ -12,6 +12,10 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
+<link rel="bookmark" type="image/x-icon"
+	href="${pageContext.request.contextPath}/img/favicon.ico" />
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/img/favicon.ico">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
 <link rel="stylesheet"

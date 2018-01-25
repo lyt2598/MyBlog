@@ -43,6 +43,11 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 			String errorMsg = bindingResult.getAllErrors().get(0).getDefaultMessage();
 			throw new BaseExceptionCustom(errorMsg);
 		}
+		String checkCode = userInfoCustom.getCheckCode();
+		String sysCheckCode = (String) session.getAttribute("SESSION_CHECK_CODE");
+		if (!sysCheckCode.equalsIgnoreCase(checkCode)) {
+			throw new BaseExceptionCustom("验证码输入不正确");
+		}
 		String account = userInfoCustom.getUserInfo_Account();
 		String password = userInfoCustom.getUserInfo_Password();
 		UserInfo userInfo = userInfoService.getCheckUserAccountAndPassword(account, password);

@@ -9,32 +9,22 @@ public class HeadMenu {
 	private String headMenu_URL;
 	private int headMenu_Father;
 	private String headMenu_UserId;
+	private String headMenu_Icon;
 	private UserInfo userInfo;
 
 	public HeadMenu() {
 		super();
 	}
 
-	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
-			String headMenu_URL, int headMenu_Father, String headMenu_UserId) {
+	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name, String headMenu_URL, int headMenu_Father,
+			String headMenu_UserId, String headMenu_Icon) {
 		super();
 		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;
 		this.headMenu_Name = headMenu_Name;
 		this.headMenu_URL = headMenu_URL;
 		this.headMenu_Father = headMenu_Father;
 		this.headMenu_UserId = headMenu_UserId;
-	}
-
-	public HeadMenu(int myBlog_HeadMenu_id, String headMenu_Name,
-			String headMenu_URL, int headMenu_Father, String headMenu_UserId,
-			UserInfo userInfo) {
-		super();
-		this.myBlog_HeadMenu_id = myBlog_HeadMenu_id;
-		this.headMenu_Name = headMenu_Name;
-		this.headMenu_URL = headMenu_URL;
-		this.headMenu_Father = headMenu_Father;
-		this.headMenu_UserId = headMenu_UserId;
-		this.userInfo = userInfo;
+		this.headMenu_Icon = headMenu_Icon;
 	}
 
 	public UserInfo getUserInfo() {
@@ -85,13 +75,19 @@ public class HeadMenu {
 		this.headMenu_UserId = headMenu_UserId;
 	}
 
+	public String getHeadMenu_Icon() {
+		return headMenu_Icon;
+	}
+
+	public void setHeadMenu_Icon(String headMenu_Icon) {
+		this.headMenu_Icon = headMenu_Icon;
+	}
+
 	@Override
 	public String toString() {
-		return "HeadMenu [myBlog_HeadMenu_id=" + myBlog_HeadMenu_id
-				+ ", headMenu_Name=" + headMenu_Name + ", headMenu_URL="
-				+ headMenu_URL + ", headMenu_Father=" + headMenu_Father
-				+ ", headMenu_UserId=" + headMenu_UserId + ", userInfo="
-				+ userInfo + "]";
+		return "HeadMenu [myBlog_HeadMenu_id=" + myBlog_HeadMenu_id + ", headMenu_Name=" + headMenu_Name
+				+ ", headMenu_URL=" + headMenu_URL + ", headMenu_Father=" + headMenu_Father + ", headMenu_UserId="
+				+ headMenu_UserId + ", headMenu_Icon=" + headMenu_Icon + ", userInfo=" + userInfo + "]";
 	}
 
 }

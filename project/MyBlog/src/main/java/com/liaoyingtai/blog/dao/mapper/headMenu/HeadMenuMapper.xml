@@ -6,19 +6,19 @@
 <mapper namespace="com.liaoyingtai.blog.dao.mapper.headMenu.HeadMenuMapper">
 
 	<sql id="headMenuInfo_Field">
-		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_UserId
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_Icon,headMenu_UserId
 	</sql>
 	<sql id="headMenuInfo_Table">
 		myblog_headmenu
 	</sql>
 	<sql id="headMenuInfo_insert_Field">
-		myBlog_HeadMenu_id,headMenu_Name,headMenu_Father,headMenu_UserId
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_Father,headMenu_UserId,headMenu_Icon
 		<if test="headMenu_URL!=null and headMenu_URL!=''">
 			,headMenu_URL
 		</if>
 	</sql>
 	<sql id="headMenuInfo_insert_Values">
-		#{myBlog_HeadMenu_id},#{headMenu_Name},#{headMenu_Father},#{headMenu_UserId}
+		#{myBlog_HeadMenu_id},#{headMenu_Name},#{headMenu_Father},#{headMenu_UserId},#{headMenu_Icon}
 		<if test="headMenu_URL!=null and headMenu_URL!=''">
 			,#{headMenu_URL}
 		</if>
@@ -31,6 +31,7 @@
 		<result column="headMenu_URL" property="headMenu_URL" />
 		<result column="headMenu_Father" property="headMenu_Father" />
 		<result column="headMenu_UserId" property="headMenu_UserId" />
+		<result column="headMenu_Icon" property="headMenu_Icon" />
 		<!-- 暂时用不上先屏蔽 -->
 		<!-- <association property="userInfo" column="headMenu_UserId" select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getUserInfoById" 
 			/> -->

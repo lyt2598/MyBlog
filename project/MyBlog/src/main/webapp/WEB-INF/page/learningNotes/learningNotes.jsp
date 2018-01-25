@@ -31,9 +31,11 @@
 			var uid = '${userId}';
 			var lnId = '${lnId}';
 			var url = '${pageContext.request.contextPath }';
-			var html = getLearningNotesBaseHtml(url, uid);
+			var html = getLearningNotesBaseHtml();
 			setPanelBody(html);
-			getLearningNotesInfo(url, lnId);
+			getLearningNotesInfo(lnId);
+			getOtherLearningNotesInfo(lnId);
+			$("[data-toggle='tooltip']").tooltip();
 		})
 	</script>
 </body>

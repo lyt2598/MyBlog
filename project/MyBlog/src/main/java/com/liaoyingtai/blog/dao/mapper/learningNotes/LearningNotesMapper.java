@@ -75,4 +75,13 @@ public interface LearningNotesMapper {
 	 */
 	public void updateLearningNotes(LearningNotes updateParam) throws Exception;
 
+	/**
+	 * 读取指定文章发表用户的其他文章信息
+	 * 
+	 * @param learningNotesCustom
+	 *            查询条件
+	 * @return
+	 */
+	public List<LearningNotes> getOtherLearningNotes(LearningNotesCustom learningNotesCustom);
+
 }

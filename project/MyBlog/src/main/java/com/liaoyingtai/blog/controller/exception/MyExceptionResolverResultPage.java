@@ -11,8 +11,8 @@ import com.liaoyingtai.blog.controller.exception.userInfo.UserRegisteredExceptio
 public class MyExceptionResolverResultPage {
 
 	@ExceptionHandler
-	public ModelAndView resolveException(HttpServletRequest arg0,
-			HttpServletResponse arg1, Object arg2, Exception arg3) {
+	public ModelAndView resolveException(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2,
+			Exception arg3) {
 		ModelAndView mad = new ModelAndView();
 		String viewName = "other/error";
 		if (arg3 instanceof BaseExceptionCustom) {
@@ -23,8 +23,7 @@ public class MyExceptionResolverResultPage {
 			viewName = "baseView/message";
 			mad.addObject("errorMsg", userRegisteredException);
 		} else {
-			BaseExceptionCustom baseException = new BaseExceptionCustom(
-					"运行过程中发生未知异常,请立即与管理员取的联系！");
+			BaseExceptionCustom baseException = new BaseExceptionCustom("运行过程中发生未知异常,请立即与管理员取的联系！");
 			mad.addObject("errorMsg", baseException);
 		}
 		mad.setViewName(viewName);

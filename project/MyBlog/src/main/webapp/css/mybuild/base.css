@@ -71,6 +71,9 @@ body {
 	padding-right:10px;
 	border-right: 2px solid #fff;
 }
+#indexMenu i{
+	margin-right: 5px;
+}
 
 @-webkit-keyframes rotating {
 	0%{

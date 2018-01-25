@@ -18,20 +18,21 @@
 						<c:when
 							test="${pmenu.headMenu_URL == null || pmenu.headMenu_URL == ''}">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">${pmenu.headMenu_Name } <b
-									class="caret"></b></a>
+								data-toggle="dropdown"><i class="fa fa-bars"
+									aria-hidden="true"></i>${pmenu.headMenu_Name } <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<c:forEach items="${pmenu.blogHeadMenus }" var="cmenu">
 										<li class="divider"></li>
 										<li><a
 											href="${pageContext.request.contextPath }/${cmenu.headMenu_URL }">
-												${cmenu.headMenu_Name }</a></li>
+												<i class="fa ${cmenu.headMenu_Icon }" aria-hidden="true"></i>${cmenu.headMenu_Name }</a></li>
 									</c:forEach>
 								</ul></li>
 						</c:when>
 						<c:otherwise>
 							<li><a
-								href="${pageContext.request.contextPath }/${pmenu.headMenu_URL }">${pmenu.headMenu_Name }</a></li>
+								href="${pageContext.request.contextPath }/${pmenu.headMenu_URL }"><i
+									class="fa ${pmenu.headMenu_Icon }" aria-hidden="true"></i>${pmenu.headMenu_Name }</a></li>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

@@ -1,5 +1,7 @@
 package com.liaoyingtai.blog.service.learningNotes;
 
+import java.util.List;
+
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
@@ -74,5 +76,17 @@ public interface LearningNotesService {
 	 * @throws Exception
 	 */
 	public LearningNotes getNextLearningNotes(Integer lnId, String userId) throws Exception;
+
+	/**
+	 * 读取其他文章信息
+	 * 
+	 * @param lnId
+	 *            文章ID，设置此参数即表示不读取此id的文章
+	 * @param limit
+	 *            需要显示的个数
+	 * @return
+	 * @throws Exception
+	 */
+	public List<LearningNotes> getOtherLearningNotes(int lnId, int limit) throws Exception;
 
 }

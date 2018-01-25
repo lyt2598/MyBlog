@@ -161,4 +161,19 @@
 		<include refid="learningNotes_update_Field" />
 		where myBlog_LearningNotes_id=#{myBlog_LearningNotes_id}
 	</update>
+	<select id="getOtherLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		select
+		<include refid="learningNotes_Field" />
+		from
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id!=#{myBlog_LearningNotes_id} and
+		learningNotes_PubUser=(select learningNotes_PubUser from
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id=#{myBlog_LearningNotes_id}
+		)
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
 </mapper>

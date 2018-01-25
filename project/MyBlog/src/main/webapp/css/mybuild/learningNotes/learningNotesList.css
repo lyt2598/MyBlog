@@ -75,10 +75,6 @@
 	color: blue;
 }
 
-.table-menu {
-	margin: 10px;
-}
-
 .lnTitle {
 	vertical-align: top;
 	display: inline-block;
@@ -92,8 +88,8 @@
 	.lnTitle {
 		width: 230px !important;
 	}
-	.ln-hidden{
-		display:none !important;
+	.ln-hidden {
+		display: none !important;
 	}
 }
 

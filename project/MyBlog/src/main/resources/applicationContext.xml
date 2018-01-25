@@ -33,7 +33,6 @@
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/html/" mapping="/html/**" />
 	<mvc:resources location="/editor/" mapping="/editor/**" />
-	<mvc:resources location="/" mapping="/baidu-verify-E34824474C.txt" />
 	<!-- 自定义拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
