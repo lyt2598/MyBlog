@@ -36,7 +36,14 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
+				<li><a href="javascript:void(0);"><i class="fa fa-search"
+						aria-hidden="true"></i>搜索</a></li>
 			</ul>
+			<script>
+				function searchAll() {
+					$(".searchAll").html();
+				}
+			</script>
 			<ul class="nav navbar-nav navbar-right">
 				<c:choose>
 					<c:when test="${sessionScope.currentUser!=null}">

@@ -91,9 +91,6 @@ function getLearningNotesInfo(lnId) {
 								.html(
 										obj.result.learningNotes.learningNotes_RelayCount
 												+ "次");
-						$("#menu-commentCount")
-								.append(
-										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">');
 						var temp_date = new Date(
 								obj.result.learningNotes.learningNotes_PubDate)
 								.format("yyyy年MM月dd日");
@@ -102,12 +99,6 @@ function getLearningNotesInfo(lnId) {
 								obj.result.learningNotes.learningNotes_ModDate)
 								.format("yyyy年MM月dd日");
 						$("#menu-modTime").html(temp_date);
-						$(".lnLeft")
-								.append(
-										'<script type="text/javascript" charset="utf-8"'
-												+ 'src="https://changyan.itc.cn/js/lib/jquery.js"></script>'
-												+ '<script type="text/javascript" charset="utf-8"'
-												+ 'src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>');
 						if (obj.result.topLearningNotes != null) {
 							var topLn = obj.result.topLearningNotes;
 							$("#topLn").attr(
@@ -133,6 +124,14 @@ function getLearningNotesInfo(lnId) {
 						} else {
 							$("#nextLn").remove();
 						}
+						$("#menu-commentCount")
+								.append(
+										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">');
+						$("head")
+								.append(
+										'<script src="'
+												+ basePath
+												+ '/js/mybuild/utils/changyan.js"></script>');
 					} else {
 						alert(obj.message);
 					}

@@ -64,7 +64,7 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/loginOut", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "/loginOut")
 	public @ResponseBody ResultUtils loginOut(HttpSession session) throws Exception {
 		UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
 		if (userInfo == null) {
@@ -83,7 +83,7 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/checkUserLogin", method = { RequestMethod.POST, RequestMethod.GET })
+	@RequestMapping(value = "/checkUserLogin")
 	public @ResponseBody ResultUtils checkUserLogin(HttpSession session) throws Exception {
 		UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
 		if (userInfo == null) {

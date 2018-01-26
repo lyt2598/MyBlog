@@ -11,6 +11,7 @@ headMenu_Name，用来记录菜单名称
 headMenu_URL，用来记录菜单的跳转链接
 headMenu_Father，用来记录父菜单的ID，如果没有父菜单不填（自动补0），如果有父菜单填写父菜单ID(也就是本表中的主键)
 headMenu_UserId，用来方便以后扩展为用户自定义菜单栏
+headMenu_Icon，Icon图标
 ---hearMenu_IFrame，用来记录是否在iframe窗口内打开，0为不在iframe里打开 1为在iframe里面打开
 
 
