@@ -68,4 +68,4 @@
 
 > Lyt2598:
 - 邮箱：lyt2598@qq.com
-- 主页：[http://http://www.liaoyingtai.com](http://http://www.liaoyingtai.com "http://http://www.liaoyingtai.com")
+- 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
