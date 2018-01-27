@@ -1,5 +1,8 @@
 package com.liaoyingtai.blog.controller.exception;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,6 +23,9 @@ public class MyExceptionResolverResultJson {
 		ResultUtils resultUtils = new ResultUtils();
 		resultUtils.setStatus(ResultUtils.STATUS_ERROR);
 		resultUtils.setMessage(arg3.getMessage());
+		Map<String, Object> exMap = new HashMap<>();
+		exMap.put("exception", arg3.getMessage());
+		resultUtils.setResult(exMap);
 		return resultUtils;
 	}
 }

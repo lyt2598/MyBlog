@@ -13,14 +13,22 @@
 <meta http-equiv="description" content="This is my page">
 <%@ include file="../baseView/pageBaseCSS.jsp"%>
 <%@ include file="../baseView/pageBaseJS.jsp"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/mybuild/other/index.css">
+<script
+	src="${pageContext.request.contextPath }/js/mybuild/other/index.js"></script>
 </head>
 
 <body>
 	<%@ include file="../baseView/pageBody.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function(e) {
-			/* var uid = '${userId }'; */
-			/* loadPageContent('${pageContext.request.contextPath}', uid); */
+			var userId = '${userId}';
+			var html = loadIndexContextHtml();
+			setPanelBody(html);
+			getIndexLN(userId);
+			// 读取用户信息
+			getUserInfo(userId);
 		});
 	</script>
 </body>

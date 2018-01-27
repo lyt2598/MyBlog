@@ -87,7 +87,7 @@ function getTableList(tableList, uid) {
 				+ '</td>'
 				+ '<td class="ln-hidden"><i class="fa fa-commenting-o i-default" aria-hidden="true"></i><span id = "sourceId::'
 				+ '/learningNotes/'
-				+ uid
+				+ tableList[i].learningNotes_PubUser
 				+ '/'
 				+ tableList[i].myBlog_LearningNotes_id
 				+ '" class = "cy_cmt_count" ></span><script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B">'
