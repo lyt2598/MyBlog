@@ -10,21 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.liaoyingtai.blog.controller.exception.MyExceptionResolverResultPage;
 import com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom;
 import com.liaoyingtai.blog.service.headMenu.HeadMenuService;
 
-public class MyHandlerInterceptor implements HandlerInterceptor {
+public class MyHandlerInterceptor extends MyExceptionResolverResultPage implements HandlerInterceptor {
 
 	@Autowired
 	private HeadMenuService headMenuService;
 
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 		return true;
 	}
 
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// 加载头部菜单信息
 		if (modelAndView != null) {
@@ -35,10 +35,9 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
 		}
 	}
 
-	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		
+
 	}
 
 }

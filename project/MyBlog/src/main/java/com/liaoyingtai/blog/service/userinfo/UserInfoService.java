@@ -28,7 +28,7 @@ public interface UserInfoService {
 	public boolean getCheckAccountAlreadyExist(String account) throws Exception;
 
 	/**
-	 * 通過ID查询用戶信息
+	 * 通过ID查询用戶信息
 	 * 
 	 * @param userId
 	 *            用户id
@@ -48,5 +48,15 @@ public interface UserInfoService {
 	 * @throws Exception
 	 */
 	public UserInfo getCheckUserAccountAndPassword(String userAccount, String password) throws Exception;
+
+	/**
+	 * 读取用户部分可显示信息
+	 * 
+	 * @param userId
+	 *            用户id
+	 * @return 用户信息
+	 * @throws Exception
+	 */
+	public UserInfo getPortionUserInfoById(String userId) throws Exception;
 
 }

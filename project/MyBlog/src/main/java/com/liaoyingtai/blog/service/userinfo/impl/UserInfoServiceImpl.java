@@ -95,4 +95,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 		}
 		return userInfo;
 	}
+
+	@Override
+	public UserInfo getPortionUserInfoById(String userId) throws Exception {
+		if (userId == null || "".equals(userId)) {
+			throw new BaseExceptionCustom("参数错误：查询用户信息时用户ID不能为空");
+		}
+		UserInfo userInfo = userInfoMapper.getPortionUserInfoById(userId);
+		return userInfo;
+	}
 }

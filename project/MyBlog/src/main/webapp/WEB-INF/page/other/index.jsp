@@ -16,6 +16,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/other/index.css">
 <script
+	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
+<script
 	src="${pageContext.request.contextPath }/js/mybuild/other/index.js"></script>
 </head>
 
@@ -29,6 +31,8 @@
 			getIndexLN(userId);
 			// 读取用户信息
 			getUserInfo(userId);
+			//读取系统时间
+			getTimeHtml();
 		});
 	</script>
 </body>

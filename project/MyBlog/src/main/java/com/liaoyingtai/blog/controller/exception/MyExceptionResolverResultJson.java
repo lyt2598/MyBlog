@@ -24,7 +24,7 @@ public class MyExceptionResolverResultJson {
 		resultUtils.setStatus(ResultUtils.STATUS_ERROR);
 		resultUtils.setMessage(arg3.getMessage());
 		Map<String, Object> exMap = new HashMap<>();
-		exMap.put("exception", arg3.getMessage());
+		exMap.put("exception", arg3);
 		resultUtils.setResult(exMap);
 		return resultUtils;
 	}

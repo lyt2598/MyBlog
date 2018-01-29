@@ -1,11 +1,15 @@
 package com.liaoyingtai.blog.controller.userInfo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -90,6 +94,17 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 			throw new BaseExceptionCustom("用户未登陆");
 		}
 		ResultUtils resultUtils = new ResultUtils();
+		resultUtils.setStatus(ResultUtils.STATUS_OK);
+		return resultUtils;
+	}
+
+	@RequestMapping(value = "/baseUserInfo/{userId}", method = { RequestMethod.POST })
+	public @ResponseBody ResultUtils baseUserInfo(@PathVariable("userId") String uid) throws Exception {
+		UserInfo userInfo = userInfoService.getPortionUserInfoById(uid);
+		ResultUtils resultUtils = new ResultUtils();
+		Map<String, Object> resultMap = new HashMap<>();
+		resultMap.put("userInfo", userInfo);
+		resultUtils.setResult(resultMap);
 		resultUtils.setStatus(ResultUtils.STATUS_OK);
 		return resultUtils;
 	}

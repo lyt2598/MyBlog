@@ -1,7 +1,8 @@
 function loadIndexContextHtml() {
 	var html = '<div id="indexContext">'
-			+ '<div id="indexRight" class="lnHidden"></div>'
-			+ '<div id="indexLeft"></div>' + '</div>';
+			+ '<div id="indexRight" class="lnHidden"><div class="boxShadow rightList dataTime" align="center"></div>'
+			+ '<div class="boxShadow rightList indexUserInfo"></div></div>'
+			+ '<div id="indexLeft"><div class="lnContext boxShadow loadingIndex" align="center"><i class="fa fa-repeat loading-logo" aria-hidden="true"></i>正在加载中...</div></div></div>';
 	return html;
 }
 
@@ -9,21 +10,24 @@ function getIndexLN(uid) {
 	$
 			.ajax({
 				url : basePath + '/getLearningNotesList',
-				data : "uid=" + uid + "&page=1&limit=10",
+				data : "uid=" + uid + "&page=1&limit=5",
 				method : "post",
 				dataType : "json",
+				beforSend : function() {
+					$("#indexLeft").html(html);
+				},
 				success : function(data) {
 					var obj = eval(data);
 					if (obj.status == 1) {
 						getLearningNotesList(obj.result.learningNotesList.learningNotes);
 					} else {
 						alert(obj.message);
-						console.log.log(obj.result.exception);
+						console.log(obj.result.exception);
 					}
 				},
 				error : function(e) {
 					alert("读取首页文章时出错,请刷新后重试！");
-					console.log.log(e);
+					console.log(e);
 				}
 			})
 }
@@ -32,10 +36,11 @@ function getLearningNotesList(lnList) {
 	var html = "";
 	for (var i = 0; i < lnList.length; i++) {
 		var imgSrc = getFirstImgSrc(lnList[i].learningNotes_Context);
+		// console.log(imgSrc);
 		html += '<div class="lnContext boxShadow">'
-				+ '<div class="lnImg"><img src="'
+				+ '<div class="lnImg"><img '
 				+ imgSrc
-				+ '" alt="文章图片" class="img-thumbnail"></div>'
+				+ ' alt="文章图片" class="img-thumbnail"></div>'
 				+ '<div class="lnValue"><a href=""><span class="lnTitle"><span class="lnType lnHidden">[ '
 				+ lnList[i].learningNotesType.learningNotes_Type_Name
 				+ ' ]</span>'
@@ -66,13 +71,14 @@ function getFirstImgSrc(text) {
 	var regexp = new RegExp("(<img.*src=\"\.*?\>)");
 	var value = text.match(regexp);
 	if (value == null) {
-		return basePath + "/img/learningNotes/default.png";
+		return "src=\"" + basePath + "/img/learningNotes/default.png\"";
 	}
 	regexp = /src="([^"]*)"/g;
 	var resultSrc = value[0].match(regexp);
 	if (resultSrc == null) {
-		return basePath + "/img/learningNotes/default.png";
+		return "src=\"" + basePath + "/img/learningNotes/default.png\"";
 	}
+	resultSrc = resultSrc[0];
 	return resultSrc;
 }
 // 读取纯文本内容，剔除html标签
@@ -86,16 +92,49 @@ function goLearningNotes(uId, lnId) {
 }
 
 function getUserInfo(uid) {
-	getUserInfoHtml();
+	$.ajax({
+		url : basePath + "/userInfo/baseUserInfo/" + uid,
+		method : "post",
+		dataType : "json",
+		success : function(data) {
+			var obj = eval(data);
+			if (obj.status == 1) {
+				getUserInfoHtml(obj.result.userInfo);
+			} else {
+				alert(obj.message);
+				console.log(obj.result.exception);
+			}
+		},
+		error : function(e) {
+			alert("读取首页用户信息时出错,请刷新后重试！");
+			console.log(e);
+		}
+	})
 }
 
 // 读取用户信息
 function getUserInfoHtml(userInfo) {
-	var html = '<div class="boxShadow rightList"><div id="baseUserInfo">'
-			+ '<div id="userInfoHeadImg"><img src="'
+	var html = '<div id="baseUserInfo"><div id="userInfoHeadImg"><img src="'
 			+ basePath
-			+ '/img/user/head/default.png" class="img-circle"></div>'
-			+ '<div id="userInfo"><span class="userInfoSpan"><i class="fa fa-user" aria-hidden="true"></i>LiaoYingTai</span><span class="userInfoSpan"><i class="fa fa-envelope" aria-hidden="true"></i>lyt2598@aliyun.com</span></div>'
-			+ '</div><hr>' + '' + '</div>';
-	$("#indexRight").html(html);
+			+ '/img/user/head/'
+			+ userInfo.userInfo_HeadImg
+			+ '" class="img-circle"></div>'
+			+ '<div id="userInfo"><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户名字"><i class="fa fa-user" aria-hidden="true"></i>'
+			+ userInfo.userInfo_Name
+			+ '</span><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户邮箱"><i class="fa fa-envelope" aria-hidden="true"></i>'
+			+ userInfo.userInfo_Email + '</span></div>' + '</div><hr>' + ''
+			+ '</div>';
+	$("title").html(
+			userInfo.userInfo_Name
+					+ "&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up");
+	$(".indexUserInfo").html(html);
+	// 因为网页内容是异步加载的，所以tooltip需要重新激活
+	$("[data-toggle='tooltip']").tooltip();
+}
+function getTimeHtml() {
+	var date = new Date().format("yyyy年MM月dd日 hh:mm:ss");
+	var html = '<i class="fa fa-clock-o i-default" aria-hidden="true"></i>'
+			+ date
+	$(".dataTime").html(html);
+	setTimeout("getTimeHtml()", 1000);
 }

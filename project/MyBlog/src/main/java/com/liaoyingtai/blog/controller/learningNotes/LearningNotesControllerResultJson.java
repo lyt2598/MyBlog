@@ -32,7 +32,7 @@ public class LearningNotesControllerResultJson extends MyExceptionResolverResult
 	private LearningNotesService learningNotesService;
 
 	// 获取学习笔记文章列表
-	@RequestMapping(value = "getLearningNotesList", method = { RequestMethod.POST })
+	@RequestMapping(value = "/getLearningNotesList", method = { RequestMethod.POST })
 	public @ResponseBody ResultUtils getLearningNotesList(HttpServletRequest request, String uid,
 			LearningNotesCustom learningNotesCustom) throws Exception {
 		ResultUtils resultUtils = new ResultUtils();

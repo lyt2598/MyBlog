@@ -29,6 +29,7 @@
 
 .rightList {
 	padding: 20px;
+	margin-bottom: 20px;
 }
 
 #baseUserInfo i {
@@ -49,6 +50,9 @@
 	display: block;
 	color: #999;
 	line-height: 25px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
 }
 
 .lnContext .lnImg {
@@ -129,6 +133,25 @@
 	margin-right: 5px;
 }
 
+.dataTime {
+	font-weight: bold;
+}
+
+.dataTime i {
+	color: #999;
+	margin-right: 5px;
+}
+
+.loadingIndex {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 70px;
+}
+
+.loadingIndex i {
+	margin-right: 10px;
+}
+
 @media screen and (max-width: 767px) {
 	.lnHidden {
 		display: none !important;
@@ -162,5 +185,8 @@
 	}
 	.lnText {
 		max-height: 115px;
+	}
+	#indexContext {
+		min-height: 300px;
 	}
 }

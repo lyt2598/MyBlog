@@ -17,7 +17,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotesList.css" />
 <script
-	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
+	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/tableUtils.js"></script>
 <script

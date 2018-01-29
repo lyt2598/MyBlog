@@ -19,7 +19,7 @@
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/learningNotes.js"></script>
 <script
-	src="${pageContext.request.contextPath }/js/mybuild/utils/dataFormat.js"></script>
+	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/changyan.js"></script>
 </head>
