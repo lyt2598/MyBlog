@@ -41,7 +41,13 @@ function getLearningNotesList(lnList) {
 				+ '<div class="lnImg"><img '
 				+ imgSrc
 				+ ' alt="文章图片" class="img-thumbnail"></div>'
-				+ '<div class="lnValue"><a href=""><span class="lnTitle"><span class="lnType lnHidden">[ '
+				+ '<div class="lnValue"><a href="'
+				+ basePath
+				+ '/learningNotes/'
+				+ lnList[i].learningNotes_PubUser
+				+ '/'
+				+ lnList[i].myBlog_LearningNotes_id
+				+ '"><span class="lnTitle"><span class="lnType lnHidden">[ '
 				+ lnList[i].learningNotesType.learningNotes_Type_Name
 				+ ' ]</span>'
 				+ lnList[i].learningNotes_Title
@@ -54,14 +60,14 @@ function getLearningNotesList(lnList) {
 				+ '\',\''
 				+ lnList[i].myBlog_LearningNotes_id
 				+ '\')">阅读全文</div>'
-				+ '<div class="lnView lnHidden"><span class="view"><i class="fa fa-eye i-default" aria-hidden="true"></i>浏览次数：'
+				+ '<div class="lnView lnHidden"><span class="view"><span class="badge"><i class="fa fa-eye i-default" aria-hidden="true"></i>浏览次数：'
 				+ lnList[i].learningNotes_ViewCount
-				+ '</span><span class="view"><i class="fa fa-commenting-o i-default" aria-hidden="true"></i>评论次数：<span id = "sourceId::'
+				+ '</span></span><span class="view"><span class="badge"><i class="fa fa-commenting-o i-default" aria-hidden="true"></i>评论次数：<span id = "sourceId::'
 				+ '/learningNotes/'
 				+ lnList[i].learningNotes_PubUser
 				+ '/'
 				+ lnList[i].myBlog_LearningNotes_id
-				+ '" class = "cy_cmt_count" ></span><script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B">'
+				+ '" class = "cy_cmt_count" ></span></span><script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B">'
 				+ '</script></span></div>' + '</div></div>';
 	}
 	$("#indexLeft").html(html);
@@ -122,7 +128,17 @@ function getUserInfoHtml(userInfo) {
 			+ '<div id="userInfo"><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户名字"><i class="fa fa-user" aria-hidden="true"></i>'
 			+ userInfo.userInfo_Name
 			+ '</span><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户邮箱"><i class="fa fa-envelope" aria-hidden="true"></i>'
-			+ userInfo.userInfo_Email + '</span></div>' + '</div><hr>' + ''
+			+ userInfo.userInfo_Email
+			+ '</span></div>'
+			+ '</div><hr>'
+			+ '<span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="QQ"><i class="fa fa-qq" aria-hidden="true"></i>QQ：'
+			+ userInfo.userInfo_QQaccount
+			+ '</span>'
+			+ '<span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="微信"><i class="fa fa-weixin" aria-hidden="true"></i>微信：'
+			+ userInfo.userInfo_WeChat
+			+ '</span>'
+			+ '<span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="GitHub"><i class="fa fa-github-square" aria-hidden="true"></i>GitHub：<a href="'
+			+ userInfo.userInfo_GitHub + '" target="_black">点击进入Ta的GitHub</a></span>'
 			+ '</div>';
 	$("title").html(
 			userInfo.userInfo_Name

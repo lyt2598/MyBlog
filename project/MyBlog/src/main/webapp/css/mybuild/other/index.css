@@ -32,8 +32,12 @@
 	margin-bottom: 20px;
 }
 
-#baseUserInfo i {
+.userInfoSpan i {
 	margin: 0px 5px 0px 15px;
+}
+
+.userInfoSpan a {
+	color: #999;
 }
 
 #baseUserInfo #userInfoHeadImg img {
@@ -46,10 +50,16 @@
 	width: 165px;
 }
 
-#baseUserInfo #userInfo .userInfoSpan {
+.userInfoSpan {
 	display: block;
 	color: #999;
 	line-height: 25px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.dataTime {
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	user-select: none;
@@ -122,7 +132,7 @@
 }
 
 .lnView {
-	color: #999
+	color: #999;
 }
 
 .lnView .view {

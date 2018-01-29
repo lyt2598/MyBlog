@@ -23,9 +23,10 @@ function getLearningNotesBaseHtml() {
 			+ '<span href="#SOHUCS" id="changyan_count_unit">0</span>次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="发表时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-pubTime" class="menu-title">发表时间</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="最后修改时间"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="menu-modTime" class="menu-title">最后修改时间</span></a>'
-			+ '</div></div><div id="lnValue"></div><div id="lnEmoji" class="ln-hidden"><div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="'
+			+ '</div></div><div id="lnValue"></div><div id="lnTags"></div><div id="lnEmoji" class="ln-hidden"><div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="'
 			+ window.location.pathname
-			+ '"></div></div><div id="lnBottom">'
+			+ '"></div>'
+			+ '</div><div id="lnBottom">'
 			+ '<a href="" data-toggle="tooltip" title="上一篇" class="lnTitleA" id="topLn"></a>'
 			+ '<a href="" data-toggle="tooltip" title="下一篇" class="lnTitleA" id="nextLn">下一篇：</a>'
 			+ '</div><div id="message" class="ln-hidden"><div id="SOHUCS" sid="'
@@ -124,9 +125,15 @@ function getLearningNotesInfo(lnId) {
 						} else {
 							$("#nextLn").remove();
 						}
+						$("#lnTags")
+								.html(
+										getLNTagsHtml(obj.result.learningNotes.learningNotes_Tags));
 						$("#menu-commentCount")
 								.append(
-										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js">');
+										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>');
+						$("#lnEmoji")
+								.append(
+										'<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>');
 					} else {
 						alert(obj.message);
 					}
@@ -164,4 +171,16 @@ function getOtherLearningNotesInfo(lnId) {
 			console.log(e);
 		}
 	})
+}
+function getLNTagsHtml(tags) {
+	if (tags == null || tags == "") {
+		return "";
+	}
+	var html = '<span class="label label-primary">本文标签：</span>';
+	tags = tags.split(",");
+	for (var i = 0; i < tags.length; i++) {
+		html += '<span class="label label-default" data-toggle="tooltip" data-placement="top" title="标签：'
+				+ tags[i] + '">' + tags[i] + '</span>';
+	}
+	return html;
 }
