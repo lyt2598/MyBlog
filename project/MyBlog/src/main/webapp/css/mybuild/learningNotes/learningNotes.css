@@ -129,6 +129,10 @@
 	padding: 10px 10px;
 }
 
+.lnContext #lnValue * {
+	word-wrap: break-word;
+}
+
 .lnContext #lnBottom {
 	border-bottom: 1px solid #4398ed;
 	padding: 10px 10px;

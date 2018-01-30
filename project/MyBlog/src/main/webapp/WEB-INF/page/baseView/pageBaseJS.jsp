@@ -9,6 +9,14 @@
 	var basePath = '${pageContext.request.contextPath}';
 	//登陆窗口被隐藏时动作
 	$(function() {
+		$(window).scroll(function() {
+			var scrollTop = $(this).scrollTop();
+			if (scrollTop > 100) {
+				$("#goTop").fadeIn(500);
+			} else {
+				$("#goTop").fadeOut(500);
+			}
+		});
 		$("[data-toggle='tooltip']").tooltip();
 		$('#loginModal').on('hide.bs.modal', function() {
 			$("#loginModal #login_username").val("");
@@ -25,13 +33,6 @@
 			}
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
-		});
-		$(window).scroll(function() {
-			if ($(window).scrollTop() > 100) {
-				$("#goTop").fadeIn(1500);
-			} else {
-				$("#goTop").fadeOut(1500);
-			}
 		});
 		//当点击跳转链接后，回到页面顶部位置
 		$("#goTop").click(function() {

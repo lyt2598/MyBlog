@@ -29,7 +29,7 @@ function getLearningNotesBaseHtml() {
 			+ '</div><div id="lnBottom">'
 			+ '<a href="" data-toggle="tooltip" title="上一篇" class="lnTitleA" id="topLn"></a>'
 			+ '<a href="" data-toggle="tooltip" title="下一篇" class="lnTitleA" id="nextLn">下一篇：</a>'
-			+ '</div><div id="message" class="ln-hidden"><div id="SOHUCS" sid="'
+			+ '</div><div id="message"><div id="SOHUCS" sid="'
 			+ window.location.pathname + '" ></div></div></div>';
 	return html;
 }
@@ -131,9 +131,6 @@ function getLearningNotesInfo(lnId) {
 						$("#menu-commentCount")
 								.append(
 										'<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>');
-						$("#lnEmoji")
-								.append(
-										'<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>');
 					} else {
 						alert(obj.message);
 					}
