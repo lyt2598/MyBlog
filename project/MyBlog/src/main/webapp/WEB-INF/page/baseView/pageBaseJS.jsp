@@ -26,5 +26,25 @@
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(bp, s);
 		});
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 100) {
+				$("#goTop").fadeIn(1500);
+			} else {
+				$("#goTop").fadeOut(1500);
+			}
+		});
+		//当点击跳转链接后，回到页面顶部位置
+		$("#goTop").click(function() {
+			if ($('html').scrollTop()) {
+				$('html').animate({
+					scrollTop : 0
+				}, 100);//动画效果
+				return false;
+			}
+			$('body').animate({
+				scrollTop : 0
+			}, 100);
+			return false;
+		});
 	});
 </script>

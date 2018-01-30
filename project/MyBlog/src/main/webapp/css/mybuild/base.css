@@ -59,19 +59,20 @@ body {
 	-webkit-animation: rotating 1s infinite linear;
 }
 
-.panel-menu-button{
+.panel-menu-button {
 	display: inline-block;
 	border: 0px;
 	background-color: #337ab7;
-	padding:0px 5px;
+	padding: 0px 5px;
 }
 
-.panel-title{
+.panel-title {
 	display: inline-block !important;
-	padding-right:10px;
+	padding-right: 10px;
 	border-right: 2px solid #fff;
 }
-#indexMenu i{
+
+#indexMenu i {
 	margin-right: 5px;
 }
 
@@ -84,5 +85,24 @@ body {
 	}
 	100%{
 		-webkit-transform:rotate(360deg);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#goTop {
+		position: fixed;
+		display: none;
+		bottom: 100px;
+		right: 80px;
+		width:50px;
+		height:50px;
+		background:#fff;
+		border:1px solid #999;
+		font-size: 30px;
+		color: #999;
+		padding-top: 7px;
+	}
+	#goTop:hover{
+		background:#E5E5E5;
 	}
 }

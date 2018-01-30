@@ -8,3 +8,6 @@
 	<%@ include file="pageFooter.jsp"%>
 </div>
 <%@ include file="loginModal.jsp"%>
+<div id="goTop" align="center">
+<i class="fa fa-chevron-up" aria-hidden="true"></i>	
+</div>
