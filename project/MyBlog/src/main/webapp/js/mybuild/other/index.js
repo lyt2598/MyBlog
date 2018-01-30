@@ -120,11 +120,15 @@ function getUserInfo(uid) {
 
 // 读取用户信息
 function getUserInfoHtml(userInfo) {
-	var html = '<div id="baseUserInfo"><div id="userInfoHeadImg"><img src="'
+	var html = '<div id="baseUserInfo"><div id="userInfoHeadImg"><a href="'
+			+ basePath
+			+ '/aboutMe/'
+			+ userInfo.myBlog_UserInfo_id
+			+ '"><img src="'
 			+ basePath
 			+ '/img/user/head/'
 			+ userInfo.userInfo_HeadImg
-			+ '" class="img-circle"></div>'
+			+ '" class="img-circle"></a></div>'
 			+ '<div id="userInfo"><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户名字"><i class="fa fa-user" aria-hidden="true"></i>'
 			+ userInfo.userInfo_Name
 			+ '</span><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户邮箱"><i class="fa fa-envelope" aria-hidden="true"></i>'
@@ -138,8 +142,8 @@ function getUserInfoHtml(userInfo) {
 			+ userInfo.userInfo_WeChat
 			+ '</span>'
 			+ '<span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="GitHub"><i class="fa fa-github-square" aria-hidden="true"></i>GitHub：<a href="'
-			+ userInfo.userInfo_GitHub + '" target="_black">点击进入Ta的GitHub</a></span>'
-			+ '</div>';
+			+ userInfo.userInfo_GitHub
+			+ '" target="_black">点击进入Ta的GitHub</a></span>' + '</div>';
 	$("title").html(
 			userInfo.userInfo_Name
 					+ "&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up");
