@@ -1,7 +1,9 @@
 function loadIndexContextHtml() {
 	var html = '<div id="indexContext">'
 			+ '<div id="indexRight" class="lnHidden"><div class="boxShadow rightList dataTime" align="center"></div>'
-			+ '<div class="boxShadow rightList indexUserInfo"></div></div>'
+			+ '<div class="boxShadow rightList indexUserInfo"></div><div class="boxShadow rightList baiduFX" align="center">'
+			+ getBaiduFXHTML()
+			+ '</div></div>'
 			+ '<div id="indexLeft"><div class="lnContext boxShadow loadingIndex" align="center"><i class="fa fa-repeat loading-logo" aria-hidden="true"></i>正在加载中...</div></div></div>';
 	return html;
 }
@@ -157,4 +159,9 @@ function getTimeHtml() {
 			+ date
 	$(".dataTime").html(html);
 	setTimeout("getTimeHtml()", 1000);
+}
+function getSearchHtml() {
+	var html = getBaiduFXHTML();// 读取百度分享HTML代码
+	console.log(html);
+	$(".mySearch").html(html);
 }

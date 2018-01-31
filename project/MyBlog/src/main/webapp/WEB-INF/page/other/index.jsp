@@ -33,6 +33,8 @@
 			getUserInfo(userId);
 			//读取系统时间
 			getTimeHtml();
+			//读取搜索框
+			getSearchHtml();
 		});
 	</script>
 </body>
