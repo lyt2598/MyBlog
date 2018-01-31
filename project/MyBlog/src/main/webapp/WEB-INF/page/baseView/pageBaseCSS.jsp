@@ -1,8 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <meta name="keywords"
-	content="liaoyingtai.com，个人主页，NGU个人主页，JAVA程序员，编程学习，Spring，Mybatis，CSS，JQuery，Bootstrap，AJAX">
+	content="LYT - NGU - 个人主页，www.liaoyingtai.com，95后 Java 程序员，技能专长：JAVA、Python、C#、易语言、
+	PHP、HTML、Js、JQuery、AJAX、Bootstrap、UEditor、Echarts、Spring、SpringMVC、Status2、Hibernate、
+	MyBatis、Maven、Linux、Tomcat、Git、SQLSserver、MySQL、PostgreSQL，等">
 <meta name="description"
-	content="liaoyingtai.com，个人主页，NGU个人主页，JAVA程序员，编程学习，Spring，Mybatis，CSS，JQuery，Bootstrap，AJAX">
+	content="个人主页，www.liaoyingtai.com，JAVA，Python，C#，易语言，
+	PHP，HTML，Js，JQuery，AJAX，Bootstrap，UEditor，Echarts，Spring，SpringMVC，Status2，Hibernate，
+	MyBatis，Maven，Linux，Tomcat，Git，SQLSserver，MySQL，PostgreSQL，等">
 <link rel="bookmark" type="image/x-icon"
 	href="${pageContext.request.contextPath}/img/favicon.ico" />
 <link rel="shortcut icon"
