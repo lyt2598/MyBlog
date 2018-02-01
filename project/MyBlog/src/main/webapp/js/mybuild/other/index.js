@@ -1,10 +1,13 @@
 function loadIndexContextHtml() {
 	var html = '<div id="indexContext">'
-			+ '<div id="indexRight" class="lnHidden"><div class="boxShadow rightList dataTime" align="center"></div>'
-			+ '<div class="boxShadow rightList indexUserInfo"></div><div class="boxShadow rightList baiduFX" align="center">'
+			+ '<div id="indexRight" class="lnHidden"><div class="boxShadow rightList" align="center"><div class="title">当前时间</div>'
+			+ '<div class="dataTime rightContext"></div></div>'
+			+ '<div class="boxShadow rightList"><div class="title">用户资料</div><div class="indexUserInfo rightContext"></div>'
+			+ '</div><div class="boxShadow rightList" align="center"><div class="title">网站分享</div><div class="baiduFX rightContext">'
 			+ getBaiduFXHTML()
-			+ '</div></div>'
-			+ '<div id="indexLeft"><div class="lnContext boxShadow loadingIndex" align="center"><i class="fa fa-repeat loading-logo" aria-hidden="true"></i>正在加载中...</div></div></div>';
+			+ '</div></div></div>'
+			+ '<div id="indexLeft"><div class="lnContext boxShadow loadingIndex" align="center">'
+			+ '<i class="fa fa-repeat loading-logo" aria-hidden="true"></i>正在加载中...</div></div></div>';
 	return html;
 }
 

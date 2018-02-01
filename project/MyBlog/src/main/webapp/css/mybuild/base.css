@@ -1,14 +1,19 @@
 @CHARSET "UTF-8";
 
 body {
-	background: #f5e5c1 url(../../img/bg.jpg) 50% top scroll no-repeat;
+	background: #EDE7D1 url(../../img/bg.jpg) 50% top scroll no-repeat;
 	background-attachment:fixed;
+	background-position: 70px -420px;
 }
 
 .body-footer {
 	padding-bottom: 50px;
 	padding-top: 20px;
 	text-align: center;
+	color: #999;
+}
+
+.body-footer a{
 	color: #999;
 }
 

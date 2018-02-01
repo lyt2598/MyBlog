@@ -19,6 +19,7 @@
 .boxShadow {
 	box-shadow: 3px 3px 3px 3px #888888;
 	border-radius: 5px;
+	margin-bottom: 20px;
 }
 
 .lnContext {
@@ -27,9 +28,20 @@
 	margin-bottom: 20px;
 }
 
-.rightList {
-	padding: 20px;
-	margin-bottom: 20px;
+.rightList{
+	padding: 0px 20px ;
+}
+
+.rightContext{
+	padding: 20px 0px;
+}
+
+.boxShadow .title {
+	border-bottom: 1px solid #999;
+	text-align: left;
+	color: #999;
+	font-size:18px;
+	line-height: 40px;
 }
 
 .userInfoSpan i {
@@ -197,6 +209,6 @@
 		max-height: 112px;
 	}
 	#indexContext {
-		min-height: 300px;
+		min-height: 550px;
 	}
 }
