@@ -19,7 +19,9 @@ function getAboutMe(url, uid) {
 		success : function(data) {
 			var obj = eval(data);
 			$(".about_me_name #name").html(obj.userInfo.userInfo_Name);
-			$(".about_me_name #email").html(obj.userInfo.userInfo_Email);
+			$(".about_me_name #email").html(
+					'<a href="mailto:' + obj.userInfo.userInfo_Email + '">'
+							+ obj.userInfo.userInfo_Email + '</a>');
 			$(".about_me_head_img #headImg").attr("src",
 					url + "/img/user/head/" + obj.userInfo.userInfo_HeadImg);
 			if (obj.myBlog_AboutMe_id != 0) {
@@ -96,7 +98,10 @@ function getContactHtml(obj) {
 				+ '" target="_blank">'
 				+ obj.userInfo.userInfo_GitHub + '</a></p>';
 	}
-	html += '<p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email：'
-			+ obj.userInfo.userInfo_Email + '</p>';
+	html += '<p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email：<a href="mailto:'
+			+ obj.userInfo.userInfo_Email
+			+ '">'
+			+ obj.userInfo.userInfo_Email
+			+ '</a></p>';
 	return html;
 }

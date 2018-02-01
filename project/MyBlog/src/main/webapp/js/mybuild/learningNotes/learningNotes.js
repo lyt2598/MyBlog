@@ -5,8 +5,8 @@ function getLearningNotesBaseHtml() {
 			+ '</div><div class="two">'
 			+ '<a class="ln-qq" target="_blank" href="" data-toggle="tooltip" title="联系Ta-QQ"><i class="fa fa-qq" aria-hidden="true"></i></a>'
 			+ '<a class="ln-github" target="_blank" href="" data-toggle="tooltip" title="进入GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>'
-			+ '<a class="ln-wechat" href="javascript:void(0);" data-toggle="tooltip" title="WeChat：ppctg______lyt"><i class="fa fa-weixin" aria-hidden="true"></i></a>'
-			+ '<a class="ln-email" href="javascript:void(0);" data-toggle="tooltip" title="邮箱：lyt2598@qq.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>'
+			+ '<a class="ln-wechat" href="javascript:void(0);" data-toggle="tooltip" title="WeChat"><i class="fa fa-weixin" aria-hidden="true"></i></a>'
+			+ '<a class="ln-email" href="javascript:void(0);" data-toggle="tooltip" title="邮箱"><i class="fa fa-envelope" aria-hidden="true"></i></a>'
 			+ '</div>'
 			+ '</div></div><div class="lnList">'
 			+ '<div class="title">Ta的其他文章<div class="more"><a href="">更多&nbsp;>></a></div></div>'
@@ -15,8 +15,8 @@ function getLearningNotesBaseHtml() {
 			+ '<img src="#"/><span class="userName"></span>'
 			+ '<a class="ln-qq" target="_blank" href="" data-toggle="tooltip" title="联系Ta-QQ"><i class="fa fa-qq" aria-hidden="true"></i></a>'
 			+ '<a class="ln-github" target="_blank" href="" data-toggle="tooltip" title="进入GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>'
-			+ '<a class="ln-wechat" href="javascript:void(0);" data-toggle="tooltip" title="WeChat：ppctg______lyt"><i class="fa fa-weixin" aria-hidden="true"></i></a>'
-			+ '<a class="ln-email" href="javascript:void(0);" data-toggle="tooltip" title="邮箱：lyt2598@qq.com"><i class="fa fa-envelope" aria-hidden="true"></i></a></div>'
+			+ '<a class="ln-wechat" href="javascript:void(0);" data-toggle="tooltip" title="WeChat"><i class="fa fa-weixin" aria-hidden="true"></i></a>'
+			+ '<a class="ln-email" href="mailto:" data-toggle="tooltip" title="邮箱" ><i class="fa fa-envelope" aria-hidden="true"></i></a></div>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="浏览次数"><i class="fa fa-eye" aria-hidden="true"></i><span id="menu-viewCount" class="menu-title">0次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="转发次数"><i class="fa fa-code-fork" aria-hidden="true"></i><span id="menu-relayCount" class="menu-title">0次</span></a>'
 			+ '<a href="javascript:void(0);" data-toggle="tooltip" title="评论次数"><i class="fa fa-comments" aria-hidden="true"></i><span id="menu-commentCount" class="menu-title">'
@@ -77,6 +77,11 @@ function getLearningNotesInfo(lnId) {
 								.attr(
 										"title",
 										obj.result.learningNotes.userInfo.userInfo_Email);
+						$(".ln-email")
+								.attr(
+										"href",
+										"mailto:"
+												+ obj.result.learningNotes.userInfo.userInfo_Email);
 						$("#lnTitle #lnTitle_Span").html(
 								obj.result.learningNotes.learningNotes_Title);
 						$("title").html(

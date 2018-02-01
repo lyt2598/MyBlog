@@ -6,6 +6,10 @@
 	text-align: center;
 }
 
+#email a{
+	color: #fff;
+}
+
 .about_me_head_img {
 	height: 160px;
 	padding-top: 60px;

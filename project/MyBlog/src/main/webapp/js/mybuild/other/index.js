@@ -133,9 +133,11 @@ function getUserInfoHtml(userInfo) {
 			+ '" class="img-circle"></a></div>'
 			+ '<div id="userInfo"><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户名字"><i class="fa fa-user" aria-hidden="true"></i>'
 			+ userInfo.userInfo_Name
-			+ '</span><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户邮箱"><i class="fa fa-envelope" aria-hidden="true"></i>'
+			+ '</span><span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="用户邮箱"><a href="mailto:'
 			+ userInfo.userInfo_Email
-			+ '</span></div>'
+			+ '"><i class="fa fa-envelope" aria-hidden="true"></i>'
+			+ userInfo.userInfo_Email
+			+ '</a></span></div>'
 			+ '</div><hr>'
 			+ '<span class="userInfoSpan" data-toggle="tooltip" data-placement="top" data-original-title="QQ"><i class="fa fa-qq" aria-hidden="true"></i>QQ：'
 			+ userInfo.userInfo_QQaccount
