@@ -17,7 +17,6 @@ public class MyExceptionResolverResultJson {
 	@ExceptionHandler
 	public @ResponseBody ResultUtils resolveException(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2,
 			Exception arg3) {
-		arg3.printStackTrace();
 		if (!(arg3 instanceof BaseExceptionCustom) && !(arg3 instanceof UserRegisteredException)) {
 			arg3 = new BaseExceptionCustom("运行过程中发生未知异常,请立即与管理员取的联系！");
 		}
