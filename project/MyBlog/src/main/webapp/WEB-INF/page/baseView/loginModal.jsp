@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!-- 登陆模态框 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel" data-backdrop="static"
 	aria-hidden="true">
@@ -43,6 +44,35 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary"
 					onclick="submitLogin()">立即登录</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal -->
+</div>
+<!-- 搜索模态框 -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header-custom">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<div class="search-icon">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</div>
+				<input type="text" id="searchData" class="search-text"
+					placeholder="请输入需要查询的内容">
+			</div>
+			<div class="modal-body modal-body-custom">
+				<div class="no-search-result">
+					<i class="fa fa-frown-o fa-5x"></i>
+					<p>没有找到符合要求的内容</p>
+				</div>
+				<div class="no-search-result">
+					<i class="fa fa-frown-o fa-5x"></i>
+					<p>没有找到符合要求的内容</p>
+				</div>
 			</div>
 		</div>
 		<!-- /.modal-content -->

@@ -36,7 +36,8 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<li><a href="javascript:void(0);"><i class="fa fa-search"
+				<li><a href="javascript:void(0);" data-toggle="modal"
+					data-target="#searchModal"><i class="fa fa-search"
 						aria-hidden="true"></i>搜索</a></li>
 			</ul>
 			<script>
@@ -70,7 +71,7 @@
 								<li><a
 									href="${pageContext.request.contextPath}/pubLearningNotes"><span
 										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>阅读学习笔记</a></li>
+											class="fa fa-plus-square" aria-hidden="true"></i> </span>管理学习笔记</a></li>
 								<li class="divider"></li>
 								<li><a href="${pageContext.request.contextPath}/#"><span
 										class="dropdown-menu-left-logo"><i
