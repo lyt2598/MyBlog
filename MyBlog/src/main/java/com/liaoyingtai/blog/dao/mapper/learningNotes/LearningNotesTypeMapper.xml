@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesTypeMapper">
+
+	<sql id="lnType_Filed">
+		myBlog_LearningNotes_Type_id,learningNotes_Type_Name
+	</sql>
+	<sql id="lnType_Table">
+		myblog_learningnotes_type
+	</sql>
+	<select id="getLearningNotesTypes"
+		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesType">
+		select
+		<include refid="lnType_Filed" />
+		from
+		<include refid="lnType_Table" />
+	</select>
+
+	<select id="getLearningNotesTypeById"
+		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesType"
+		parameterType="String">
+		select
+		<include refid="lnType_Filed" />
+		from
+		<include refid="lnType_Table" />
+		where myBlog_LearningNotes_Type_id=#{value}
+	</select>
+</mapper>

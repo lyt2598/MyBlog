@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesMapper">
+
+	<resultMap
+		type="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		id="learningNotesReultMap">
+		<id column="myBlog_LearningNotes_id" property="myBlog_LearningNotes_id" />
+		<result column="learningNotes_Title" property="learningNotes_Title" />
+		<result column="learningNotes_Context" property="learningNotes_Context" />
+		<result column="learningNotes_PubDate" property="learningNotes_PubDate" />
+		<result column="learningNotes_Stick" property="learningNotes_Stick" />
+		<result column="learningNotes_Recommend" property="learningNotes_Recommend" />
+		<result column="learningNotes_Private" property="learningNotes_Private" />
+		<result column="learningNotes_Relay" property="learningNotes_Relay" />
+		<result column="learningNotes_ModDate" property="learningNotes_ModDate" />
+		<result column="learningNotes_ViewCount" property="learningNotes_ViewCount" />
+		<result column="learningNotes_RelayCount" property="learningNotes_RelayCount" />
+		<result column="learningNotes_PubUser" property="learningNotes_PubUser" />
+		<result column="learningNotes_Type_id" property="learningNotes_Type_id" />
+		<result column="learningNotes_Tags" property="learningNotes_Tags" />
+	</resultMap>
+
+	<resultMap type="com.liaoyingtai.blog.entity.learningNotes.LearningNotes"
+		id="getLearningNotesListResultMap" extends="learningNotesReultMap">
+		<association property="userInfo"
+			javaType="com.liaoyingtai.blog.entity.userInfo.UserInfo" column="learningNotes_PubUser"
+			select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getPortionUserInfoById" />
+		<association property="learningNotesType" column="learningNotes_Type_id"
+			select="com.liaoyingtai.blog.dao.mapper.learningNotes.LearningNotesTypeMapper.getLearningNotesTypeById" />
+	</resultMap>
+
+	<sql id="learningNotes_Field">
+		myBlog_LearningNotes_id,learningNotes_Title,learningNotes_Context,learningNotes_PubDate,
+		learningNotes_PubUser,learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,
+		learningNotes_Relay,learningNotes_ModDate,learningNotes_ViewCount,
+		learningNotes_RelayCount,learningNotes_Type_id,learningNotes_Tags
+	</sql>
+	<sql id="learningNotes_Where">
+		<where>
+			<if test="learningNotes_PubUser!=null and learningNotes_PubUser!=''">
+				and learningNotes_PubUser = #{learningNotes_PubUser}
+			</if>
+			<if test="title!=null and title!=''">
+				<!-- 使用concat防止sql注入 -->
+				and learningNotes_Title like concat('%',#{title},'%')
+			</if>
+			<!-- 0表示只查询公开的文章，任意非0的值表示查询所有 -->
+			<if test="learningNotes_Private==0">
+				and learningNotes_Private=#{learningNotes_Private}
+			</if>
+		</where>
+	</sql>
+
+	<sql id="learningNotes_limit">
+		<if test="limit>0">
+			LIMIT #{begin},#{limit}
+		</if>
+	</sql>
+
+	<sql id="learningNotes_table">
+		myblog_learningnotes
+	</sql>
+	<sql id="learningNotes_orderBy">
+		ORDER BY learningNotes_Stick desc,learningNotes_PubDate
+		desc
+	</sql>
+	<select id="getLearningNotesList"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		<include refid="learningNotes_Where" />
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
+	<select id="getLearningNotesListCount"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultType="int">
+		SELECT
+		count(myBlog_LearningNotes_id)
+		FROM
+		<include refid="learningNotes_table" />
+		<include refid="learningNotes_Where" />
+	</select>
+	<sql id="learningNotes_insert_Value">
+		#{learningNotes_Title},#{learningNotes_Context},#{learningNotes_PubDate},
+		#{learningNotes_PubUser},#{learningNotes_Stick},#{learningNotes_Recommend},
+		#{learningNotes_Private},#{learningNotes_Relay},
+		#{learningNotes_RelayCount},#{learningNotes_ViewCount},
+		#{learningNotes_Type_id},#{learningNotes_Tags},#{learningNotes_ModDate}
+	</sql>
+	<sql id="learningNotes_insert_Field">
+		learningNotes_Title,learningNotes_Context,learningNotes_PubDate,learningNotes_PubUser,
+		learningNotes_Stick,learningNotes_Recommend,learningNotes_Private,
+		learningNotes_Relay,learningNotes_RelayCount,learningNotes_ViewCount,
+		learningNotes_Type_id,learningNotes_Tags,learningNotes_ModDate
+	</sql>
+	<insert id="insertLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		insert into
+		<include refid="learningNotes_table" />
+		(
+		<include refid="learningNotes_insert_Field" />
+		)VALUES(
+		<include refid="learningNotes_insert_Value" />
+		)
+	</insert>
+	<select id="getLearningNotesById" parameterType="int"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id = #{value}
+	</select>
+	<sql id="learningNotes_update_Field">
+		learningNotes_Title=#{learningNotes_Title},learningNotes_Context=#{learningNotes_Context},
+		learningNotes_PubDate=#{learningNotes_PubDate},learningNotes_PubUser=#{learningNotes_PubUser},
+		learningNotes_Stick=#{learningNotes_Stick},learningNotes_Recommend=#{learningNotes_Recommend},
+		learningNotes_Private=#{learningNotes_Private},learningNotes_Relay=#{learningNotes_Relay},
+		learningNotes_RelayCount=#{learningNotes_RelayCount},learningNotes_ViewCount=#{learningNotes_ViewCount},
+		learningNotes_Type_id=#{learningNotes_Type_id},learningNotes_Tags=#{learningNotes_Tags},
+		learningNotes_ModDate=#{learningNotes_ModDate}
+	</sql>
+	<select id="getTopLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id &lt; #{myBlog_LearningNotes_id} and
+		learningNotes_Private=#{learningNotes_Private}
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
+	<select id="getNextLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultMap="getLearningNotesListResultMap">
+		SELECT
+		<include refid="learningNotes_Field" />
+		FROM
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id &gt; #{myBlog_LearningNotes_id} and
+		learningNotes_Private=#{learningNotes_Private}
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
+	<update id="updateLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		update
+		<include refid="learningNotes_table" />
+		set
+		<include refid="learningNotes_update_Field" />
+		where myBlog_LearningNotes_id=#{myBlog_LearningNotes_id}
+	</update>
+	<select id="getOtherLearningNotes"
+		parameterType="com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom"
+		resultType="com.liaoyingtai.blog.entity.learningNotes.LearningNotes">
+		select
+		<include refid="learningNotes_Field" />
+		from
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id!=#{myBlog_LearningNotes_id} and
+		learningNotes_PubUser=(select learningNotes_PubUser from
+		<include refid="learningNotes_table" />
+		where myBlog_LearningNotes_id=#{myBlog_LearningNotes_id}
+		)
+		<include refid="learningNotes_orderBy" />
+		<include refid="learningNotes_limit" />
+	</select>
+</mapper>

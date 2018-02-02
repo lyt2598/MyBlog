@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+.lnBody {
+	padding: 0px 20px 20px 20px;
+}
+
+.table i {
+	padding: 0px 5px;
+	color: #999;
+}
+
+.i-red {
+	color: red !important;
+}
+
+.i-yellow {
+	color: #F90 !important;
+}
+
+.i-blue {
+	color: blue !important;
+}
+
+.i-default {
+	color: #999 !important;
+}
+
+.i-pink {
+	color: #FF6EB4 !important;
+}
+
+.textAlign {
+	text-align: center;
+}
+
+.a-i {
+	text-decoration: none;
+}
+
+.table-load {
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 100px;
+	color: #000 !important;
+}
+
+.searchDiv {
+	display: inline-block;
+	border: 1px solid #999;
+	height: 35px;
+	border-radius: 5px;
+	padding: 0px !important;
+}
+
+#pubLN {
+	margin-right: 30px;
+}
+
+.searchDiv input {
+	border: 0px;
+	line-height: 30px !important;
+	margin: 0px 5px;
+}
+
+.searchDiv button {
+	padding: 0px;
+	height: 32px;
+	width: 30px;
+	border: 0px;
+	background: #fff;
+	border-radius: 0px 3px 3px 0px;
+}
+
+.searchDiv button:hover {
+	color: blue;
+}
+
+.lnTitle {
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+	.lnTitle {
+		width: 230px !important;
+	}
+	.ln-hidden {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.lnTitle {
+		width: 600px !important;
+	}
+}

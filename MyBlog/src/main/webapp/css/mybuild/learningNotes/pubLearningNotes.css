@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+
+.pubTitle {
+	margin: 20px;
+}
+
+.pubTitle #pubTitleValue {
+	border-radius: 3px;
+	border: 1px #999 solid;
+	line-height: 30px;
+	width: 70%;
+	margin: 0 10px;
+}
+
+.pubTitleMsg {
+	color: red;
+	font-weight: bold;
+}
+
+.pubConfig {
+	margin: 20px;
+}
+
+.pubConfig input {
+	margin: 0px 10px;
+	border-radius: 3px;
+	border: 1px #999 solid;
+	line-height: 20px;
+}
+
+.pubConfig #pubTags {
+	width: 165px;
+}
+
+.pubConfig select {
+	border-radius: 3px;
+	border: 1px #999 solid;
+	width: 160px;
+}
+
+.pubSubmit {
+	margin: 20px;
+}
+
+.pubSubmit button {
+	margin: 0px 10px;
+}
+
+#editor {
+	margin: 0px 20px;
+}
+
+.lnListType {
+	color: #999 !important;
+}
+
+.lnBody table #table-body .title {
+	width: 500px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#publishLN {
+	margin: 10px;
+}
+
+#publishLNMessage {
+	display: block;
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liaoyingtai.blog.dao.mapper.about.AboutMeMapper">
+
+	<sql id="aboutMe_Field">
+		myBlog_AboutMe_id,aboutMe_Skill,aboutMe_Hobby,aboutMe_Describe,aboutMe_Other,aboutMe_UserId,
+		aboutMe_QQAccount,aboutMe_Tel,aboutMe_Phone,aboutMe_GitHub,aboutMe_Development,aboutMe_ModDate,aboutMe_ViewCount
+	</sql>
+	<sql id="aboutMe_Table">
+		myblog_aboutme
+	</sql>
+	<sql id="aboutMe_insert_Field">
+		aboutMe_Skill,aboutMe_Hobby,aboutMe_Describe,aboutMe_Other,aboutMe_UserId,aboutMe_QQAccount,
+		aboutMe_Tel,aboutMe_Phone,aboutMe_GitHub,aboutMe_Development,aboutMe_ModDate,aboutMe_ViewCount
+	</sql>
+	<sql id="aboutMe_insert_Value">
+		#{aboutMe_Skill},#{aboutMe_Hobby},#{aboutMe_Describe},#{aboutMe_Other},#{aboutMe_UserId},
+		#{aboutMe_QQAccount},#{aboutMe_Tel},#{aboutMe_Phone},#{aboutMe_GitHub},#{aboutMe_Development},
+		#{aboutMe_ModDate},#{aboutMe_ViewCount}
+	</sql>
+	<sql id="aboutMe_update_Value">
+		aboutMe_Skill=#{aboutMe_Skill},aboutMe_Hobby=#{aboutMe_Hobby},
+		aboutMe_Describe=#{aboutMe_Describe},aboutMe_Other=#{aboutMe_Other},aboutMe_UserId=#{aboutMe_UserId},
+		aboutMe_QQAccount=#{aboutMe_QQAccount},aboutMe_Tel=#{aboutMe_Tel},aboutMe_Phone=#{aboutMe_Phone},
+		aboutMe_GitHub=#{aboutMe_GitHub},aboutMe_Development=#{aboutMe_Development},aboutMe_ModDate=#{aboutMe_ModDate},
+		aboutMe_ViewCount=#{aboutMe_ViewCount}
+	</sql>
+	<sql id="aboutMe_Where">
+		<where>
+
+		</where>
+	</sql>
+
+
+	<resultMap type="com.liaoyingtai.blog.entity.about.AboutMe"
+		id="aboutMeInfoResultMap">
+		<id column="myBlog_AboutMe_id" property="myBlog_AboutMe_id" />
+		<result column="aboutMe_Skill" property="aboutMe_Skill" />
+		<result column="aboutMe_Hobby" property="aboutMe_Hobby" />
+		<result column="aboutMe_Describe" property="aboutMe_Describe" />
+		<result column="aboutMe_Development" property="aboutMe_Development" />
+		<result column="aboutMe_Other" property="aboutMe_Other" />
+		<result column="aboutMe_UserId" property="aboutMe_UserId" />
+		<result column="aboutMe_QQAccount" property="aboutMe_QQAccount" />
+		<result column="aboutMe_Tel" property="aboutMe_Tel" />
+		<result column="aboutMe_Phone" property="aboutMe_Phone" />
+		<result column="aboutMe_GitHub" property="aboutMe_GitHub" />
+		<result column="aboutMe_ModDate" property="aboutMe_ModDate" />
+		<result column="aboutMe_ViewCount" property="aboutMe_ViewCount" />
+		<association property="userInfo" column="aboutMe_UserId"
+			select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getUserInfoById" />
+	</resultMap>
+
+	<select id="getAboutMeInfoByUserId" parameterType="String"
+		resultMap="aboutMeInfoResultMap">
+		select
+		<include refid="aboutMe_Field" />
+		from
+		<include refid="aboutMe_Table" />
+		where aboutMe_UserId=#{value}
+	</select>
+	<insert id="insertAboutMeInfo" parameterType="com.liaoyingtai.blog.entity.about.AboutMe">
+		insert into
+		<include refid="aboutMe_Table" />
+		(
+		<include refid="aboutMe_insert_Field" />
+		)values(
+		<include refid="aboutMe_insert_Value" />
+		)
+	</insert>
+	<update id="updateAboutMeInfo" parameterType="com.liaoyingtai.blog.entity.about.AboutMe">
+		update
+		<include refid="aboutMe_Table" />
+		set
+		<include refid="aboutMe_update_Value" />
+		where aboutMe_UserId=#{aboutMe_UserId}
+	</update>
+
+</mapper>

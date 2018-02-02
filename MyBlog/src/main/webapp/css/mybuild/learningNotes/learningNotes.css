@@ -1,0 +1,233 @@
+@CHARSET "UTF-8";
+
+.lnLeft {
+	float: left;
+	width: 20%;
+	margin: 0px 0px 10px 1%;
+}
+
+.lnUserInfo {
+	width: 100%;
+	height: 200px;
+	border: 1px #4398ed solid;
+}
+
+.lnContext {
+	width: 77%;
+	min-height: 500px;
+	margin: 10px 1% 10px 22%;
+	border: 1px #4398ed solid;
+}
+
+.lnList {
+	margin-top: 10px;
+	border: 1px #4398ed solid;
+}
+
+.userHead {
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+}
+
+.userHead img {
+	width: 80px;
+	height: 80px;
+	display: block;
+	border-radius: 50%;
+	border: 1px solid #4398ed;
+	display: inline-block;
+}
+
+.userInfo {
+	width: 100%;
+	height: 80px;
+	padding-top: 20px;
+}
+
+.userInfo i {
+	margin: 0px 5px;
+}
+
+.userInfo .one {
+	height: 30px;
+	padding: 0px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.userInfo .two {
+	height: 30px;
+	text-align: center;
+	padding: 10px 0px;
+}
+
+.lnList .title {
+	padding: 6px 10px;
+	width: 100%;
+	border-bottom: 1px solid #4398ed;
+	font-size: 12px;
+	background: #337ab7;
+	color: #fff;
+	font-weight: bold;
+}
+
+.lnList .title .more {
+	float: right;
+	width: 41px;
+	text-align: right;
+}
+
+.lnList .title .more a {
+	color: #fff;
+	font-weight: bold;
+}
+
+.lnList .list {
+	width: 100%;
+}
+
+.lnList .list a {
+	max-width: 90%;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.lnList .list ul {
+	list-style-type: none;
+	line-height: 20px;
+	padding: 0px;
+}
+
+.lnList .list  li {
+	padding: 5px 10px;
+	border-bottom: 1px solid #4398ed;
+}
+
+.lnContext #lnTitle {
+	padding: 10px 10px;
+	border-bottom: 1px solid #4398ed;
+	word-wrap: break-word;
+	word-break: normal;
+}
+
+.lnContext #lnTitle .menu a {
+	color: #999;
+	padding-right: 15px;
+	text-decoration: none;
+}
+
+.lnContext #lnTitle .menu .menu-title {
+	padding-left: 5px;
+}
+
+.lnContext #lnValue {
+	padding: 10px 10px;
+}
+
+.lnContext #lnValue * {
+	word-wrap: break-word;
+}
+
+.lnContext #lnBottom {
+	border-bottom: 1px solid #4398ed;
+	padding: 10px 10px;
+}
+
+.lnContext #lnBottom a {
+	margin-right: 30px;
+}
+
+.lnContext #lnValue {
+	min-height: 350px;
+}
+
+#lnValue table, #lnValue tr, #lnValue td {
+	border: 1px solid #000;
+}
+
+#lnValue img {
+	max-width: 100%;
+	display: block;
+	padding: 4px;
+	margin-bottom: 20px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: border .2s ease-in-out;
+	-o-transition: border .2s ease-in-out;
+	transition: border .2s ease-in-out;
+}
+
+.lnContext #message {
+	margin: 20px;
+}
+
+#lnEmoji {
+	margin: 0px 20px;
+}
+
+.hiddenUserInfo {
+	display: none;
+}
+
+.lnTitleA {
+	max-width: 280px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#lnTags {
+	padding: 0px 10px 10px 10px;
+}
+
+#lnTags span {
+	margin-right: 10px;
+	padding: 5px;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+	.ln-hidden {
+		display: none !important;
+	}
+	.lnContext {
+		width: 100%;
+		margin: 0px;
+	}
+	.hiddenUserInfo {
+		display: block;
+	}
+	.hiddenUserInfo img {
+		width: 20px;
+		height: 20px;
+		border: 1px solid #999;
+		margin-right: 5px;
+	}
+	.hiddenUserInfo .userName {
+		color: #999;
+		margin-right: 15px;
+	}
+	.lnContext {
+		min-height: 50px;
+	}
+	.lnContext #lnValue {
+		min-height: 50px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#lnTitle_Span {
+		font-size: 16px;
+	}
+}

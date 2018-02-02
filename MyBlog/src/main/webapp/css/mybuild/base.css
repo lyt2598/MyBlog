@@ -1,0 +1,198 @@
+@CHARSET "UTF-8";
+
+body {
+	background: #EDE7D1 url(../../img/bg.jpg) 50% top scroll no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+.modal-header-custom {
+	padding: 0px;
+	background: #f5f5f5;
+	border-bottom: 0px;
+	border-radius: 6px 6px 0px 0px;
+}
+
+.modal-header-custom .close {
+	padding: 10px;
+	padding-right: 20px;
+}
+
+.modal-header-custom .search-icon {
+	padding: 10px;
+	display: inline-block;
+}
+
+.modal-header-custom .search-text {
+	width: 85%;
+	display: inline-block;
+	background: #f5f5f5;
+	padding: 10px 10px 10px 0px;
+	border: 0px;
+}
+
+.modal-body-custom {
+	height: 60%;
+}
+
+.no-search-result {
+	color: #999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.body-footer {
+	padding-bottom: 50px;
+	padding-top: 20px;
+	text-align: center;
+	color: #000;
+}
+
+.body-footer a {
+	color: #000;
+}
+
+.logo-div {
+	height: 150px;
+	font-family: '黑体';
+	font-size: 100px;
+	color: #000;
+}
+
+.logo-div h1 {
+	display: inline-block;
+	text-align: left;
+}
+
+.logo-div h1 .subText {
+	width: 100%;
+	color: #FFF;
+	font-size: 20px;
+	text-align: right;
+}
+
+.logo-div h1 .subText a {
+	color: #FFF;
+}
+
+.logo-div h1 .subText a:hover {
+	text-decoration: none;
+	color: #999;
+}
+
+.my-panel-body {
+	padding: 0px;
+	margin: 0px;
+}
+
+.breadcrumb-default {
+	padding-bottom: 10px;
+}
+
+.dropdown-menu-left-logo {
+	padding-right: 10px;
+}
+
+.loading-logo {
+	color: #000 !important;
+	-webkit-animation: rotating 1s infinite linear;
+}
+
+.panel-menu-button {
+	display: inline-block;
+	border: 0px;
+	background-color: #337ab7;
+	padding: 0px 5px;
+}
+
+.panel-title {
+	display: inline-block !important;
+	padding-right: 10px;
+	border-right: 2px solid #fff;
+}
+
+#indexMenu i {
+	margin-right: 5px;
+}
+
+@
+-webkit-keyframes rotating { 0%{
+	-webkit-transform: rotate(0deg);
+}
+
+50%{
+-webkit-transform
+
+
+
+
+
+
+
+
+
+
+:rotate(180deg)
+
+
+
+
+
+
+
+
+
+
+;
+}
+100%{
+-webkit-transform
+
+
+
+
+
+
+
+
+
+
+:rotate(360deg)
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+@media screen and (max-width: 767px) {
+	.logo-div {
+		height: 100px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#goTop {
+		position: fixed;
+		display: none;
+		bottom: 100px;
+		right: 80px;
+		width: 50px;
+		height: 50px;
+		background: #fff;
+		border: 1px solid #999;
+		font-size: 30px;
+		color: #999;
+		padding-top: 7px;
+	}
+	#goTop:hover {
+		background: #E5E5E5;
+	}
+}

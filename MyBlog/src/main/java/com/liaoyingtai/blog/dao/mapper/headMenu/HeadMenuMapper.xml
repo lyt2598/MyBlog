@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liaoyingtai.blog.dao.mapper.headMenu.HeadMenuMapper">
+
+	<sql id="headMenuInfo_Field">
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_URL,headMenu_Father,headMenu_Icon,headMenu_UserId
+	</sql>
+	<sql id="headMenuInfo_Table">
+		myblog_headmenu
+	</sql>
+	<sql id="headMenuInfo_insert_Field">
+		myBlog_HeadMenu_id,headMenu_Name,headMenu_Father,headMenu_UserId,headMenu_Icon
+		<if test="headMenu_URL!=null and headMenu_URL!=''">
+			,headMenu_URL
+		</if>
+	</sql>
+	<sql id="headMenuInfo_insert_Values">
+		#{myBlog_HeadMenu_id},#{headMenu_Name},#{headMenu_Father},#{headMenu_UserId},#{headMenu_Icon}
+		<if test="headMenu_URL!=null and headMenu_URL!=''">
+			,#{headMenu_URL}
+		</if>
+	</sql>
+	<!-- 对应数据库中的所有字段的实体类 -->
+	<resultMap type="com.liaoyingtai.blog.entity.headMenu.HeadMenu"
+		id="headMenuInfoResultMap">
+		<id column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
+		<result column="headMenu_Name" property="headMenu_Name" />
+		<result column="headMenu_URL" property="headMenu_URL" />
+		<result column="headMenu_Father" property="headMenu_Father" />
+		<result column="headMenu_UserId" property="headMenu_UserId" />
+		<result column="headMenu_Icon" property="headMenu_Icon" />
+		<!-- 暂时用不上先屏蔽 -->
+		<!-- <association property="userInfo" column="headMenu_UserId" select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getUserInfoById" 
+			/> -->
+	</resultMap>
+
+	<!-- 此层type用来标识返回的类型 -->
+	<resultMap type="com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom"
+		id="getHeadMenuInfoResultMap" extends="headMenuInfoResultMap">
+		<collection property="blogHeadMenus"
+			ofType="com.liaoyingtai.blog.entity.headMenu.HeadMenu" column="myBlog_HeadMenu_id"
+			select="getChildHeadMenuInfo">
+			<id column="headMenu_Father" property="headMenu_Father" />
+			<result column="myBlog_HeadMenu_id" property="myBlog_HeadMenu_id" />
+			<result column="headMenu_Name" property="headMenu_Name" />
+			<result column="headMenu_URL" property="headMenu_URL" />
+		</collection>
+	</resultMap>
+
+	<select id="getHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom"
+		resultMap="getHeadMenuInfoResultMap">
+		SELECT
+		<include refid="headMenuInfo_Field" />
+		FROM
+		<include refid="headMenuInfo_Table" />
+		WHERE
+		headMenu_Father &lt;= 0
+		<if test="headMenu_UserId!=null and headMenu_UserId!=''">
+			and headMenu_UserId=#{headMenu_UserId}
+		</if>
+	</select>
+	<select id="getChildHeadMenuInfo" parameterType="int"
+		resultType="com.liaoyingtai.blog.entity.headMenu.HeadMenu">
+		SELECT
+		<include refid="headMenuInfo_Field" />
+		FROM
+		<include refid="headMenuInfo_Table" />
+		WHERE
+		headMenu_Father = #{headMenu_Father}
+	</select>
+
+	<insert id="insertHeadMenuInfo" parameterType="com.liaoyingtai.blog.entity.headMenu.HeadMenu">
+		insert into
+		<include refid="headMenuInfo_Table" />
+		(
+		<include refid="headMenuInfo_insert_Field" />
+		)values(
+		<include refid="headMenuInfo_insert_Values" />
+		)
+	</insert>
+</mapper>

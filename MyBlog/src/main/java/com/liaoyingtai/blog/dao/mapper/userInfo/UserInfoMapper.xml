@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper">
+
+	<resultMap type="com.liaoyingtai.blog.entity.userInfo.UserInfo"
+		id="userInfoResultMap">
+		<id column="myBlog_UserInfo_id" property="myBlog_UserInfo_id" />
+		<result column="userInfo_Account" property="userInfo_Account" />
+		<result column="userInfo_Password" property="userInfo_Password" />
+		<result column="userInfo_Name" property="userInfo_Name" />
+		<result column="userInfo_Phone" property="userInfo_Phone" />
+		<result column="userInfo_Tel" property="userInfo_Tel" />
+		<result column="userInfo_Email" property="userInfo_Email" />
+		<result column="userInfo_QQaccount" property="userInfo_QQaccount" />
+		<result column="userInfo_HeadImg" property="userInfo_HeadImg" />
+		<result column="userInfo_GitHub" property="userInfo_GitHub" />
+		<result column="userInfo_RegTime" property="userInfo_RegTime" />
+		<result column="userInfo_Birthday" property="userInfo_Birthday" />
+		<result column="userInfo_WeChat" property="userInfo_WeChat" />
+		<result column="userInfo_Status" property="userInfo_Status" />
+		<association property="userJurisdiction"
+			javaType="com.liaoyingtai.blog.entity.userInfo.UserJurisdiction"
+			select="com.liaoyingtai.blog.dao.mapper.userInfo.UserJurisdictionMapper.getUserJurisdictionById"
+			column="userInfo_Jurisdiction_id" />
+	</resultMap>
+	<sql id="userInfo_Field">
+		myBlog_UserInfo_id,userInfo_Account,userInfo_Password,userInfo_Name,
+		userInfo_Phone,userInfo_Tel,userInfo_Email,userInfo_QQaccount,userInfo_HeadImg,
+		userInfo_GitHub,userInfo_RegTime,userInfo_Birthday,userInfo_Status,userInfo_Jurisdiction_id,userInfo_WeChat
+	</sql>
+	<sql id="userInfo_From">
+		myblog_userinfo
+	</sql>
+	<sql id="userInfo_insert_Field">
+		myBlog_UserInfo_id,userInfo_Account,userInfo_Password,userInfo_Name,userInfo_Email,
+		userInfo_HeadImg,userInfo_RegTime,userInfo_Status,userInfo_Jurisdiction_id,userInfo_WeChat
+	</sql>
+	<sql id="userInfo_insert_value">
+		#{myBlog_UserInfo_id},#{userInfo_Account},#{userInfo_Password},#{userInfo_Name},#{userInfo_Email},
+		#{userInfo_HeadImg},#{userInfo_RegTime},#{userInfo_Status},#{userJurisdiction.myBlog_User_Jurisdiction_id},${userInfo_WeChat}
+	</sql>
+
+	<insert id="insertUserInfo" parameterType="com.liaoyingtai.blog.entity.userInfo.UserInfo">
+		insert into
+		<include refid="userInfo_From" />
+		(
+		<include refid="userInfo_insert_Field" />
+		)
+		VALUES
+		(
+		<include refid="userInfo_insert_value" />
+		)
+	</insert>
+	<select id="getUserInfoByAccount" parameterType="String"
+		resultMap="userInfoResultMap">
+		select
+		<include refid="userInfo_Field" />
+		from
+		<include refid="userInfo_From" />
+		where userInfo_Account=#{values}
+	</select>
+	<select id="getUserInfoById" parameterType="String" resultMap="userInfoResultMap">
+		select
+		<include refid="userInfo_Field" />
+		from
+		<include refid="userInfo_From" />
+		where myBlog_UserInfo_id=#{values}
+	</select>
+	<sql id="userInfo_Portion_Field">
+		myBlog_UserInfo_id,userInfo_Name,userInfo_Email,userInfo_QQaccount,userInfo_HeadImg,userInfo_GitHub,userInfo_WeChat
+	</sql>
+	<select id="getPortionUserInfoById" parameterType="String"
+		resultType="com.liaoyingtai.blog.entity.userInfo.UserInfo">
+		select
+		<include refid="userInfo_Portion_Field" />
+		from
+		<include refid="userInfo_From" />
+		where myBlog_UserInfo_id=#{values}
+	</select>
+</mapper>

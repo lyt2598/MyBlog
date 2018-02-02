@@ -1,0 +1,214 @@
+@CHARSET "UTF-8";
+
+#indexContext {
+	margin: 20px;
+}
+
+#indexLeft {
+	width: 74%;
+	margin-right: 1%;
+	padding: 5px;
+}
+
+#indexRight {
+	width: 25%;
+	float: right;
+	padding: 5px;
+}
+
+.boxShadow {
+	box-shadow: 3px 3px 3px 3px #888888;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.lnContext {
+	height: 200px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.rightList{
+	padding: 0px 20px ;
+}
+
+.rightContext{
+	padding: 20px 0px;
+}
+
+.boxShadow .title {
+	border-bottom: 1px solid #999;
+	text-align: left;
+	color: #999;
+	font-size:18px;
+	line-height: 40px;
+}
+
+.userInfoSpan i {
+	margin: 0px 5px 0px 15px;
+}
+
+.userInfoSpan a {
+	color: #999;
+}
+
+#baseUserInfo #userInfoHeadImg img {
+	height: 60px;
+	float: left;
+}
+
+#baseUserInfo #userInfo {
+	margin-left: 60px;
+	width: 165px;
+}
+
+.userInfoSpan {
+	display: block;
+	color: #999;
+	line-height: 25px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.dataTime {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.lnContext .lnImg {
+	width: 100%;
+	height: 50%;
+}
+
+.lnContext .lnImg img {
+	height: 100%;
+	width: 100%;
+}
+
+.lnContext .lnValue {
+	margin-left: 30%;
+	height: 50%;
+	padding: 0px 20px;
+}
+
+.lnTitle {
+	color: #000;
+	width: 100%;
+	display: block;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+}
+
+.lnTitle:hover {
+	color: #EE2C2C;
+}
+
+.lnType {
+	font-weight: normal;
+	padding-right: 5px;
+	color: #999;
+}
+
+.lnText {
+	width: 100%;
+	padding: 5px 0px;
+	line-height: 21px;
+	overflow: hidden;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.lnMore {
+	float: right;
+	background: #00BFFF;
+	padding: 0px 5px;
+	border: 1px solid #aaa;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.lnMore:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.lnView {
+	color: #999;
+}
+
+.lnView .view {
+	margin-right: 10px;
+}
+
+.lnView .view i {
+	margin-right: 5px;
+}
+
+.dataTime {
+	font-weight: bold;
+}
+
+.dataTime i {
+	color: #999;
+	margin-right: 5px;
+}
+
+.loadingIndex {
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 70px;
+}
+
+.loadingIndex i {
+	margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+	.lnHidden {
+		display: none !important;
+	}
+	#indexLeft {
+		width: 100%;
+	}
+	.lnContext .lnValue {
+		margin: 0px;
+		padding: 0px;
+		height: 100%;
+		height: 100%;
+		height: 100%;
+	}
+	.lnText {
+		max-height: 47px;
+		color: #999;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.lnContext .lnImg {
+		width: 30%;
+		float: left;
+		height: 100%;
+	}
+	.lnContext .lnValue {
+		margin-left: 30%;
+		height: 100%;
+		padding: 0px 20px;
+	}
+	.lnText {
+		max-height: 112px;
+	}
+	#indexContext {
+		min-height: 550px;
+	}
+}
